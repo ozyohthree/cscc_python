@@ -1,0 +1,317 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_7_part_4.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_4" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson7_part4_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part4_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part4_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part4_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part4_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part4_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson7_part4_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson7_part4_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson7_part4_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson7_part4_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 7, Bit 4: Databases and Pickles</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<H1>Databases</H1>
+<P>A database is a file that is organized for storing data. Many databases are 
+organized like a dictionary in the sense that they map from keys to values. The 
+biggest difference between a database and a dictionary is that the database is 
+on disk (or other permanent storage), so it persists after the program ends.</P>
+<P>The module <CODE>dbm</CODE> provides an interface for creating and updating 
+database files. As an example, I'll create a database that contains captions for 
+image files.</P>
+<P>Opening a database is similar to opening other files:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>import dbm<BR>              db = dbm.open('captions', 
+    'c')</CODE></TD>
+    <TD>
+      <P>The mode <CODE>'c'</CODE> means that the database should be created if 
+      it doesn't already exist. The result is a database object that can be used 
+      (for most operations) like a dictionary.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>When you create a new item, <CODE>dbm</CODE> updates the database 
+file.</P><CODE>db['cleese.png'] = 'Photo of John Cleese.'</CODE></DIV>
+<DIV class="fullpage">
+<P>When you access one of the items, <CODE>dbm</CODE> reads the file:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>db['cleese.png']</CODE></TD>
+    <TD><CODE>b'Photo of John Cleese.'</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>The result is a <STRONG><EM>bytes object</EM></STRONG>, which is why it 
+begins with <CODE>b</CODE>. A bytes object is similar to a string in many ways. 
+When you get farther into Python, the difference becomes important, but for now 
+we can ignore it.</P></DIV>
+<DIV class="fullpage">
+<P>If you make another assignment to an existing key, <CODE>dbm</CODE> replaces 
+the old value:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>db['cleese.png'] = 'A silly walk'</CODE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD><CODE>db['cleese.png']</CODE></TD>
+    <TD><CODE>b'A silly walk'</CODE></TD></TR></TBODY></TABLE>
+<P>Some dictionary methods, like <CODE>keys</CODE> and <CODE>items</CODE>, don't 
+work with database objects. But iteration with a <CODE>for</CODE> loop 
+works:</P><CODE>for key in db:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;print(key, 
+db[key])</CODE></DIV>
+<DIV class="fullpage">
+<P>As with other files, you should close the database when you are 
+done:</P><CODE>db.close()</CODE></DIV>
+<DIV class="fullpage">
+<H1>Pickling</H1>
+<P>A limitation of dbm is that the keys and values have to be strings or bytes. 
+If you try to use any other type, you get an error. </P>
+<P>The pickle module can help. It’s part of the Python standard library, so it’s 
+always available. It’s fast; the bulk of it is written in C, like the Python 
+interpreter itself. It can store arbitrarily complex Python data structures. 
+</P></DIV>
+<DIV class="fullpage">
+<P>What can the <CODE>pickle</CODE> module store? </P>
+<UL>
+  <LI>All the native datatypes that Python supports: booleans, integers, 
+  floating point numbers, strings, bytes objects, byte arrays, and 
+  <CODE>None</CODE>. </LI>
+  <LI>Lists, tuples, dictionaries, and sets containing any combination of native 
+  datatypes.</LI>
+  <LI>Lists, tuples, dictionaries, and sets containing any combination of lists, 
+  tuples, dictionaries, and sets containing any combination of native datatypes 
+  (and so on, to the maximum nesting level that Python supports). </LI>
+  <LI>Functions (with caveats). First, we will use the dumps method to show you 
+  what pickling effectively does to an object. </LI></UL></DIV>
+<DIV class="fullpage">
+<P>First, we will use the <CODE>dumps</CODE> method to show you what pickling 
+effectively does to an object.</P>
+<P><CODE>pickle.dumps</CODE> takes an object as a parameter and returns a string 
+representation (<CODE>dumps</CODE> is short for "dump string"):</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>import pickle<BR><BR>              t = [1, 2, 3]<BR><BR>         
+           pickle.dumps(t)</CODE></TD>
+    <TD><CODE>b'\x80\x03]q\x00(K\x01K\x02K\x03e.'</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>So what just happened?</P>
+<P> The <CODE>pickle</CODE> module  takes a Python data structure and 
+<STRONG><EM>serializes</EM></STRONG> the data structure using  a data format 
+called "the <CODE>pickle</CODE>  protocol."</P>
+<P> The <CODE>pickle</CODE> protocol is Python-specific; there is no guarantee 
+of  cross-language compatibility. You probably couldn't take the 
+<CODE>shoplistfile</CODE> file you just created and do  anything useful with it 
+in Perl, PHP, Java, or any other language.</P></DIV>
+<DIV class="fullpage">
+<P> Not every Python data structure can be serialized by the <CODE>pickle</CODE> 
+module. The <CODE>pickle</CODE>  protocol has changed several times as new data 
+types have been added to the  Python language, but there are still 
+limitations.</P>
+<P> As a result of these changes, there is no guarantee of  compatibility 
+between different versions of Python itself. Newer versions of  Python support 
+the older serialization formats, but older versions of Python do  not support 
+newer formats (since they don't support the newer data types).</P></DIV>
+<DIV class="fullpage">
+<P> Unless you specify otherwise, the functions in the <CODE>pickle</CODE> 
+module will use the latest version of  the <CODE>pickle</CODE> protocol. This 
+ensures that you  have maximum flexibility in the types of data you can 
+serialize, but it also  means that the resulting file will not be readable by 
+older versions of Python  that do not support the latest version of the 
+<CODE>pickle</CODE>  protocol.</P>
+<P> The latest version of the <CODE>pickle</CODE>  protocol is a binary format. 
+Be sure to open your <CODE>pickle</CODE>  files in binary mode, or the data will 
+get corrupted during writing.</P></DIV>
+<DIV class="fullpage">
+<H1>Pickles and Saving to a File</H1>
+<P>So now that we used the <CODE>dumps</CODE> method to see what pickling is 
+actually doing to our objects,  let's see how we can use the <CODE>dump</CODE>  
+method (note: no "s" in <CODE>dump</CODE>)  to load it into a file. </P>
+<P> The <CODE>dump</CODE> method  accepts a minimum of two arguments: the object 
+that we are pickling and the  file in which we are storing the data, like 
+this:</P><CODE> pickle.dump(object, file)</CODE></DIV>
+<DIV class="fullpage">
+<P> Here is an example where we take a shopping list and save it  for later in a 
+file.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Line</TH>
+    <TH>Code</TH>
+    <TH style="width: 30%;">Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>1</CODE></TD>
+    <TD><CODE>import pickle</CODE></TD>
+    <TD>
+      <P>Import in the <CODE>pickle</CODE> module.</P></TD></TR>
+  <TR>
+    <TD><CODE>2</CODE></TD>
+    <TD><CODE>shoplistfile = 'shoplist.data'</CODE></TD>
+    <TD>
+      <P>The name of the file where we will store the object</P></TD></TR>
+  <TR>
+    <TD><CODE>3</CODE></TD>
+    <TD><CODE>shoplist = ['apple', 'mango', 'carrot']</CODE></TD>
+    <TD>
+      <P>The list of things to buy. Notice that this is a Python 
+      <CODE>list</CODE> object.</P></TD></TR>
+  <TR>
+    <TD><CODE>4</CODE></TD>
+    <TD><CODE>fout = open(shoplistfile, 'wb')</CODE></TD>
+    <TD>
+      <P>Open the file in write mode.&nbsp; Notice the <CODE>b</CODE> after the 
+      <CODE>'w'</CODE> mode – <CODE>b</CODE> is for "binary"</P></TD></TR>
+  <TR>
+    <TD><CODE>5</CODE></TD>
+    <TD><CODE>pickle.dump(shoplist, fout)</CODE></TD>
+    <TD>
+      <P>Dump the object to a file<CODE></CODE></P></TD></TR>
+  <TR>
+    <TD><CODE>6</CODE></TD>
+    <TD><CODE>fout.close()</CODE></TD>
+    <TD>
+      <P>Close the file.</P></TD></TR></TBODY></TABLE>
+<P>Hooray!  We successfully pickled the list.</P></DIV>
+<DIV class="fullpage">
+<H1>Reading Pickle Data from a File</H1>
+<P>Now that we have a pickled file, we want to be able to get  that data 
+back.&nbsp; We can use the <CODE>load</CODE> method to accomplish this.&nbsp; 
+First we need to open our file in binary  mode.&nbsp; Then we can use the 
+<CODE>load</CODE> method to "unpickle" the data  and make it usable again.</P>
+<P> The <CODE>load</CODE> method  accepts the file handler as its argument. 
+Let's continue with our shopping list example.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Line</TH>
+    <TH>Code</TH>
+    <TH style="width: 30%;">Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>7</CODE></TD>
+    <TD><CODE>fin = open(shoplistfile, 'rb')</CODE></TD>
+    <TD>
+      <P>Read back from the storage</P></TD></TR>
+  <TR>
+    <TD><CODE>8</CODE></TD>
+    <TD><CODE>storedlist = pickle.load(fin)</CODE></TD>
+    <TD>
+      <P>Load the object from the file</P></TD></TR>
+  <TR>
+    <TD><CODE>9</CODE></TD>
+    <TD><CODE>print(storedlist)</CODE></TD>
+    <TD>
+      <P>Display the list.</P></TD></TR></TBODY></TABLE>
+<P>Here is our output:</P><CODE>['apple', 'mango', 'carrot']</CODE>
+<P>It's our original list!&nbsp;  We can pick up where we left off and do 
+whatever we want with it.</P></DIV>
+<DIV class="fullpage">
+<P> However, it needs to be noted that this is not identical to  the original 
+list – it is a different object.&nbsp;  Here's an example where we pickle a 
+list, then unpickle it.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>import pickle<BR><BR>              t = [1, 2, 3]<BR><BR>         
+           s = pickle.dumps(t)<BR><BR>              s</CODE></TD>
+    <TD><CODE>b'\x80\x03]q\x00(K\x01K\x02K\x03e.'</CODE></TD></TR>
+  <TR>
+    <TD><CODE>t2 = pickle.loads(s)<BR><BR>              t2</CODE></TD>
+    <TD><CODE>[1, 2, 3]</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>Although the new object has the same value as the old, it is not (in general) 
+the same object:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t1 == t2</CODE></TD>
+    <TD><CODE>True</CODE></TD></TR>
+  <TR>
+    <TD><CODE>t1 is t2</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR></TBODY></TABLE>
+<P>In other words, pickling and then unpickling has the same effect as copying 
+the object.</P>
+<P>You can use <CODE>pickle</CODE> to store non-strings in a database. In fact, 
+this combination is so common that it has been encapsulated in a module called 
+<CODE>shelve</CODE>,  although we don't have time to discuss it in this 
+course.</P></DIV>
+<DIV class="fullpage">
+<H1>Multiple Pickles in one File</H1>
+<P>We  can store multiple pickles in a single file as well.&nbsp; The caveat 
+here is that you have to remember  which order they went in, because it follows 
+a "first-in / first-out"  rule:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>import pickle<BR><BR>              list1 = ['apple', 'mango', 
+      'carrot']<BR>              list2 = ['bread', 'bagel']<BR>              
+      list3 = ['cake', 'cookies', 'pie']<BR><BR>              fout = 
+      open('list.dat', 'wb')<BR><BR>              pickle.dump(list1, fout)<BR>   
+                 pickle.dump(list2, fout)<BR>              pickle.dump(list3, 
+      fout)<BR><BR>              fout.close()</CODE></TD>
+    <TD></TD></TR></TBODY></TABLE>
+<P>That saved each list as a pickle into one file.  Now let's extract them:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fin = open('list.dat', 'rb')<BR><BR>              pickled_list1 
+      = pickle.load(fin)<BR>              pickled_list2 = pickle.load(fin)<BR>   
+                 pickled_list3 = pickle.load(fin)<BR><BR>              
+      print(pickled_list1)<BR>              print(pickled_list2)<BR>             
+       print(pickled_list3)</CODE></TD>
+    <TD><CODE>['apple', 'mango', 'carrot']<BR>              ['bread', 
+      'bagel']<BR>              ['cake', 'cookies', 
+'pie']</CODE></TD></TR></TBODY></TABLE>
+<P>First in - first out.  You have to keep track of it.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

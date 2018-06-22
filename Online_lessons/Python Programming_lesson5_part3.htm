@@ -1,0 +1,406 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_5_part_3.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_3" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson5_part3_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part3_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part3_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part3_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part3_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part3_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson5_part3_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson5_part3_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson5_part3_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson5_part3_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 5, Bit 3: String Methods</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>Strings are an example of Python objects. An object contains both data (the 
+actual string itself) and methods, which are effectively functions that are 
+built into the object and are available to any instance of the object.</P>
+<P>Python has a function called <CODE>dir</CODE> which lists the methods 
+available for an object. The type function shows the type of an object and the 
+<CODE>dir</CODE> function shows the available methods.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>stuff = 'Hello world'<BR>type(stuff)</CODE></TD>
+    <TD><CODE>&lt;type 'str'&gt;</CODE></TD></TR>
+  <TR>
+    <TD><CODE>dir(stuff)</CODE></TD>
+    <TD><CODE>['capitalize', 'center', 'count', 'decode', 'encode', 
+      'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 
+      'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 
+      'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 
+      'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 
+      'strip', 'swapcase', 'title', 'translate', 'upper', 
+  'zfill']</CODE></TD></TR></TBODY></TABLE>
+<P>Calling a method is similar to calling a function—it takes arguments and 
+returns a value—but the syntax is different. We call a method by appending the 
+method name to the variable name using the period as a delimiter.&nbsp; A method 
+call is called an <EM>invocation</EM>; in this case, we would say that we are 
+<EM>invoking</EM> upper on the <CODE>word</CODE>.</P>
+<P>Instead of the function syntax <CODE>action(word)</CODE>, it uses the method 
+syntax <CODE>word.action()</CODE>.</P>
+<P>This form of dot notation specifies the name of the method, upper, and the 
+name of the string to apply the method to, word. The empty parentheses indicate 
+that this method takes no argument.</P></DIV>
+<DIV class="fullpage">
+<H1>Testing Methods</H1>
+<P>The testing methods test a string for a condition.&nbsp; These methods are 
+the ones which begin with the word "is" as though you are asking a question. 
+&nbsp;These methods always return a Boolean value - either <CODE>True</CODE> or 
+<CODE>False</CODE>.&nbsp; They are very useful in conditional statements and 
+while loops.</P></DIV>
+<DIV class="fullpage">
+<H1>The isalnum Method</H1>
+<P>The isalnum method returns <CODE>True</CODE> if all characters in the string 
+are alphanumeric (letter and numbers) and there is at least one character in 
+string. Returns <CODE>False</CODE> otherwise.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>string = 'banana'<BR>            string.isalnum()</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>All characters in this string are letters and numbers, therefore 
+      <CODE>isalnum()</CODE> returns <CODE>True</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>word = 'Banana 5!'<BR>            word.isalnum()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>The exclamation point and space are not alphanumeric characters, 
+      therefore <CODE>isalnum()</CODE> returns 
+  <CODE>False</CODE>.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The isalpha Method</H1>
+<P>The <CODE>isalpha</CODE> method returns <CODE>True</CODE> if all characters 
+in the string are alphabetic and there is at least one character in the string, 
+returns <CODE>False</CODE> otherwise.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>string = 'banana'<BR>            string.isalpha()</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD><CODE>All characters in this string are letters, therefore 
+      <CODE>isalpha()</CODE> returns <CODE>True</CODE>.
+      <P></P></CODE></TD></TR>
+  <TR>
+    <TD><CODE>word = 'Banana 5!'<BR>            word.isalpha()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>The exclamation point, the space, and the number 5 are all not 
+      alphabetic characters.&nbsp; Therefore <CODE>isalpha()</CODE> returns 
+      <CODE>False</CODE>.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The islower Method</H1>
+<P>The <CODE>islower</CODE> method returns <CODE>True</CODE> if all cased 
+characters in the string are lowercase and there is at least one cased character 
+in the string. Returns <CODE>False</CODE> otherwise.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>string = 'banana'<BR>            string.islower()</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD><all <code="" therefore="" lowercase,="" in="" are="" string="" this="" 
+      (letters)="" cased-characters="">islower() returns <CODE>True</CODE>.
+      <P></P></all></TD></TR>
+  <TR>
+    <TD><CODE>word = 'Banana 5!'<BR>            word.islower()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>The capital <CODE>B</CODE> is not a lower case letter, therefore 
+      <CODE>islower()</CODE> returns <CODE>False</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>word = 'banana 5!'<BR>            word.islower()</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>Even though there is a space, a number, and an exclamation point in 
+      the string, <CODE>islower()</CODE> only looks at characters which 
+      <EM>can</EM> be cased: letters. This time all letters are in 
+      lowercase.&nbsp; Therefore, <CODE>islower()</CODE> returns 
+      <CODE>True</CODE>.
+      <P></P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The isnumeric Method</H1>
+<P>The <CODE>isnumeric</CODE> method returns <CODE>True</CODE> if there are only 
+numeric characters in the string.&nbsp; Returns <CODE>False</CODE> 
+otherwise.&nbsp; Numeric characters include digit characters, and all characters 
+that have the Unicode numeric value property, e.g. U+2155, VULGAR FRACTION ONE 
+FIFTH. Formally, numeric characters are those with the property value 
+Numeric_Type=Digit, Numeric_Type=Decimal or Numeric_Type=Numeric.</P>
+<P>It should be noted that this does not check whether a string can be converted 
+into a number using <CODE>int()</CODE> or <CODE>float()</CODE>.&nbsp; It only 
+checks for Unicode values within the string.&nbsp; This can be confusing.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>string = 'banana'<BR>            string.isnumeric()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>All characters in this string are letters, therefore 
+      <CODE>isnumeric()</CODE> returns <CODE>False</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>answer = '42'<BR>            answer.isnumeric()</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>All characters are numbers, therefore <CODE>isnumeric()</CODE> returns 
+      <CODE>True</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>answer = '42.5'<BR>            answer.isnumeric()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>While we consider <CODE>42.5</CODE> to be a number, the period is not 
+      considered to be a numeral in Unicode.&nbsp; Therefore 
+      <CODE>isnumeric()</CODE> returns 
+<CODE>False</CODE>.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The isspace Method</H1>
+<P>The <CODE>isspace</CODE> method returns <CODE>True</CODE> if all characters 
+in the string are whitespace and there is at least one character in the string. 
+Returns <CODE>False</CODE> otherwise.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>string = 'banana'<BR>            string.isspace()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>All characters in this string are letters, therefore 
+      <CODE>isspace()</CODE> returns <CODE>False</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>word = 'Banana 5!'<BR>            word.isspace()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>While there is a space in this string, there are non-space characters 
+      too.&nbsp; Therefore <CODE>isspace()</CODE> returns 
+    <CODE>False</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>space = ' '<BR>            space.isspace()</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>The only character in this string is a space, therefore 
+      <CODE>isspace()</CODE> returns 
+<CODE>True</CODE>.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The istitle Method</H1>
+<P>The isstitle method returns <CODE>True</CODE> if the string is a title-cased 
+string and there is at least one character in the string, i.e. upper- and 
+title-case characters may only follow uncased characters and lowercase 
+characters only cased ones. Method returns <CODE>False</CODE> otherwise.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>string = 'banana'<BR>            string.istitle()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>The one word in this string begins with a lowercase letter, therefore 
+      <CODE>istitle()</CODE> returns <CODE>False</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>word = 'Banana 5!'<BR>            word.istitle()</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>The only cased word in this string is Banana which starts with an upper 
+      case.&nbsp; Therefore <CODE>istitle()</CODE> returns 
+    <CODE>True</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>word = 'Banana pie'<BR>            word.istitle()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>There are two cased words in this string, but only one of them begins 
+      with a capital letter.&nbsp; Therefore <CODE>istitle()</CODE> returns 
+      <CODE>False</CODE>.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The isupper Method</H1>
+<P>The isupper method returns <CODE>True</CODE> if all cased characters in the 
+string are uppercase and there is at least one cased character in the string. 
+Returns <CODE>False</CODE> otherwise.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>string = 'banana'<BR>            string.isupper()</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>The only cased word in this string is banana which is in all lower 
+      case.&nbsp; Therefore <CODE>isupper()</CODE> returns 
+      <CODE>False</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>word = 'BANANA 5!'<BR>            word.isupper()</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>The only cased word in this string is BANANA which is in all upper 
+      case.&nbsp; Therefore <CODE>isupper()</CODE> returns 
+    <CODE>True</CODE>.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_12" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_12" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Manipulation Methods</H1>
+<P>The remaining methods which are available to the <CODE>str</CODE> object make 
+changes to the string.&nbsp; In other words, they manipulate the string.&nbsp; 
+It should be noted that we are not <EM>permanently</EM> replacing the 
+string.&nbsp; When each method is invoked, we are making a COPY of that string 
+and leaving the original string alone.</P></DIV>
+<DIV class="fullpage">
+<H1>The upper Method</H1>
+<P>The method <CODE>upper</CODE> takes a string and returns a new string with 
+all uppercase letters:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>word = 'banana'<BR>word.upper()</CODE></TD>
+    <TD><CODE>BANANA</CODE></TD></TR></TBODY></TABLE>
+<P>In this example, <CODE>word.upper()</CODE> is a copy of word.&nbsp; If we 
+were to display the value of <CODE>word</CODE>, we would see that it is still 
+the same as it was before we invoked the <CODE>upper</CODE> method:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>word = 
+      'banana'<BR>word.upper()<BR><BR>print(word.upper())<BR><BR>print(word)</CODE></TD>
+    <TD><CODE>BANANA<BR>banana</CODE></TD></TR></TBODY></TABLE>
+<P>See? The variable <CODE>word</CODE> is left untouched. This is true for all 
+of these methods.</P></DIV>
+<DIV class="fullpage">
+<H1>The lower Method</H1>
+<P>The <CODE>lower</CODE> method will take a string and return a new string with 
+all lowercase letters:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>word = 'bAnaNa'<BR>new_word = 
+      word.lower()<BR>print(new_word)</CODE></TD>
+    <TD><CODE>banana</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The capitalize Method</H1>
+<P>The <CODE>captialize</CODE> method will take a string and return a new string 
+with the first character capitalized and the remaining letters in 
+lowercase.&nbsp; If the first character is not a letter, then the string is 
+returned in lowercase:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>word = 'bAnaNa'<BR>new_word = 
+      word.capitalize()<BR>print(new_word)</CODE></TD>
+    <TD><CODE>Banana</CODE></TD></TR>
+  <TR>
+    <TD><CODE>word = '#1 bAnaNa'<BR>new_word = 
+      word.capitalize()<BR>print(new_word)</CODE></TD>
+    <TD><CODE>#1 banana</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The strip Method</H1>
+<P>One common task is to remove white space (spaces, tabs, or newlines) from the 
+beginning and end of a string using the strip method.&nbsp; </P>
+<P><STRONG><EM>Note:</EM></STRONG><EM> I have included quotes around the string 
+to show the white space in the output.</EM></P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>line = ' Here we go '<BR>new_line = 
+      line.strip()<BR>print(new_line)</CODE></TD>
+    <TD><CODE>'Here we go'</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The lstrip Method</H1>
+<P>Only want to remove white space from the left side of the string?&nbsp; Use 
+the <CODE>lstrip</CODE> method.</P>
+<P><STRONG><EM>Note:</EM></STRONG><EM> I have included quotes around the string 
+to show the white space in the output.</EM></P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>line = ' Here we go '<BR>new_line = 
+      line.lstrip()<BR>print(new_line)</CODE></TD>
+    <TD><CODE>'Here we go '</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The rstrip Method</H1>
+<P>Only want to remove white space from the right side of the string?&nbsp; Use 
+the <CODE>rstrip</CODE> method.</P>
+<P><STRONG><EM>Note:</EM></STRONG><EM> I have included quotes around the string 
+to show the white space in the output.</EM></P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>line = ' Here we go '<BR>new_line = 
+      line.rstrip()<BR>print(new_line)</CODE></TD>
+    <TD><CODE>' Here we go'</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_13" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_13" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part3_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

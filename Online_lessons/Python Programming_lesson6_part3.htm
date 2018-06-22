@@ -1,0 +1,340 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_6_part_3.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_3" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson6_part3_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part3_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part3_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part3_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part3_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part3_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson6_part3_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson6_part3_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson6_part3_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson6_part3_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 6, Bit 3: Dictionaries</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>A <STRONG><EM>dictionary</EM></STRONG> is like a list, but more general. In a 
+list, the index positions have to be integers; in a dictionary, the indices can 
+be (almost) any type.</P>
+<P>You can think of a dictionary as a mapping between a set of indices (which 
+are called <STRONG><EM>keys</EM></STRONG>) and a set of 
+<STRONG><EM>values</EM></STRONG>. Each key maps to a value. The association of a 
+key and a value is called a key-value pair or sometimes an item.</P></DIV>
+<DIV class="fullpage">
+<P>As an example, we'll build a dictionary that maps from English to Spanish 
+words, so the keys and the values are all strings.</P>
+<P>The function <CODE>dict</CODE> creates a new dictionary with no items. 
+Because <CODE>dict</CODE> is the name of a built-in function, you should avoid 
+using it as a variable name.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>engl_2_span = dict()<BR><BR>              
+      print(engl_2_span)</CODE></TD>
+    <TD><CODE>{}</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>The curly brackets, <CODE>{}</CODE>, represent an empty dictionary. To add 
+items to the dictionary, you can use square 
+brackets:</P><CODE>engl_2_span['one'] = 'uno'</CODE>
+<P>This line creates an item that maps from the key 'one' to the value 'uno'. If 
+we print the dictionary again, we see a key-value pair with a colon between the 
+key and value:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print(engl_2_span)</CODE></TD>
+    <TD><CODE>{'one': 'uno'}</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>This output format is also an input format. For example, you can create a new 
+dictionary with three items:</P><CODE>engl_2_span = {'one': 'uno', 'two': 'dos', 
+'three': 'tres'}</CODE>
+<P>But if you print <CODE>engl_2_span</CODE>, you might be surprised:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print(engl_2_span)</CODE></TD>
+    <TD><CODE>{'one': 'uno', 'three': 'tres', 'two': 
+  'dos'}</CODE></TD></TR></TBODY></TABLE>
+<P>The order of the key-value pairs is not the same. In fact, if you type the 
+same example on your computer, you might get a different result. In general, the 
+order of items in a dictionary is unpredictable.</P>
+<P>But that's not a problem because the elements of a dictionary are never 
+indexed with integer indices. Instead, you use the keys to look up the 
+corresponding values:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print(engl_2_span['two'])</CODE></TD>
+    <TD><CODE>dos</CODE></TD></TR></TBODY></TABLE>
+<P>The key <CODE>'two'</CODE> always maps to the value <CODE>'dos'</CODE> so the 
+order of the items doesn't matter.</P>
+<P class="exercise"><A class="exercise" id="lesson6_20" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_20" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>If the key isn't in the dictionary, you get an exception:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print(engl_2_span['four'])</CODE></TD>
+    <TD><CODE>KeyError: 'four'</CODE></TD></TR></TBODY></TABLE>
+<P>The <CODE>in</CODE> operator works on dictionaries; it tells you whether 
+something appears as a <EM>key</EM> in the dictionary (appearing as a value is 
+not good enough).</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>'one' in engl_2_span</CODE></TD>
+    <TD><CODE>True</CODE></TD></TR>
+  <TR>
+    <TD><CODE>'uno' in engl_2_span</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_21" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_21" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>To see whether something appears as a value in a dictionary, you can use the 
+method <CODE>values</CODE>, which returns the values as a list, and then use the 
+<CODE>in</CODE> operator:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>vals = engl_2_span.values()<BR><BR>              'uno' in 
+      vals</CODE></TD>
+    <TD><CODE>True</CODE></TD></TR></TBODY></TABLE>
+<P>The <CODE>in</CODE> operator uses different algorithms for lists and 
+dictionaries. </P>
+<UL>
+  <LI>For lists, it uses a <EM>linear search algorithm</EM>. As the list gets 
+  longer, the search time gets longer in direct proportion to the length of the 
+  list. </LI>
+  <LI>For dictionaries, Python uses an algorithm called a <EM>hash table</EM> 
+  that has a remarkable property—the <CODE>in</CODE> operator takes about the 
+  same amount of time no matter how many items there are in a dictionary. I 
+  won't explain why hash functions are so magical, but you can read more about 
+  it at <A 
+  href="http://wikipedia.org/wiki/Hash_table">http://wikipedia.org/wiki/Hash_table</A>.</LI></UL></DIV>
+<DIV class="fullpage">
+<H1>Dictionaries and Functions</H1>
+<P>The <CODE>len</CODE> function works on dictionaries; it returns the number of 
+key-value pairs:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>len(engl_2_span)</CODE></TD>
+    <TD><CODE>3</CODE></TD></TR></TBODY></TABLE>
+<P>The <CODE>min</CODE> and <CODE>max</CODE> functions also work on 
+dictionaries, but they look at the minimum and maximum value of the key and not 
+the value.&nbsp; Given:</P><CODE>d = {'a':10, 'b':5}</CODE>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>min(d)</CODE></TD>
+    <TD><CODE>'a'</CODE></TD></TR>
+  <TR>
+    <TD><CODE>max(d)</CODE></TD>
+    <TD><CODE>'b'</CODE></TD></TR></TBODY></TABLE>
+<P>So notice that even though the value of <CODE>d['a']</CODE> is a larger 
+number than the value of <CODE>d['b']</CODE>, the <CODE>min</CODE> and 
+<CODE>max</CODE> functions returned the greatest and lowest values of the keys 
+instead.</P></DIV>
+<DIV class="fullpage">
+<H1>Looping and Dictionaries</H1>
+<P>If you use a dictionary as the sequence in a <CODE>for</CODE> statement, it 
+traverses the keys of the dictionary. This loop prints each key and the 
+corresponding value:</P><CODE>counts = {'parrot':1 , 'cheese':42, 
+'spam':100}<BR><BR>      for key in counts:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print(key, counts[key])</CODE>
+<P>Here's what the output looks like:</P><CODE>spam 100<BR>      parrot 1<BR>    
+  cheese 42</CODE>
+<P>Again, the keys are in no particular order.</P></DIV>
+<DIV class="fullpage">
+<P>We can use this pattern to implement the various loop idioms that we have 
+described earlier. For example if we wanted to find all the entries in a 
+dictionary with a value above ten, we could write the following 
+code:</P><CODE>counts = { 'parrot' : 1 , 'cheese' : 42, 'spam': 100}<BR><BR>     
+ for key in counts:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;if counts[key] &gt; 10 
+:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;print(key, counts[key])</CODE>
+<P>The <CODE>for</CODE> loop iterates through the keys of the dictionary, so we 
+must use the index operator to retrieve the corresponding value for each key. 
+Here's what the output looks like:</P><CODE>spam 100<BR>      cheese 42</CODE>
+<P>We see only the entries with a value above 10.</P>
+<P class="exercise"><A class="exercise" id="lesson6_22" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_22" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>If you want to print the keys in alphabetical order, you first make a list of 
+the keys in the dictionary using the keys method available in dictionary 
+objects, and then sort that list and loop through the sorted list, looking up 
+each key and printing out key-value pairs in sorted order as 
+follows:</P><CODE>counts = {'parrot' : 1 , 'cheese' : 42, 'spam': 100}<BR><BR>   
+   key_list = counts.keys()<BR><BR>      print(key_list)<BR><BR>      
+key_list.sort()<BR><BR>      for key in key_list:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print(key, counts[key])</CODE>
+<P>Here's what the output looks like:</P><CODE>['spam', 'parrot', 'cheese']<BR>  
+    cheese 42<BR>      parrot 1<BR>      spam 100</CODE>
+<P>First you see the list of keys in unsorted order that we get from the keys 
+method. Then we see the key-value pairs in order from the <CODE>for</CODE> 
+loop.</P></DIV>
+<DIV class="fullpage">
+<H1>Dictionary as a Set of Counters</H1>
+<P>Suppose you are given a string and you want to count how many times each 
+letter appears. There are several ways you could do it:</P>
+<UL>
+  <LI>You could create 26 variables, one for each letter of the alphabet. Then 
+  you could traverse the string and, for each character, increment the 
+  corresponding counter, probably using a chained conditional.</LI>
+  <LI>You could create a list with 26 elements. Then you could convert each 
+  character to a number (using the built-in function ord), use the number as an 
+  index into the list, and increment the appropriate counter.</LI>
+  <LI>You could create a dictionary with characters as keys and counters as the 
+  corresponding values. The first time you see a character, you would add an 
+  item to the dictionary. After that you would increment the value of an 
+  existing item.</LI></UL>
+<P>Each of these options performs the same computation, but each of them 
+implements that computation in a different way.</P></DIV>
+<DIV class="fullpage">
+<P>An implementation is a way of performing a computation; some implementations 
+are better than others. For example, an advantage of the dictionary 
+implementation is that we don't have to know ahead of time which letters appear 
+in the string and we only have to make room for the letters that do appear.</P>
+<P>Here is what the code might look like:</P><CODE>word = 'brontosaurus'<BR><BR> 
+     dictionary = dict()<BR><BR>      for letter in word:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;if letter not in dictionary:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;dictionary[letter] = 1<BR><BR>      else: <BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;dictionary[letter] = dictionary[letter] + 1<BR><BR>      
+print(dictionary)</CODE>
+<P>We are effectively computing a <EM>histogram</EM>, which is a statistical 
+term for a set of counters (or frequencies).</P></DIV>
+<DIV class="fullpage">
+<P>The <CODE>for</CODE> loop traverses the string. Each time through the loop, 
+if the character <CODE>letter</CODE> is not in the dictionary, we create a new 
+item with key <CODE>letter</CODE> and the initial value 1 (since we have seen 
+this letter once). If <CODE>letter</CODE> is already in the dictionary we 
+increment <CODE>dictionary[letter]</CODE>.</P>
+<P>Here's the output of the program:</P><CODE>{'a': 1, 'b': 1, 'o': 2, 'n': 1, 
+'s': 2, 'r': 2, 'u': 2, 't': 1}</CODE>
+<P>The histogram indicates that the letters 'a' and 'b' appear once; 'o' appears 
+twice, and so on.</P></DIV>
+<DIV class="fullpage">
+<P>Dictionaries have a method called <CODE>get</CODE> that takes a key and a 
+default value. If the key appears in the dictionary, <CODE>get</CODE> returns 
+the corresponding value; otherwise it returns the default value. For 
+example:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>counts = {'parrot':1, 'cheese':42, 'spam':100}<BR><BR>           
+         print(counts.get('spam', 0))</CODE></TD>
+    <TD><CODE>100</CODE></TD></TR>
+  <TR>
+    <TD><CODE>print(counts.get('tim', 0))</CODE></TD>
+    <TD><CODE>0</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>We can use get to write our histogram loop more concisely. Because the 
+<CODE>get</CODE> method automatically handles the case where a key is not in a 
+dictionary, we can reduce four lines down to one and eliminate the 
+<CODE>if</CODE> statement.</P><CODE>word = 'brontosaurus'<BR><BR>      
+dictionary = dict()<BR><BR>      for letter in word:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;dictionary[letter] = dictionary.get(letter,0) + 
+1<BR><BR>      print(dictionary)</CODE>
+<P>The use of the <CODE>get</CODE> method to simplify this counting loop ends up 
+being a very commonly used "idiom" in Python and we will use it many times. So 
+you should take a moment and compare the loop using the <CODE>if</CODE> 
+statement and <CODE>in</CODE> operator with the loop using the <CODE>get</CODE> 
+method. They do exactly the same thing, but one is more succinct.</P>
+<P><STRONG>Using if and in:</STRONG></P><CODE>if letter not in dictionary:<BR>   
+   &nbsp;&nbsp;&nbsp;&nbsp;dictionary[letter] = 1<BR><BR>      else:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;dictionary[letter] = dictionary[letter] + 1</CODE>
+<P><STRONG>Using get:</STRONG></P><CODE>dictionary[letter] = 
+dictionary.get(letter,0) + 1</CODE></DIV>
+<DIV class="fullpage">
+<H1>Debugging Dictionaries</H1>
+<P>As you work with bigger datasets it can become unwieldy to debug by printing 
+and checking data by hand. Here are some suggestions for debugging large 
+datasets:</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>1. Scale down the input:</STRONG></P>
+<P>If possible, reduce the size of the dataset. For example if the program reads 
+a text file, start with just the first 10 lines, or with the smallest example 
+you can find. You can either edit the files themselves, or (better) modify the 
+program so it reads only the first n lines.</P>
+<P>If there is an error, you can reduce n to the smallest value that manifests 
+the error, and then increase it gradually as you find and correct 
+errors.</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>2. Check summaries and types:</STRONG></P>
+<P>Instead of printing and checking the entire dataset, consider printing 
+summaries of the data: for example, the number of items in a dictionary or the 
+total of a list of numbers.</P>
+<P>A common cause of runtime errors is a value that is not the right type. For 
+debugging this kind of error, it is often enough to print the type of a 
+value.</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>3. Write self-checks:</STRONG></P>
+<P>Sometimes you can write code to check for errors automatically. For example, 
+if you are computing the average of a list of numbers, you could check that the 
+result is not greater than the largest element in the list or less than the 
+smallest. This is called a "sanity check" because it detects results that are 
+"completely illogical".</P>
+<P>Another kind of check compares the results of two different computations to 
+see if they are consistent. This is called a "consistency check".</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>4. Pretty print the output:</STRONG></P>
+<P>Formatting debugging output can make it easier to spot an error. </P>
+<P>Again, time you spend building scaffolding can reduce the time you spend 
+debugging.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

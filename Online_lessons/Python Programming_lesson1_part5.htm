@@ -1,0 +1,248 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_1_part_5.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson1_part5_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part5_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part5_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part5_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part5_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part5_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson1_part5_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson1_part5_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson1_part5_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson1_part5_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Writing Programs</H1></DIV>
+<DIV class="fullpage">
+<P>Now that we have an idea of the basic types of data and we have seen how they 
+can be receives from users as input, stored in variables, manipulated with 
+operators and statements, and displayed back on screen, we can begin to write 
+programs that actually do useful things. First, however, there is some basic 
+elements to a program that are important to use and important to 
+understand.</P></DIV>
+<DIV class="fullpage">
+<H1>Program Header</H1>
+<P>One of the biggest problems I have in day-to-day web application development 
+is wasting time trying to figure out what the heck this 10-year-old file is and 
+what it does. All of this frustration can be avoided by simply documenting your 
+source code, starting with a program header. Just list the file name, the 
+program name, the original author, creation date, and purpose. If you want to 
+get fancy, you can add rows for modifications and edits. You can copy and paste 
+this header template into the top of all your Python programs. Just remember to 
+fill in the blanks.</P><CODE># FILE:&nbsp;&nbsp;  # NAME:&nbsp;&nbsp;  # AUTHOR: 
+ # DATE:&nbsp;&nbsp;  # PURPOSE:</CODE>
+<H2>Example:</H2><CODE># FILE:&nbsp;&nbsp;&nbsp; tipping.py # 
+NAME:&nbsp;&nbsp;&nbsp; Tipping Calculator # AUTHOR:&nbsp; Heather Crites # 
+DATE:&nbsp;&nbsp;&nbsp; 3/5/2017 # PURPOSE: Calculates tips and bill based upon 
+user input</CODE></DIV>
+<DIV class="fullpage">
+<H1>Comments</H1>
+<P>As programs get bigger and more complicated, they get more difficult to read. 
+Formal languages are dense, and it is often difficult to look at a piece of code 
+and figure out what it is doing, or why.</P>
+<P>For this reason, it is a good idea to add notes to your programs to explain 
+in natural language what the program is doing. These notes are called comments, 
+and they start with the # symbol:</P><CODE># compute the percentage of the hour 
+that has elapsed percentage = (minute * 100) / 60</CODE>
+<P>In this case, the comment appears on a line by itself. You can also put 
+comments at the end of a line:</P><CODE>percentage = (minute * 100) / 
+60&nbsp;&nbsp;&nbsp; # percentage of an hour</CODE>
+<P>Everything from the # to the end of the line is ignored - it has no effect on 
+the execution of the program.</P>
+<P>Comments are most useful when they document non-obvious features of the code. 
+It is reasonable to assume that the reader can figure out what the code does; it 
+is more useful to explain why.</P>
+<P>This comment is redundant with the code and useless:</P><CODE>v = 
+5&nbsp;&nbsp;&nbsp; # assign 5 to v</CODE>
+<P>This comment contains useful information that is not in the code:</P><CODE>v 
+= 5&nbsp;&nbsp;&nbsp; # velocity in meters/second.</CODE>
+<P>Good variable names can reduce the need for comments, but long names can make 
+complex expressions hard to read, so there is a tradeoff.</P>
+<P>Use as many useful comments as you can in your program to:</P>
+<UL>
+  <LI>explain assumptions</LI>
+  <LI>explain important decisions</LI>
+  <LI>explain important details</LI>
+  <LI>explain problems you're trying to solve</LI>
+  <LI>explain problems you're trying to overcome in your program, etc</LI></UL>
+<P><A href="http://www.codinghorror.com/blog/2006/12/code-tells-you-how-comments-tell-you-why.html"><EM>Code 
+tells you how, comments should tell you why</EM></A>.</P>
+<P>This is useful for readers of your program so that they can easily understand 
+what the program is doing. Remember, that person can be yourself after six 
+months!</P></DIV>
+<DIV class="fullpage">
+<H1>Variables</H1>
+<P>Unless you like writing <A href="https://www.thc.org/root/phun/unmaintain.html" 
+target="_blank">unmaintainable code</A>, I suggest that you use descriptive 
+names for most of your variables.&nbsp; </P>
+<P>While naming a variable x is short and sweet, it is pretty meaningless when 
+you are trying to determine whether x is the tip or the tax rate or the user's 
+input.&nbsp; Better variable names would be tax_rate or TaxRate or 
+varTaxRate.&nbsp; Find a style you like and stick with it. </P></DIV>
+<DIV class="fullpage">
+<H1>Indentation</H1>
+<P>Whitespace is important in Python. Actually, <EM>whitespace at the beginning 
+of the line is important</EM>. This is called <EM>indentation</EM>. Leading 
+whitespace (spaces and tabs) at the beginning of the logical line is used to 
+determine the indentation level of the logical line, which in turn is used to 
+determine the grouping of statements.</P>
+<P>This means that statements which go together <EM>must</EM> have the same 
+indentation. Each such set of statements is called a <EM>block</EM>. We will see 
+examples of how blocks are important in later chapters.</P>
+<P>One thing you should remember is that wrong indentation can give rise to 
+errors. For example:</P><CODE>i = 5 # Error below! Notice a single space at the 
+start of the line &nbsp; print('Value is', i) print('I repeat, the value is', 
+i)</CODE>
+<P>When you run this, you get the following error:</P><CODE>File 
+"whitespace.py", line 3&nbsp; print('Value is', i) ^ IndentationError: 
+unexpected indent</CODE>
+<P>Did you notice that there is a single space at the beginning of the second 
+line? The error indicated by Python tells us that the syntax of the program is 
+invalid i.e. the program was not properly written. What this means to you is 
+that <EM>you cannot arbitrarily start new blocks of statements</EM> (except for 
+the default main block which you have been using all along, of course). Cases 
+where you can use new blocks will be detailed in later lessons such as the <A 
+href="file:///C:/Users/hcrites/Dropbox/Teaching/ITST-2252/Redesign/Content/control_flow.html#control_flow">control 
+flow</A>.</P>
+<P>Use four spaces for indentation. This is the official Python language 
+recommendation. Good editors will automatically do this for you. Make sure you 
+use a consistent number of spaces for indentation, otherwise your program will 
+not run or will have unexpected behavior.</P>
+<P class="exercise"><A class="exercise" id="lesson1_23" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_23" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Logical and Physical Line</H1>
+<P>A physical line is what you <EM>see</EM> when you write the program. A 
+logical line is what <EM>Python sees</EM> as a single statement. Python 
+implicitly assumes that each <EM>physical line</EM> corresponds to a <EM>logical 
+line</EM>.</P>
+<P>An example of a logical line is a statement like <CODE>print('hello 
+world')</CODE> - if this was on a line by itself (as you see it in an editor), 
+then this also corresponds to a physical line.</P>
+<P>Implicitly, Python encourages the use of a single statement per line which 
+makes code more readable.</P>
+<P>If you want to specify more than one logical line on a single physical line, 
+then you have to explicitly specify this using a semicolon (<CODE>;</CODE>) 
+which indicates the end of a logical line/statement. For example:</P><CODE>i = 5 
+ print(i)</CODE>
+<P>is effectively same as</P><CODE>i = 5; print(i);</CODE>
+<P>which is also same as</P><CODE>i = 5; print(i);</CODE>
+<P>and same as</P><CODE>i = 5; print(i)</CODE>
+<P>However, I <EM>strongly recommend</EM> that you stick to <EM>writing a 
+maximum of a single logical line on each single physical line</EM>. The idea is 
+that you should never use the semicolon. In fact, I have <EM>never</EM> used or 
+even seen a semicolon in a Python program.</P>
+<P>There is one kind of situation where this concept is really useful: if you 
+have a long line of code, you can break it into multiple physical lines by using 
+the backslash. This is referred to as <EM>explicit line joining</EM>:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>s = 'This is a string. \<BR>This continues the 
+      string.'<BR>print(s)</STRONG></CODE></TD>
+    <TD>
+      <P><CODE>This is a string. This continues the 
+  string.</CODE></P></TD></TR></TBODY></TABLE>
+<P>Similarly,</P><CODE>i = \ 5</CODE>
+<P>is the same as</P><CODE>i = 5</CODE>
+<P>Sometimes, there is an implicit assumption where you don't need to use a 
+backslash. This is the case where the logical line has a starting parentheses, 
+starting square brackets or a starting curly braces but not an ending one. This 
+is called <EM>implicit line joining</EM>. You can see this in action when we 
+write programs using lists in later lessons.</P></DIV>
+<DIV class="fullpage">
+<H1>The Programming Process</H1>
+<P>One of the most difficult hurdles when you are just getting started is how to 
+start a new program or tackle an exercise or lab assignment from the beginning. 
+First, recognize that very few programmers immediately start to write code when 
+they build their programs. They create them in stages. You should to. Here are 
+some simple steps to try:</P>
+<UL>
+  <LI><STRONG>Use pseudocode to design the program:</STRONG> sketch it out or 
+  write plain English to describe what you want the program to do. It is often 
+  most efficient to do this using comments within the source file 
+  itself.<STRONG></STRONG></LI>
+  <LI><STRONG>Fill in the pseudocode with real code:</STRONG> start using your 
+  programming tools to fill in the blanks.<STRONG></STRONG></LI>
+  <LI><STRONG>Fix any Syntax errors:</STRONG> You learned that syntax errors 
+  cause a program to not run at all. Try to run your program, then fix all of 
+  these.<STRONG></STRONG></LI>
+  <LI><STRONG>Test the program repeatedly:</STRONG> use different inputs – 
+  negative numbers, letters, floats, and integers. See what sticks and what 
+  doesn't work. Fix some of your code if you don't get expected 
+  results.<STRONG></STRONG></LI></UL>
+<H2>Example:</H2>
+<P>You need to create a program which can accept a user's name and age, and 
+displays it on the screen.</P>
+<H3>Step 1: Use pseudocode to design the program</H3>
+<P><IMG width="850" alt="coding example" src="Python%20Programming_lesson1_part5_files/lesson1_23.png"> 
+</P>
+<P>In this example, I have written my header, then begin to sketch out the 
+program using comments as pseudocode. I kept it simple and in plain terms. I 
+don't need to write a novel.</P>
+<H3>Step 2: Fill in the pseudocode with real code</H3>
+<P><IMG width="850" alt="coding example" src="Python%20Programming_lesson1_part5_files/lesson1_24.png"> 
+</P>
+<P>Now I have filled in the blanks with code. For welcoming the user to the 
+program, I used a print statement with a triple quote string. I created two 
+variables to store the keyboard input received from the user for both the name 
+and the age. I then returned the input back to the user with some extra remarks 
+using the print statement.</P>
+<H3>Step 3: Fix any Syntax errors</H3>
+<P><IMG width="850" alt="coding example" src="Python%20Programming_lesson1_part5_files/lesson1_25.png"></P>
+<P>Uh oh! I made a syntax mistake. It says an unexpected indent. This means I 
+have an indentation problem. IDLE has highlighted a space in front of my 
+variable called Name. This space shouldn't be here. I delete the space, 
+correcting my indentation, and now I can run my program without a syntax 
+error.</P>
+<H3>Step 4: Test</H3>
+<P><IMG width="850" alt="coding example" src="Python%20Programming_lesson1_part5_files/lesson1_26.png"> 
+</P>
+<P>Now that I fixed my syntax error, my program runs. I put Heather in when 
+prompted for the name and 25 when prompted for the age. Unfortunately, my 
+program stopped running because of a runtime error. It says NameError: name 
+'name' is not defined. I look at my code and I see my problem. Variable names 
+are case sensitive. I assigned the input received for the user's name to a 
+variable called Name with an uppercase N, but then tried to display a variable 
+called name with a lowercase N. These are two different variables and I never 
+assigned any value to the lowercase version, which is why the error was thrown. 
+I change Name to name and run it again:</P>
+<P><IMG width="850" alt="coding example" src="Python%20Programming_lesson1_part5_files/lesson1_27.png"> 
+</P>
+<P>The whole program ran without errors! I run it a few more times and test 
+different values until I am satisfied that it runs the way it is supposed 
+to.</P>
+<P>This is a very simple example, but it shows the common steps used.</P>
+<P class="exercise"><A class="exercise" id="lesson1_24" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_24" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part5_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson1_25" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_25" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Putting it All Together</H1>
+<UL>
+  <LI>Use a program header</LI>
+  <LI>Use comments</LI>
+  <LI>Name your variables well</LI>
+  <LI>Use appropriate indentation (4 spaces is best)</LI>
+  <LI>Understand the difference between a physical line and a logical line</LI>
+  <LI>Create your programs in stages</LI></UL></DIV></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></BODY></HTML>

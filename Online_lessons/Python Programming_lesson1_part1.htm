@@ -1,0 +1,249 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_1_part_1.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_1" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson1_part1_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part1_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part1_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part1_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part1_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part1_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson1_part1_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson1_part1_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson1_part1_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson1_part1_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Lesson 1: Noob</H1></DIV>
+<DIV class="fullpage">
+<H1>Introduction to Programming</H1>
+<P>The goal of this course is to teach you to think like a computer scientist. 
+This way of thinking combines some of the best features of mathematics, 
+engineering, and natural science. Like mathematicians, computer scientists use 
+formal languages to denote ideas (specifically computations). Like engineers, 
+they design things, assembling components into systems and evaluating tradeoffs 
+among alternatives. Like scientists, they observe the behavior of complex 
+systems, form hypotheses, and test predictions. </P>
+<P>The single most important skill for a computer scientist is problem solving. 
+Problem solving means the ability to formulate problems, think creatively about 
+solutions, and express a solution clearly and accurately. As it turns out, the 
+process of learning to program is an excellent opportunity to practice 
+problem-solving skills. That's why this chapter is called, "The way of the 
+program".</P>
+<P>On one level, you will be learning to program, a useful skill by itself. On 
+another level, you will use programming as a means to an end. As we go along, 
+that end will become clearer.</P>
+<H2>What is a program?</H2>
+<P>A program is a sequence of instructions that specifies how to perform a 
+computation. The computation might be something mathematical, such as solving a 
+system of equations or finding the roots of a polynomial, but it can also be a 
+symbolic computation, such as searching and replacing text in a document or 
+something graphical, like processing an image or playing a video. </P>
+<P>The details look different in different languages, but a few basic 
+instructions appear in just about every language:</P>
+<DIV class="indent">
+<P><STRONG>input:</STRONG> Get data from the keyboard, a file, the network, or 
+some other device.</P>
+<P><STRONG>output:</STRONG> Display data on the screen, save it in a file, send 
+it over the network, etc.</P>
+<P><STRONG>math:</STRONG> Perform basic mathematical operations like addition 
+and multiplication.</P>
+<P><STRONG>conditional execution:</STRONG> Check for certain conditions and run 
+the appropriate code.</P>
+<P><STRONG>repetition:</STRONG> Perform some action repeatedly, usually with 
+some variation.</P></DIV>
+<P>Believe it or not, that's pretty much all there is to it. Every program 
+you've ever used, no matter how complicated, is made up of instructions that 
+look pretty much like these. So you can think of programming as the process of 
+breaking a large, complex task into smaller and smaller subtasks until the 
+subtasks are simple enough to be performed with one of these basic 
+instructions.</P></DIV>
+<DIV class="fullpage">
+<H1>Introduction to Python</H1>
+<P>Python is one of those rare languages which can claim to be both simple and 
+powerful. You will find yourself pleasantly surprised to see how easy it is to 
+concentrate on the solution to the problem rather than the syntax and structure 
+of the language you are programming in.</P>
+<P>The official introduction to Python is:</P>
+<BLOCKQUOTE>
+  <P>Python is an easy to learn, powerful programming language. It has efficient 
+  high-level data structures and a simple but effective approach to 
+  object-oriented programming. Python's elegant syntax and dynamic typing, 
+  together with its interpreted nature, make it an ideal language for scripting 
+  and rapid application development in many areas on most 
+platforms.</P></BLOCKQUOTE>
+<P>I will discuss most of these features in more detail in the next section.</P>
+<H2>Story behind the name</H2>
+<P>Guido van Rossum, the creator of the Python language, named the language 
+after the BBC show "Monty Python's Flying Circus". He doesn't particularly like 
+snakes that kill animals for food by winding their long bodies around them and 
+crushing them.</P>
+<H2>Features of Python</H2>
+<H3>Simple</H3>
+<P>Python is a simple and minimalistic language. Reading a good Python program 
+feels almost like reading English, although very strict English! This 
+pseudo-code nature of Python is one of its greatest strengths. It allows you to 
+concentrate on the solution to the problem rather than the language itself.</P>
+<H3>Easy to Learn</H3>
+<P>As you will see, Python is extremely easy to get started with. Python has an 
+extraordinarily simple syntax, as already mentioned.</P>
+<H3>Free and Open Source</H3>
+<P>Python is an example of a <EM>FLOSS</EM> (Free/Libré and Open Source 
+Software). In simple terms, you can freely distribute copies of this software, 
+read its source code, make changes to it, and use pieces of it in new free 
+programs. FLOSS is based on the concept of a community which shares knowledge. 
+This is one of the reasons why Python is so good - it has been created and is 
+constantly improved by a community who just want to see a better Python.</P>
+<H3>High-level Language</H3>
+<P>When you write programs in Python, you never need to bother about the 
+low-level details such as managing the memory used by your program, etc.</P>
+<H3>Portable</H3>
+<P>Due to its open-source nature, Python has been ported to (i.e. changed to 
+make it work on) many platforms. All your Python programs can work on any of 
+these platforms without requiring any changes at all if you are careful enough 
+to avoid any system-dependent features.</P>
+<P>You can use Python on GNU/Linux, Windows, FreeBSD, Macintosh, Solaris, OS/2, 
+Amiga, AROS, AS/400, BeOS, OS/390, z/OS, Palm OS, QNX, VMS, Psion, Acorn RISC 
+OS, VxWorks, PlayStation, Sharp Zaurus, Windows CE and PocketPC!</P>
+<P>You can even use a platform like <A href="http://kivy.org/">Kivy</A> to 
+create games for your computer <EM>and</EM> for iPhone, iPad, and Android.</P>
+<H3>Interpreted</H3>
+<P>This requires a bit of explanation.</P>
+<P>A program written in a compiled language like C or C++ is converted from the 
+source language i.e. C or C++ into a language that is spoken by your computer 
+(binary code i.e. 0s and 1s) using a compiler with various flags and options. 
+When you run the program, the linker/loader software copies the program from 
+hard disk to memory and starts running it.</P>
+<P>Python, on the other hand, does not need compilation to binary. You just 
+<EM>run</EM> the program directly from the source code. Internally, Python 
+converts the source code into an intermediate form called bytecodes and then 
+translates this into the native language of your computer and then runs it. All 
+this, actually, makes using Python much easier since you don't have to worry 
+about compiling the program, making sure that the proper libraries are linked 
+and loaded, etc. This also makes your Python programs much more portable, since 
+you can just copy your Python program onto another computer and it just 
+works!</P>
+<H3>Object Oriented</H3>
+<P>Python supports procedure-oriented programming as well as object-oriented 
+programming. In <EM>procedure-oriented</EM> languages, the program is built 
+around procedures or functions which are nothing but reusable pieces of 
+programs. In <EM>object-oriented</EM> languages, the program is built around 
+objects which combine data and functionality. Python has a very powerful but 
+simplistic way of doing OOP, especially when compared to big languages like C++ 
+or Java.</P>
+<H3>Extensible</H3>
+<P>If you need a critical piece of code to run very fast or want to have some 
+piece of algorithm not to be open, you can code that part of your program in C 
+or C++ and then use it from your Python program.</P>
+<H3>Embeddable</H3>
+<P>You can embed Python within your C/C++ programs to give <EM>scripting</EM> 
+capabilities for your program's users.</P>
+<H3>Extensive Libraries</H3>
+<P>The Python Standard Library is huge indeed. It can help you do various things 
+involving regular expressions, documentation generation, unit testing, 
+threading, databases, web browsers, CGI, FTP, email, XML, XML-RPC, HTML, WAV 
+files, cryptography, GUI (graphical user interfaces), and other system-dependent 
+stuff. Remember, all this is always available wherever Python is installed. This 
+is called the <EM>Batteries Included</EM> philosophy of Python.</P>
+<P>Besides the standard library, there are various other high-quality libraries 
+which you can find at the <A href="http://pypi.python.org/pypi">Python Package 
+Index</A>.</P>
+<H3>Summary</H3>
+<P>Python is indeed an exciting and powerful language. It has the right 
+combination of performance and features that make writing programs in Python 
+both fun and easy.</P>
+<H2>Python 3 versus 2</H2>
+<P>You can ignore this section if you're not interested in the difference 
+between "Python version 2" and "Python version 3". But please do be aware of 
+which version you are using. This book is written for Python version 3.</P>
+<P>Remember that once you have properly understood and learn to use one version, 
+you can easily learn the differences and use the other one. The hard part is 
+learning programming and understanding the basics of Python language itself. 
+That is our goal in this book, and once you have achieved that goal, you can 
+easily use Python 2 or Python 3 depending on your situation.</P>
+<P>For details on differences between Python 2 and Python 3, see:</P>
+<UL>
+  <LI><A href="http://lwn.net/Articles/547191/">The future of Python 2</A></LI>
+  <LI><A href="https://docs.python.org/3/howto/pyporting.html">Porting Python 2 
+  Code to Python 3</A></LI>
+  <LI><A 
+  href="https://wiki.python.org/moin/PortingToPy3k/BilingualQuickRef">Writing 
+  code that runs under both Python2 and 3</A></LI>
+  <LI><A href="http://python3porting.com/">Supporting Python 3: An in-depth 
+  guide</A></LI></UL>
+<H2>What Programmers Say</H2>
+<P>You may find it interesting to read what great hackers like ESR have to say 
+about Python:</P>
+<UL>
+  <LI><EM>Eric S. Raymond</EM> is the author of "The Cathedral and the Bazaar" 
+  and is also the person who coined the term <EM>Open Source</EM>. He says that 
+  <A href="http://www.python.org/about/success/esr/">Python has become his 
+  favorite programming language</A>. This article was the real inspiration for 
+  my first brush with Python.</LI>
+  <LI><EM>Bruce Eckel</EM> is the author of the famous 'Thinking in Java' and 
+  'Thinking in C++' books. He says that no language has made him more productive 
+  than Python. He says that Python is perhaps the only language that focuses on 
+  making things easier for the programmer. Read the <A href="http://www.artima.com/intv/aboutme.html">complete 
+  interview</A> for more details.</LI>
+  <LI><EM>Peter Norvig</EM> is a well-known Lisp author and Director of Search 
+  Quality at Google (thanks to Guido van Rossum for pointing that out). He says 
+  that <A href="https://news.ycombinator.com/item?id=1803815">writing Python is 
+  like writing in pseudocode</A>. He says that Python has always been an 
+  integral part of Google. You can actually verify this statement by looking at 
+  the <A href="http://www.google.com/jobs/index.html">Google Jobs</A> page which 
+  lists Python knowledge as a requirement for software engineers.</LI></UL></DIV>
+<DIV class="fullpage">
+<H1>Installation </H1>
+<P>When we refer to "Python 3" in this text, we will be referring to any version 
+of Python equal to or greater than version <A href="https://www.python.org/downloads/">Python 
+3.5.2</A>.</P>
+<H2>Installation on Windows</H2>
+<P>Visit <A 
+href="https://www.python.org/downloads/">https://www.python.org/downloads/</A> 
+and download the latest version. At the time of this writing, it was Python 
+3.5.2. </P>
+<P class="image"><IMG width="602" height="269" alt="web page screenshot" src="Python%20Programming_lesson1_part1_files/lesson1_1.png"></P>
+<P class="image"><IMG width="410" height="317" alt="download prompt" src="Python%20Programming_lesson1_part1_files/lesson1_2.png"></P>
+<P>The installation is just like any other Windows-based software.</P>
+<P class="image"><IMG width="404" height="278" alt="installation security warning" 
+src="Python%20Programming_lesson1_part1_files/lesson1_3.png"></P>
+<P>Make sure you check option <CODE>Add Python 3.5 to PATH</CODE>.        </P>
+<P class="image"><IMG width="453" height="286" alt="installation screenshot" 
+src="Python%20Programming_lesson1_part1_files/lesson1_4.png"></P>
+<H2>Installation on Mac OS X</H2>
+<P>For Mac OS X users, use <A href="http://brew.sh/">Homebrew</A>: <CODE>brew 
+install python3</CODE>. </P>
+<P>To verify, open the terminal by pressing <CODE>[Command + Space]</CODE> keys 
+(to open Spotlight search), type <CODE>Terminal</CODE> and press 
+<CODE>[enter]</CODE> key. Now, run <CODE>python3</CODE> and ensure there are no 
+errors. </P>
+<H2>Installation on GNU/Linux</H2>
+<P>For GNU/Linux users, use your distribution's package manager to install 
+Python 3, e.g. on Debian &amp; Ubuntu: <CODE>sudo apt-get update &amp;&amp; sudo 
+apt-get install python3</CODE>. </P>
+<P>To verify, open the terminal by opening the <CODE>Terminal</CODE> application 
+or by pressing <CODE>Alt + F2</CODE> and entering <CODE>gnome-terminal</CODE>. 
+If that doesn't work, please refer the documentation of your particular 
+GNU/Linux distribution. Now, run <CODE>python3</CODE> and ensure there are no 
+errors. </P>
+<P>You can see the version of Python on the screen by running: </P>
+<P><CODE>$ python3 -V</CODE><BR><CODE>Python 3.5.1</CODE>       </P>
+<P>NOTE: <CODE>$</CODE> is the prompt of the shell. It will be different for you 
+depending on the settings of the operating system on your computer, hence I will 
+indicate the prompt by just the <CODE>$</CODE> symbol. </P>
+<P>CAUTION: Output may be different on your computer, depending on the version 
+of Python software installed on your computer.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

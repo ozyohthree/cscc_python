@@ -1,0 +1,284 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_4_part_3.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_3" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson4_part3_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part3_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part3_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part3_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part3_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part3_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson4_part3_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson4_part3_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson4_part3_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson4_part3_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Why Functions?</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>It may not be clear why it is worth the trouble to divide a  program into 
+functions. There are several reasons:</P>
+<UL>
+  <LI>Creating a new function gives you an opportunity  to name a group of 
+  statements, which makes your program easier to read,  understand, and 
+  debug.</LI>
+  <LI>Functions can make a program smaller by  eliminating repetitive code. 
+  Later, if you make a change, you only have to make  it in one place.</LI>
+  <LI>Dividing a long program into functions allows  you to debug the parts one 
+  at a time and then assemble them into a working  whole.</LI>
+  <LI>Well-designed functions are often useful for  many programs. Once you 
+  write and debug one, you can reuse it.</LI></UL>
+<P>Throughout the rest of this course, often we will use a  function definition 
+to explain a concept. Part of the skill of creating and  using functions is to 
+have a function properly capture an idea such as “find  the smallest value in a 
+list of values”. </P></DIV>
+<DIV class="fullpage">
+<H1>Variable Scope</H1>
+<P>When you declare variables <EM>inside</EM> a function definition, they are 
+not related in any way to  other variables with the same names used 
+<EM>outside</EM> the function - i.e. variable names are local to the function. 
+</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>my_name = "Fred"<BR><BR>def 
+      print_name():<BR>&nbsp;&nbsp;&nbsp;&nbsp;my_name = 
+      "George"<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(my_name)<BR><BR>print_name()<BR><BR>print(my_name)</CODE></TD>
+    <TD><CODE>George<BR>Fred</CODE></TD></TR></TBODY></TABLE>
+<P>In the above example, we have a variable called <CODE>my_name</CODE> which is 
+outside of the function <CODE>print_name()</CODE>.&nbsp;  There is also a 
+variable called <CODE>my_name</CODE> inside of <CODE>print_name()</CODE>.&nbsp; 
+These are two different variables.&nbsp; We can see this when we run the last 
+two  lines:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print_name()</CODE></TD>
+    <TD><CODE>George</CODE></TD>
+    <TD>
+      <P>This displays the variable <EM>inside</EM> of the function, which is 
+      assigned to the string <CODE>George</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>print(my_name)</CODE></TD>
+    <TD><CODE>Fred</CODE></TD>
+    <TD>
+      <P>This displays the variable outside of the function, which is assigned 
+      to the string <CODE>Fred</CODE>.</P></TD></TR></TBODY></TABLE>
+<P>This is called the <STRONG><EM>variable scope</EM></STRONG>. The scope of all 
+ variables is the block they are declared in - starting from the point of  
+definition of the name. The scope of <CODE>my_name</CODE> that is outside of the 
+function (let's call it the "outside <CODE>my_name"</CODE>) is the main body of 
+the  program.&nbsp; The scope of the <CODE>my_name</CODE> variable that is 
+inside of the function  (let's call it the "inside <CODE>my_name")</CODE> is the 
+function <CODE>print_name()</CODE>.&nbsp; The inside <CODE>my_name</CODE> is 
+considered to be local to the <CODE>print_name()</CODE>function.  &nbsp;Here's 
+another example:</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Local Variable</H1><CODE>x = 50<BR><BR>def 
+func(x):<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('x is', 
+x)<BR>&nbsp;&nbsp;&nbsp;&nbsp;x = 2<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('Changed 
+local x to', x)<BR><BR>func(x)<BR>print('x is still', x)</CODE>
+<H2>Output:</H2><CODE>x is 50<BR>Changed local x to 2<BR>x is still 50</CODE>
+<H2>How It Works</H2>
+<P>The first time that we print the value of the name <CODE>x</CODE> with the 
+first line in the function's body,  Python uses the value of the parameter 
+declared in the main block, above the  function definition.</P>
+<P>Next, we assign the value <CODE>2</CODE> to <CODE>x</CODE>. The name 
+<CODE>x</CODE> is <EM>local</EM> to our function. So, when we  change the value 
+of <CODE>x</CODE> in the function,  the <CODE>x</CODE> defined in the main block 
+remains  unaffected.</P>
+<P>With the last <CODE>print</CODE> statement, we display the value of 
+<CODE>x</CODE> as defined in the main block, thereby confirming that it is 
+actually unaffected  by the local assignment within the previously called 
+function.</P>
+<P class="exercise"><A class="exercise" id="lesson4_07" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_07" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>The global Statement</H1>
+<P>If you want to assign a value to a name defined at the top  level of the 
+program (i.e. not inside any kind of scope such as functions or  classes), then 
+you have to tell Python that the name is not <EM>local</EM>, but it is 
+<STRONG><EM>global</EM></STRONG>. We do this using  the <CODE>global</CODE> 
+statement. It is impossible to  assign a value to a variable defined outside a 
+function without the <CODE>global</CODE> statement.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Global Statement</H1><CODE>x = 50<BR><BR>def 
+func():<BR>&nbsp;&nbsp;&nbsp;&nbsp;global x<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('x 
+is', x)<BR>&nbsp;&nbsp;&nbsp;&nbsp;x = 
+2<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('Changed global x to', 
+x)<BR><BR>func()<BR>print('Value of x is', x)</CODE>
+<H2>Output:</H2><CODE>x is 50<BR>Changed global x to 2<BR>Value of x is 2</CODE>
+<H2>How It Works</H2>
+<P>The <CODE>global</CODE> statement is used to declare that <CODE>x</CODE> is a 
+global variable - hence, when we assign a value to <CODE>x</CODE> inside the 
+function, that change is reflected when we use the value of <CODE>x</CODE> in 
+the main block.</P>
+<P>You can specify more than one global variable using the same  global 
+statement e.g. <CODE>global x, y, z</CODE>.</P>
+<P class="exercise"><A class="exercise" id="lesson4_08" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_08" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Global Constants</H1>
+<P>You can use the values of such variables defined outside the  function 
+(assuming there is no variable with the same name within the  function). 
+However, this is not encouraged and should be avoided since it  becomes unclear 
+to the reader of the program as to where that variable's  definition is. Using 
+the <CODE>global</CODE> statement makes it amply clear that the variable is 
+defined in an outermost  block.</P>
+<P>That being said, having a global variable can cause a lot of  confusion if 
+<EM>its value is changed</EM> by  multiple functions.&nbsp; In general, it is  
+better to pass variables into functions as arguments, rather than share a  
+global variable across an entire program.</P>
+<P>However if the value assigned to the global variable does  not ever change, 
+it is called a <STRONG><EM>global constant</EM></STRONG> and its use is less  
+likely to cause problems.&nbsp; In Python,  there is no technical difference 
+between a global variable which changes its  value and a global constant which 
+maintains its value – you declare and use  them the same way.&nbsp; To avoid 
+confusion,  convention dictates that global constants are named in all capital 
+letters,  while global variables follow whatever naming convention you 
+like.</P><CODE># Global Constant Example<BR># The name of the game will never 
+change<BR># This is okay to use because it never changes<BR>GAME_NAME = "League 
+of Leg Ends" <BR><BR># Global Variable Example<BR># The score will constantly 
+change and by more than one function<BR># this could get confusing and would be 
+better to pass as an<BR># argument<BR>score = 0<BR><BR>def 
+win_round():<BR>&nbsp;&nbsp;&nbsp;&nbsp;score++<BR>&nbsp;&nbsp;&nbsp;&nbsp;
+print("You won the round!")<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Your score in",    
+GAME_NAME, "is now", score)<BR><BR>def lose_round():<BR>&nbsp;&nbsp;&nbsp;&nbsp;
+score--<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("You lost the    
+round!")<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Your score in",    GAME_NAME, "is 
+now", score) </CODE></DIV>
+<DIV class="fullpage">
+<H1>Default Argument Values</H1>
+<P>For some functions, you may want to make some parameters  optional and use 
+default values in case the user does not want to provide  values for them. This 
+is done with the help of default argument values. You can  specify default 
+argument values for parameters by appending to the parameter  name in the 
+function definition the assignment operator (=) followed by the  default 
+value.</P>
+<P>Note that the default argument value should be a constant.  More precisely, 
+the default argument value should be immutable - this is  explained in detail in 
+later lessons. For now, just remember this.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Default Argument</H1><CODE>def say(message, 
+times=1):<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(message * 
+times)<BR><BR>say('Hello')<BR>say('World', 5)</CODE>
+<H2>Output:</H2><CODE>Hello<BR>WorldWorldWorldWorldWorld</CODE>
+<H2>How It Works</H2>
+<P>The function named <CODE>say</CODE> is used to print a string as many times 
+as specified. If we don't supply a  value, then by default, the string is 
+printed just once. We achieve this by  specifying a default argument value of 1 
+to the parameter <CODE>times</CODE>.</P>
+<P>In the first usage of say, we supply only the string and it  prints the 
+string once. In the second usage of say, we supply both the string  and an 
+argument 5 stating that we want to say the string message 5 times.</P>
+<P><STRONG>CAUTION:</STRONG>&nbsp; Only those parameters which are at the end of 
+ the parameter list can be given default argument values i.e. you cannot have a  
+parameter with a default argument value preceding a parameter without a default  
+argument value in the function's parameter list.</P>
+<P>This is because the values are assigned to the parameters by  position. For 
+example, <CODE>def func(a, b=5)</CODE> is valid, but <CODE>def func(a=5, 
+b)</CODE> is  not valid.</P>
+<P class="exercise"><A class="exercise" id="lesson4_09" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_09" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Keyword Arguments</H1>
+<P>If you have some functions with many parameters and you want  to specify only 
+some of them, then you can give values for such parameters by  naming them - 
+this is called keyword arguments - we use the name (keyword)  instead of the 
+position (which we have been using all along) to specify the  arguments to the 
+function.</P>
+<P>There are two advantages - one, using the function is easier  since we do not 
+need to worry about the order of the arguments. Two, we can  give values to only 
+those parameters to which we want to, provided that the  other parameters have 
+default argument values.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Keyword Arguments:</H1><CODE>def func(a, b=5, 
+c=10):<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('a is', a, 'and b is', b, 'and  c is', 
+c)<BR><BR>func(3, 7)<BR>func(25, c=24)<BR>func(c=50, a=100)</CODE>
+<H2>Output:</H2><CODE>a is 3 and b is 7 and c is 10<BR>a is 25 and b is 5 and c 
+is 24<BR>a is 100 and b is 5 and c is 50</CODE>
+<H2>How It Works</H2>
+<P>The function named <CODE>func</CODE> has one parameter without a default 
+argument value, followed by two parameters  with default argument values.</P>
+<P>In the first usage, <CODE>func(3, 7)</CODE>,  the parameter <CODE>a</CODE> 
+gets the value 3,  the parameter <CODE>b</CODE> gets the value 7  and 
+<CODE>c</CODE> gets the default value of 10.</P>
+<P>In the second usage <CODE>func(25,  c=24)</CODE>, the variable a gets the 
+value of 25 due to the position of  the argument. Then, the parameter 
+<CODE>c</CODE> gets the value of 24 due to naming i.e. keyword arguments. The 
+variable <CODE>b</CODE> gets the default value of 5.</P>
+<P>In the third usage <CODE>func(c=50,  a=100)</CODE>, we use keyword arguments 
+for all specified values. Notice  that we are specifying the value for parameter 
+<CODE>c</CODE> before that for <CODE>a</CODE> even though <CODE>a</CODE> is 
+defined before <CODE>c</CODE> in the function definition.</P>
+<P class="exercise"><A class="exercise" id="lesson4_10" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_10" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>DocStrings</H1>
+<P>Python has a nifty feature called <STRONG><EM>documentation 
+strings</EM></STRONG>,  usually referred to by its shorter name 
+<STRONG><EM>docstrings</EM></STRONG>. DocStrings are an  important tool that you 
+should make use of since it helps to document the  program better and makes it 
+easier to understand. </P>
+<P>Basically, docstrings document the function so you can see  what it does and 
+any other information about it. </P>
+<P>Amazingly, we can even get the docstring back from, say a  function, when the 
+program is actually running!</P></DIV>
+<DIV class="fullpage">
+<H1>Example: DocStrings</H1><CODE>def print_max(x, 
+y):<BR>&nbsp;&nbsp;&nbsp;&nbsp;'''Prints the maximum of two 
+numbers.<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;The two values must be 
+integers.'''<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;# convert  to integers, if 
+possible<BR>&nbsp;&nbsp;&nbsp;&nbsp;x = int(x)<BR>&nbsp;&nbsp;&nbsp;&nbsp;y = 
+int(y)<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;if x &gt; 
+y:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(x, 'is 
+maximum')<BR>&nbsp;&nbsp;&nbsp;&nbsp;else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(y, 
+'is maximum')<BR><BR>print_max(3, 5)<BR>print(print_max.__doc__)</CODE>
+<H2>Output:</H2><CODE>5 is maximum<BR>Prints the maximum of two numbers.<BR>The 
+two values must be integers.</CODE>
+<H2>How It Works</H2>
+<P>A string on the first logical line of a function is the <EM>docstring</EM> 
+for that function. </P>
+<P>The convention followed for a docstring is a multi-line  string where the 
+first line starts with a capital letter and ends with a dot.  Then the second 
+line is blank followed by any detailed explanation starting  from the third 
+line. You are strongly advised to follow this convention for all  your 
+docstrings for all your non-trivial functions.</P>
+<P>We can access the docstring of the <CODE>print_max</CODE> function using the 
+<CODE>__doc__</CODE> (notice the  double underscores) attribute (name belonging 
+to) of the function. Just  remember that Python treats everything as an object 
+and this includes  functions. </P>
+<P>If you have used <CODE>help()</CODE> in Python, then you have already seen 
+the usage of docstrings! What it does is  just fetch the <CODE>__doc__</CODE> 
+attribute of  that function and displays it in a neat manner for you. You can 
+try it out on  the function above - just include <CODE>help(print_max)</CODE> in 
+your program. Remember to press the <CODE>q</CODE> key to exit help.</P>
+<P>Automated tools can retrieve the documentation from your  program in this 
+manner, which makes it really simple to write up documentation  for your 
+application. Therefore, I strongly recommend that you use docstrings  for any 
+non-trivial function that you write. </P>
+<P class="exercise"><A class="exercise" id="lesson4_11" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_11" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part3_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

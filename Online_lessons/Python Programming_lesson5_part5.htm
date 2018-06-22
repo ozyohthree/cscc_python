@@ -1,0 +1,372 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_5_part_5.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson5_part5_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part5_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part5_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part5_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part5_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part5_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson5_part5_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson5_part5_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson5_part5_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson5_part5_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 5, Bit 5: Exception Handling and Debugging</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>We saw way back in Lesson 1 that a user can cause a bit of chaos with your 
+program.&nbsp; If your code prompts them for a number and they enter a letter, 
+then you try to convert that letter into a number, an error will be 
+thrown:</P><CODE>&gt;&gt;&gt; age = input('How old are you'?)<BR>How old are 
+you? Too old!</CODE><CODE>&gt;&gt;&gt; int(age)<BR>ValueError: invalid literal 
+for int() with base 10</CODE>
+<P>Your script immediately stops in its tracks with a <EM>traceback</EM>. It 
+does not continue and your user is left wondering what happened.</P>
+<P>In your practice coding over the last few units, you have probably thrown 
+several unintentional errors yourself.&nbsp; Here is a list of common ones in 
+case you missed them:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Exception</TH>
+    <TH>Meaning</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>IndexError</CODE></TD>
+    <TD>
+      <P>Raised when a sequence subscript is out of range.</P></TD></TR>
+  <TR>
+    <TD><CODE>NameError</CODE></TD>
+    <TD>
+      <P>Raised when a local or global name is not found. This applies only to 
+      unqualified names. The associated value is an error message that includes 
+      the name that could not be found.</P></TD></TR>
+  <TR>
+    <TD><CODE>OSError</CODE></TD>
+    <TD>
+      <P>This exception is raised when a system function returns a 
+      system-related error, including I/O failures such as "file not found" or 
+      "disk full" (not for illegal argument types or other incidental 
+      errors).</P></TD></TR>
+  <TR>
+    <TD><CODE>RuntimeError</CODE></TD>
+    <TD>
+      <P>Raised when an error is detected that doesn’t fall in any of the other 
+      categories. The associated value is a string indicating what precisely 
+      went wrong.</P></TD></TR>
+  <TR>
+    <TD><CODE>TypeErrorp</CODE></TD>
+    <TD>
+      <P>Raised when an operation or function is applied to an object of 
+      inappropriate type. The associated value is a string giving details about 
+      the type mismatch.</P></TD></TR>
+  <TR>
+    <TD><CODE>ValueError</CODE></TD>
+    <TD>
+      <P>Raised when a built-in operation or function receives an argument that 
+      has the right type but an inappropriate value, and the situation is not 
+      described by a more precise exception such as IndexError.</P></TD></TR>
+  <TR>
+    <TD><CODE>ZeroDivisionError</CODE></TD>
+    <TD>
+      <P>Raised when the second argument of a division or modulo operation is 
+      zero. The associated value is a string indicating the type of the operands 
+      and the operation.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>Here is a sample program which asks a user to enter how many pieces of pie 
+they want, then displays what percentage of the whole pie they will 
+get:</P><CODE>pieces = input("How many pieces of pie do you want? ")<BR>        
+percentage = 1/int(pieces)<BR>        print("You get", format(percentage, 
+".2%"), "of the pie!")</CODE>
+<P>If we execute this code and give it good code, it the output looks something 
+like this:</P><CODE>How many pieces of pie do you want? <STRONG>2</STRONG><BR>   
+     That's 50.00% of the pie!</CODE>
+<P>If we execute the code and give it invalid input, it simply fails with an 
+unfriendly error message:</P><CODE>How many pieces of pie do you want? 
+one<BR><BR>      Traceback (most recent call last):<BR>&nbsp;&nbsp;File 
+"example.py", line 1, in &lt;module&gt;<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;pieces = int(input("How many pieces of pie do you want? 
+"))<BR>        ValueError: invalid literal for int() with base 10: 'one'</CODE>
+<P>And the program just stops.</P>
+<P>We need a better way to handle these exceptions and allow the program to 
+correct the issue or skip the code which is affected.</P></DIV>
+<DIV class="fullpage">
+<H1>The try / except Statement</H1>
+<P>There is a conditional execution structure built into Python to handle these 
+types of expected and unexpected errors called "<CODE>try / except</CODE>". </P>
+<P>The idea of try and except is that you know that there is the potential for 
+some sequence of instruction(s) to have a problem and you want to add some 
+statements to be executed if an error occurs. These extra statements (the 
+<CODE>except</CODE> block) are ignored if there is no error.</P>
+<P>You can think of the try and except feature in Python as an "insurance 
+policy" on a sequence of statements.</P>
+<P>We can rewrite our temperature converter as follows:</P>
+<P>pieces = input("How many pieces of pie do you want? 
+")</P><CODE>try:<BR>&nbsp;&nbsp;&nbsp;&nbsp;percentage = 
+1/int(pieces)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("You get", format(percentage, 
+".2%"), "of the pie!")<BR><BR>except:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("You need 
+to enter a number!")</CODE>
+<P>How does this work?&nbsp; Python starts by executing the sequence of 
+statements in the <CODE>try</CODE> block. If all goes well, it skips the 
+<CODE>except</CODE> block and proceeds. If an exception occurs in the 
+<CODE>try</CODE> block, Python jumps out of the <CODE>try</CODE> block and 
+executes the sequence of statements in the <CODE>except</CODE> block.&nbsp; The 
+<CODE>except</CODE> block is known as the <STRONG><EM>handler 
+</EM></STRONG>because it handles the exception.</P><CODE>How many pieces of pie 
+do you want? <STRONG>One</STRONG><BR>        You need to enter a number!</CODE>
+<P>Handling an exception with a <CODE>try</CODE> statement is called 
+<STRONG><EM>catching</EM></STRONG> an exception. In this example, the 
+<CODE>except</CODE> clause prints an error message. In general, catching an 
+exception gives you a chance to fix the problem, or try again, or at least end 
+the program gracefully. </P>
+<P class="exercise"><A class="exercise" id="lesson5_16" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_16" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Displaying Exceptions</H1>
+<P>Sometimes we want to see the exception being thrown.&nbsp;&nbsp; Going back 
+to our example with pie: what if we enter a zero for our input?</P><CODE>How 
+many pieces of pie do you want? 0<BR>        You need to enter a number!</CODE>
+<P>What happened here?&nbsp; A zero IS a valid number.&nbsp; Why is an error 
+being thrown?&nbsp; We can do a couple of things to figure out which error was 
+caught by the <CODE>except</CODE> block.&nbsp; </P>
+<P>First, you assign the exception to a variable like this:</P><CODE>pieces = 
+input("How many pieces of pie do you want? ")<BR><BR>try:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;percentage = 1/int(pieces)<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("You get", format(percentage, ".2%"), "of the 
+pie!")<BR><BR>except Exception as my_exception:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print(my_exception)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("You 
+need to enter a number!")</CODE>
+<P>Here we have explicitly called on the <CODE>Exception</CODE> object and 
+assigned it to the variable, <CODE>my_exception</CODE>.&nbsp; This results in 
+this output:</P><CODE>How many pieces of pie do you want? <STRONG>0</STRONG><BR> 
+       division by zero<BR>        You need to enter a number!</CODE>
+<P>Ah ha!&nbsp; Our problem is related to division by 0.&nbsp; </P>
+<P class="exercise"><A class="exercise" id="lesson5_17" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_17" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>The second way you can figure out which error was thrown is to the 
+<CODE>raise</CODE> statement.&nbsp; The <CODE>raise</CODE> statement allows you 
+to intentionally "raise" an exception.&nbsp; It can take a specific exception 
+type as an argument, but when it is just called by itself, it will display the 
+most recently thrown error.&nbsp; <EM>Note: the program will stop once the raise 
+statement is called.&nbsp; This is best used only when 
+troubleshooting.</EM></P><CODE>pieces = input("How many pieces of pie do you 
+want? ")<BR><BR>try:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;percentage = 
+1/int(pieces)<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You get", 
+format(percentage, ".2%"), "of the pie!")<BR><BR>except:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;raise<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You need 
+to enter a number!")</CODE>
+<P>Now when we enter a zero, we get this:</P><CODE>How many pieces of pie do you 
+want? <STRONG>0</STRONG><BR><BR>Traceback (most recent call last):<BR>        
+&nbsp;&nbsp;        File "example.py", line 3, in &lt;module&gt;<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;percentage = 1/int(pieces)<BR>        ZeroDivisionError: 
+division by zero</CODE>
+<P>Our second way also narrowed it down to a division by zero error - or 
+<CODE>ZeroDivisionError</CODE>. </P></DIV>
+<DIV class="fullpage">
+<H1>Specifying the Exception</H1>
+<P>Obviously, telling the end user that they need to enter a number when zero IS 
+a valid number is not a good solution.&nbsp; We need special messages depending 
+on the situation.&nbsp; Fortunately, Python has you covered. </P>
+<P>A <CODE>try</CODE> statement may have more than one <CODE>except</CODE> 
+clause, to specify handlers for different exceptions. &nbsp;This is useful for 
+when you want to handle one type of error one way and a different type of error 
+a different way.</P>
+<P>Here's how we use it in the pie example:</P><CODE>pieces = input("How many 
+pieces of pie do you want? ")<BR><BR>try:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;percentage = 1/int(pieces)<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("You get", format(percentage, ".2%"), "of the 
+pie!")<BR><BR>except ValueError:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You 
+need to enter a number!")<BR><BR>except ZeroDivisionError:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("You cannot enter a zero!")</CODE>
+<P>Notice how the exception type is specified immediately after the 
+<CODE>except</CODE> declaration.&nbsp; When we run this code, here are our 
+outputs:</P><CODE>How many pieces of pie do you want? <STRONG>2</STRONG><BR>     
+   You get 50.00% of the pie!</CODE><CODE>How many pieces of pie do you want? 
+<STRONG>One</STRONG><BR>You need to enter a number!</CODE><CODE>How many pieces 
+of pie do you want? <STRONG>0</STRONG><BR>You cannot enter a zero!</CODE>
+<P>Now both of our known exceptions are covered.</P>
+<P>When you have multiple except handlers, at most one handler will be executed. 
+</P>
+<P>You can also assign the contents of the error to a variable for use within 
+the <CODE>except</CODE> block:</P><CODE>except ValueError as 
+my_error:</CODE><CODE>except ZeroDivisionError as division_error:</CODE>
+<P class="exercise"><A class="exercise" id="lesson5_18" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_18" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Specifying Multiple Exceptions at Once:</H1>
+<P>A single <CODE>except</CODE> clause may handle multiple types of 
+exceptions:<BR><BR>except (NameError, ValueError, TypeError):</P>
+<P>This is useful (and more efficient) if you want to handle different exception 
+types the same way.</P><CODE>pieces = input("How many pieces of pie do you want? 
+")<BR><BR>try:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;percentage = 1/int(pieces)<BR> 
+       &nbsp;&nbsp;&nbsp;&nbsp;print("You get", format(percentage, ".2%"), "of 
+the pie!")<BR><BR>except (ValueError, TypeError):<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("You need to enter a number!")<BR><BR>except 
+ZeroDivisionError:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You cannot enter a 
+zero!")</CODE>
+<P>In this example, when <CODE>ValueError</CODE> or <CODE>TypeError</CODE> are 
+thrown, they will both be caught by the same handler and <CODE>You need to enter 
+a number!</CODE> will display.</P></DIV>
+<DIV class="fullpage">
+<H1>Default Handling</H1>
+<P>Going back to our pie example, we are now handling very specific error types, 
+but it is good practice to include the default except block in case something 
+unexpected occurs.</P><CODE>pieces = input("How many pieces of pie do you want? 
+")<BR><BR>try:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;percentage = 1/int(pieces)<BR> 
+       &nbsp;&nbsp;&nbsp;&nbsp;print("You get", format(percentage, ".2%"), "of 
+the pie!")<BR><BR>except (NameError, ValueError, TypeError):<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("You need to enter a number!")<BR><BR>except 
+ZeroDivisionError:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You cannot enter a 
+zero!")<BR><BR>except:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("Something bad 
+happened. No pie for you.")</CODE>
+<P>It should be noted that handlers only handle exceptions that occur in the 
+corresponding <CODE>try</CODE> clause, not in other handlers of the same 
+<CODE>try</CODE> statement. &nbsp;&nbsp;This means that if you raise a second 
+exception while handling the first exception, your original <CODE>try / 
+except</CODE> statement will not be able to handle the second exception.&nbsp; 
+You would have to create a new, nested <CODE>try / except</CODE> statement 
+within your exception handing. </P>
+<P class="exercise"><A class="exercise" id="lesson5_19" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_19" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>else Clause</H1>
+<P>The <CODE>try / except</CODE> statement has an optional <CODE>else</CODE> 
+clause.&nbsp; The <CODE>else</CODE> clause comes after all <CODE>except</CODE> 
+clauses and will only execute if the <CODE>try</CODE> clause does not raise an 
+exception. </P>
+<P>The use of the <CODE>else</CODE> clause is better than adding additional code 
+to the <CODE>try</CODE> clause because it avoids accidentally catching an 
+exception that wasn’t raised by the code being protected by the <CODE>try / 
+except</CODE> statement.</P>
+<P>Let's go back to pie!</P><CODE>pieces = input("How many pieces of pie do you 
+want? ")<BR><BR>try:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;percentage = 
+1/int(pieces)<BR><BR>except (NameError, ValueError, TypeError):<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("You need to enter a number!")<BR><BR>except 
+ZeroDivisionError:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You cannot enter a 
+zero!")<BR><BR>except:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("Something bad 
+happened. No pie for you.")<BR><BR>else:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("You get", format(percentage, ".2%"), "of the 
+pie!")</CODE>
+<P>In this case, we anticipate that the line <CODE>percentage = 
+1/int(pieces)</CODE> might throw errors if the input is not an integer or if it 
+is equal to 0.&nbsp; This is the only code which we want to catch our specific 
+errors.&nbsp; So, we move the line <CODE>print("You get", format(percentage, 
+".2%"), "of the pie!")</CODE> into the else clause.&nbsp; The output looks 
+identical:</P><CODE>How many pieces of pie do you want? <STRONG>2</STRONG><BR>   
+     You get 50.00% of the pie!</CODE><CODE>How many pieces of pie do you want? 
+<STRONG>One</STRONG><BR>You need to enter a number!</CODE><CODE>How many pieces 
+of pie do you want? <STRONG>0</STRONG><BR>You cannot enter a zero!</CODE>
+<P>However, our program will now run cleaner with the extra code placed in the 
+<CODE>else</CODE> clause.</P>
+<P class="exercise"><A class="exercise" id="lesson5_20" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_20" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Clean-up Actions (the finally Clause)</H1>
+<P>The <CODE>try</CODE> statement has another optional clause which is intended 
+to define clean-up actions that must be executed under all circumstances. </P>
+<P>A <CODE>finally</CODE> clause is always executed before leaving the 
+<CODE>try</CODE> statement, whether an exception has occurred or not. When an 
+exception has occurred in the <CODE>try</CODE> clause and has not been handled 
+by an <CODE>except</CODE> clause (or it has occurred in an <CODE>except</CODE> 
+or <CODE>else</CODE> clause), it is re-raised after the <CODE>finally</CODE> 
+clause has been executed. </P>
+<P>The <CODE>finally</CODE> clause is also executed "on the way out" when any 
+other clause of the <CODE>try</CODE> statement is left via a <CODE>break</CODE>, 
+<CODE>continue</CODE> or <CODE>return</CODE> statement. </P><CODE>pieces = 
+input("How many pieces of pie do you want? ")<BR><BR>try:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;percentage = 1/int(pieces)<BR><BR>except (NameError, 
+ValueError, TypeError):<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You need to 
+enter a number!")<BR><BR>except ZeroDivisionError:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("You cannot enter a zero!")<BR><BR>except:<BR>     
+   &nbsp;&nbsp;&nbsp;&nbsp;print("Something bad happened. No pie for 
+you.")<BR><BR>else:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You get", 
+format(percentage, ".2%"), "of the pie!")<BR><BR>finally:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("Thank you for using the Pie Program!")</CODE>
+<P>This outputs like this:</P><CODE>How many pieces of pie do you want? 2<BR>    
+    You get 50.00% of the pie!<BR>        Thank you for using the Pie 
+Program!</CODE><CODE>How many pieces of pie do you want? 0<BR>        You cannot 
+enter a zero!<BR>        Thank you for using the Pie Program!</CODE><CODE>How 
+many pieces of pie do you want? One<BR>        You need to enter a number!<BR>   
+     Thank you for using the Pie Program!</CODE>
+<P>As you can see, the <CODE>finally</CODE> clause is executed in any event. 
+</P>
+<P>In real world applications, the <CODE>finally</CODE> clause is useful for 
+releasing external resources (such as files or network connections), regardless 
+of whether the use of the resource was successful.</P>
+<P class="exercise"><A class="exercise" id="lesson5_21" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_21" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>So here is our full, annotated <CODE>try / except</CODE> for the pie 
+program:</P><CODE># Get input from the user<BR>        pieces = input("How many 
+pieces of pie do you want? ")<BR><BR># Begin the try / except statement<BR>      
+  try:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;# This is the line which might throw 
+an exception<BR>        &nbsp;&nbsp;&nbsp;&nbsp;percentage = 
+1/int(pieces)<BR><BR># This will catch NameError, <BR>        # ValueError, and 
+TypeError exceptions<BR>        except (NameError, ValueError, TypeError):<BR>   
+     &nbsp;&nbsp;&nbsp;&nbsp;# This displays if one of these errors are 
+thrown<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You need to enter a 
+number!")<BR><BR># This will catch ZeroDivisionError errors<BR>        except 
+ZeroDivisionError:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;# This displays if 
+ZeroDivisionError is thrown<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You cannot 
+enter a zero!")<BR><BR># This catches anything else which might go wrong<BR>     
+   except:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("Something bad happened. No 
+pie for you.")<BR><BR># This code runs if no exception is thrown<BR>        
+else:<BR>        &nbsp;&nbsp;&nbsp;&nbsp;print("You get", format(percentage, 
+".2%"), "of the pie!")<BR><BR># This code runs regardless of whether an 
+exception is thrown<BR>        finally:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;print("Thank you for using the Pie 
+Program!")</CODE></DIV>
+<DIV class="fullpage">
+<H1>Debugging</H1>
+<P>A skill that you should cultivate as you program is always asking yourself, 
+"What could go wrong here?" or alternatively, "What crazy thing might our user 
+do to crash our (seemingly) perfect program?"</P>
+<P>For example, look at the program which we used to demonstrate the while loop 
+in the chapter on iteration:</P><CODE>while True:<BR>        
+&nbsp;&nbsp;&nbsp;&nbsp;line = input('Enter something: ')<BR>        if line[0] 
+== '#' :<BR>        &nbsp;&nbsp;&nbsp;&nbsp;continue<BR>        if line == 
+'done':<BR>        &nbsp;&nbsp;&nbsp;&nbsp;break<BR>        print(line)<BR>      
+  print('Done!')</CODE>
+<P>Look what happens when the user enters an empty line of input:</P><CODE>Enter 
+something: <STRONG>Hello!</STRONG><BR>        Hello!</CODE><CODE>Enter 
+something: <STRONG># Don't print this</STRONG></CODE><CODE>Enter something: 
+<BR><BR>Traceback (most recent call last):<BR>&nbsp;&nbsp;File "examples.py", 
+line 3, in &lt;module&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;if line[0] == '#' 
+:<BR>IndexError: string index out of range</CODE>
+<P>The code works fine until it is presented an empty line. Then there is no 
+zero-th character, so we get a <CODE>traceback</CODE>. There are two solutions 
+to this to make line three "safe" even if the line is empty.</P>
+<P>One possibility is to simply use the <CODE>startswith</CODE> method which 
+returns <CODE>False</CODE> if the string is empty.</P><CODE>if 
+line.startswith('#') :</CODE>
+<P>Another way is to safely write the <CODE>if</CODE> statement using the 
+guardian pattern and make sure the second logical expression is evaluated only 
+where there is at least one character in the string.:</P><CODE>if len(line) &gt; 
+0 and line[0] == '#' :</CODE>
+<P>Finally, if we are not sure what all could go wrong, the program could be 
+placed within a <CODE>try / except</CODE> statement:</P><CODE>while 
+True:<BR>&nbsp;&nbsp;&nbsp;&nbsp;line = input('Enter something: 
+')<BR>&nbsp;&nbsp;&nbsp;&nbsp;try:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if 
+line[0] == '#' 
+:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue<BR>&nbsp;&nbsp;&nbsp;&nbsp;except:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line 
+= input('Enter something: 
+')<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if 
+line == 
+'done':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(line)<BR>print('Done!')</CODE></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

@@ -1,0 +1,206 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_4_part_1.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_1" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson4_part1_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part1_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part1_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part1_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part1_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part1_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson4_part1_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson4_part1_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson4_part1_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson4_part1_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 4: Functions</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>Functions are reusable pieces of  programs. They allow you to give a name to 
+a block of statements, allowing you  to run that block using the specified name 
+anywhere in your program and any  number of times. This is known as 
+<EM>calling</EM> the function. We have already used a few built-in functions 
+such as <CODE>type</CODE>, <CODE>int</CODE>, <CODE>float</CODE>, and 
+<CODE>format</CODE>.</P></DIV>
+<DIV class="fullpage">
+<P>Python provides a number of  important built-in functions that we can use 
+without needing to provide the  function definition. The creators of Python 
+wrote a set of functions to solve  common problems and included them in Python 
+for us to use. Here are a few examples:</P></DIV>
+<DIV class="fullpage">
+<H1>The min and max Functions</H1>
+<P>The <CODE>max</CODE> and <CODE>min</CODE> functions give us the largest and  
+smallest values in a list, respectively:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>max('Hello world')</CODE></TD>
+    <TD><CODE>w</CODE></TD></TR>
+  <TR>
+    <TD><CODE>max([10,9,3,5,7,2])</CODE></TD>
+    <TD><CODE>10</CODE></TD></TR>
+  <TR>
+    <TD><CODE>min('Hello world')</CODE></TD>
+    <TD><CODE><EM>&nbsp;(space)</EM></CODE></TD></TR>
+  <TR>
+    <TD><CODE>min([10,9,3,5,7,2])</CODE></TD>
+    <TD><CODE>2</CODE></TD></TR></TBODY></TABLE>
+<P>The <CODE>max</CODE> function tells us the “largest character” in the string 
+(which turns out to be  the letter “w”) and the <CODE>min</CODE> function  shows 
+us the smallest character (which turns out to be a space).</P></DIV>
+<DIV class="fullpage">
+<H1>The len Function</H1>
+<P>Another very common built-in  function is the <CODE>len</CODE> function which 
+ tells us how many items are in its argument. If the argument to 
+<CODE>len</CODE> is a string, it returns the number of  characters in the 
+string. If the argument is a sequence, then it counts the number of objects in 
+the sequence.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>len('Hello world')</CODE></TD>
+    <TD><CODE>11</CODE></TD></TR>
+  <TR>
+    <TD><CODE>len([10,9,3,5,7,2])</CODE></TD>
+    <TD><CODE>6</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>The function concept is probably the  most important building block of any 
+non-trivial software (in any programming  language), so we will explore various 
+aspects of functions in this chapter.</P></DIV>
+<DIV class="fullpage">
+<H1>Defining Functions</H1>
+<P>In Python, functions are <STRONG><EM>defined</EM></STRONG> using the 
+<CODE>def</CODE> keyword. After  this keyword comes an identifier name for the 
+function, followed by a pair of  parentheses which may enclose some names of 
+variables, and by the final colon  that ends the line. &nbsp;Next follows the  
+block of statements that are part of this function.</P>
+<P>Just like with conditional  statements and iterations, the first line of the 
+function definition is called  the <STRONG><EM>header</EM></STRONG>;  the rest 
+is called the <STRONG><EM>body</EM></STRONG>. The header has to end with a  
+colon and the body has to be indented. By convention, the indentation is always  
+four spaces. The body can contain any number of statements. </P><CODE>def 
+<EM>[function_name]</EM>():<BR>&nbsp;&nbsp;&nbsp;&nbsp;<EM>[statements]</EM></CODE>
+<P>After we define the function, we can <STRONG><EM>call</EM></STRONG> it by 
+name – and even pass information into it.</P>
+<P>An example will show that this is  actually very simple:</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Say Hello Function</H1><CODE>def 
+say_hello():<BR>&nbsp;&nbsp;&nbsp;&nbsp;# block belonging to the 
+function<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('hello 
+world')<BR>&nbsp;&nbsp;&nbsp;&nbsp;# End of 
+function<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>say_hello()&nbsp;  # call the 
+function<BR>say_hello()&nbsp; # call the function again</CODE>
+<H2>Output:</H2><CODE>hello world<BR>hello world</CODE>
+<H2>How It Works</H2>
+<P>We define a function called <CODE>say_hello</CODE> using the syntax as 
+explained above. This function takes no parameters and  hence there are no 
+variables declared in the parentheses. Parameters to  functions are just input 
+to the function so that we can pass in different  values to it and get back 
+corresponding results.</P>
+<P>Notice that we can call the same function twice which means  we do not have 
+to write the same code again.</P>
+<P class="exercise"><A class="exercise" id="lesson4_00" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_00" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part1_files/python_launch_100.png"></A></P>
+<P>Here is another example:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE># Here we define the function<BR>def 
+      print_lyrics():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("I'm a 
+      lumberjack,")<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("and I'm okay.")<BR><BR># 
+      Here we call the function<BR>print_lyrics()</CODE></TD>
+    <TD><CODE>I'm a lumberjack,<BR>and I'm okay.</CODE></TD></TR></TBODY></TABLE>
+<P>Once you have defined a function, you can use it inside  another function. 
+For example, to repeat the previous refrain, we could write an  additional 
+function called <CODE>repeat_lyrics</CODE>:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE># Here we define the second function<BR>def 
+      repeat_lyrics():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print_lyrics()<BR>&nbsp;&nbsp;&nbsp;&nbsp;print_lyrics()<BR><BR># 
+      Here we call the second function<BR>repeat_lyrics()</CODE></TD>
+    <TD><CODE>I'm a lumberjack,<BR>and I'm okay.<BR>I'm a lumberjack,<BR>and 
+      I'm okay.</CODE></TD></TR></TBODY></TABLE>
+<P>Pulling together the code fragments from the previous  section, the whole 
+program looks like this:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE># Here we define the first function<BR>def 
+      print_lyrics():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("I'm a 
+      lumberjack,")<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("and I'm okay.")<BR><BR># 
+      Here we define the second function<BR>def 
+      repeat_lyrics():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print_lyrics()<BR>&nbsp;&nbsp;&nbsp;&nbsp;print_lyrics()<BR><BR># 
+      Here we call the second function<BR>repeat_lyrics ()</CODE></TD>
+    <TD><CODE>I'm a lumberjack,<BR>and I'm okay.<BR>I'm a lumberjack,<BR>and 
+      I'm okay.</CODE></TD></TR></TBODY></TABLE>
+<P>Our program contains two function definitions: <CODE>print_lyrics</CODE> and 
+<CODE>repeat_lyrics</CODE>.  Function definitions get executed just like other 
+statements, but the effect is  to create function objects. The statements inside 
+the function do not get  executed until the function is called, and the function 
+definition generates no  output.</P>
+<P>As you might expect, you have to create a function before  you can execute 
+it. In other words, the function definition has to be executed  before the first 
+time it is called.</P>
+<P class="exercise"><A class="exercise" id="lesson4_01" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_01" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part1_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson4_02" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_02" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Flow of Execution</H1>
+<P>In order to ensure that a function is defined before its  first use, you have 
+to know the order in which statements are executed, which  is called the 
+<STRONG><EM>flow of execution</EM></STRONG>.</P>
+<P>Execution always begins at the first statement of the  program. Statements 
+are executed one at a time, in order from top to bottom.</P>
+<P>Function <EM>definitions</EM> do not alter the flow of execution of the 
+program, but remember that statements  inside the function are not executed 
+until the function is called.</P>
+<P>A function <EM>call</EM> is  like a detour in the flow of execution. Instead 
+of going to the next statement,  the flow jumps to the body of the function, 
+executes all the statements there,  and then comes back to pick up where it left 
+off.</P>
+<P>That sounds simple enough, until you remember that one  function can call 
+another. While in the middle of one function, the program  might have to execute 
+the statements in another function. But while executing  that new function, the 
+program might have to execute yet another function!</P>
+<P>Fortunately, Python is good at keeping track of where it is,  so each time a 
+function completes, the program picks up where it left off in  the function that 
+called it. When it gets to the end of the program, it  terminates.</P>
+<P>What’s the moral of this sordid tale? When you read a  program, you don’t 
+always want to read from top to bottom. Sometimes it makes  more sense if you 
+follow the flow of execution.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

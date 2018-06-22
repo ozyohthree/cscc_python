@@ -1,0 +1,112 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_4_part_5.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson4_part5_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part5_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part5_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part5_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part5_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part5_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson4_part5_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson4_part5_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson4_part5_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson4_part5_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Mainline Logic</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>This next topic covers mainline logic which is extremely  important, 
+especially if you are using modules.&nbsp; </P>
+<P>Without functions, we have seen that code will execute as  soon as the 
+program is loaded.&nbsp; Functions  help to control when code is executed.</P>
+<P>When you import a module into a program, the module's code  also needs to be 
+encased in functions – otherwise the module's program will  execute as soon as 
+you import it.&nbsp; Just  like with the math module, you can call the 
+individual functions contained  within the module.</P>
+<P>Since you can create a module out of any piece of code you  write in Python, 
+you also should encase your programs completely in  functions.&nbsp; This is a 
+way of controlling  the <EM>mainline logic</EM> of the program.</P>
+<P>Here is an example:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def 
+      main():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Hello!")<BR>&nbsp;&nbsp;&nbsp;&nbsp;secret_code()<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Bye!")<BR><BR>def 
+      secret_code():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Shh! It's a 
+      secret!")<BR><BR>main()</CODE></TD>
+    <TD><CODE>Hello!<BR>Shh! It's a secret!<BR>Bye!</CODE></TD></TR></TBODY></TABLE>
+<P>In this example, the main logic for the program is enclosed  in the 
+<CODE>main</CODE> function.&nbsp; This function performs actions, and calls a  
+second function called <CODE>secret_code</CODE>.</P>
+<P class="exercise"><A class="exercise" id="lesson4_17" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_17" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part5_files/python_launch_100.png"></A></P>
+<P>"But wait!" you say.&nbsp; By calling the <CODE>main</CODE> function (the 
+last line), the mainline logic still executes if it is imported  into another 
+program.&nbsp; This is true.&nbsp; We need a way to automatically call the 
+<CODE>main</CODE> function if we are running this module by  itself, but to NOT 
+call the <CODE>main</CODE> function if this code has been imported into another 
+program.&nbsp; Here's how we do it:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def 
+      main():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Hello!")<BR>&nbsp;&nbsp;&nbsp;&nbsp;secret_code()<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Bye!")<BR><BR>def 
+      secret_code():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Shh! It's a    
+      secret!")<BR><BR>if __name__ == 
+      "__main__":<BR>&nbsp;&nbsp;&nbsp;&nbsp;main()</CODE></TD>
+    <TD><CODE>Hello!<BR>Shh! It's a secret!<BR>Bye!</CODE></TD></TR></TBODY></TABLE>
+<P>The <CODE>__name__</CODE> variable is built-into Python.&nbsp;  It tells the 
+scope of the code which is being executed.&nbsp; If the code is running at the 
+top level of  the program, then <CODE>__name__</CODE> is equal to 
+<CODE>__main__</CODE>.&nbsp;  If the code has been imported into the program, 
+then the <CODE>__name__</CODE>is equal to the name of the  module.&nbsp; This 
+allows us to automatically  execute <CODE>main()</CODE> when we are running this 
+code by  itself – and when we are importing this code into another program, it 
+will only  execute the <CODE>main</CODE> function when we  explicitly call 
+it.</P>
+<P>Moving forward as a best practice for all of your future  programs:</P>
+<UL>
+  <LI>You should define a <CODE>main</CODE> function</LI>
+  <LI>You should use the <CODE>if  __name__ == "__main__":</CODE> conditional to 
+  execute the <CODE>main</CODE> function</LI></UL></DIV>
+<DIV class="fullpage">
+<H1>Debugging</H1>
+<P>If you are using a text editor to write your scripts, you  might run into 
+problems with spaces and tabs. The best way to avoid these  problems is to use 
+spaces exclusively (no tabs). Most text editors that know  about Python do this 
+by default, but some don’t.</P>
+<P>Tabs and spaces are usually invisible, which makes them hard  to debug, so 
+try to find an editor that manages indentation for you.</P>
+<P>Also, don’t forget to save your program before you run it.  Some development 
+environments do this automatically, but some don’t. In that  case, the program 
+you are looking at in the text editor is not the same as the  program you are 
+running.</P>
+<P>Debugging can take a long time if you keep running the same  incorrect 
+program over and over!</P>
+<P>Make sure that the code you are looking at is the code you  are running. If 
+you’re not sure, put something like <CODE>print('hello')</CODE> at the beginning 
+of the program and run it again. If you don’t see <CODE>hello</CODE>, you’re not 
+running the right program!</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

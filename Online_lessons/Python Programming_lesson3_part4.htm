@@ -1,0 +1,454 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_3_part_4.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson3_part4_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part4_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part4_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part4_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part4_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part4_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson3_part4_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson3_part4_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson3_part4_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson3_part4_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>The range Function</H1></DIV>
+<DIV class="fullpage">
+<P>Let's say you wanted to count to 100.&nbsp; It would be a pain to have list 
+each number out.&nbsp; The <CODE>range</CODE> function can make it much easier 
+to create and manage a <CODE>for</CODE> loop.</P>
+<P>The range function is a built-in function in Python.&nbsp; We will learn more 
+about functions in the next lesson.&nbsp; For now, functions are simply reusable 
+bits of code that can be called when needed.&nbsp; </P>
+<P>The range function helps us to create a sequence of integers.&nbsp; The 
+creation is based on information, called an <STRONG>argument</STRONG>, which you 
+pass into the range function. </P>
+<P>Here's an example:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Sequence</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>range(3)</CODE></TD>
+    <TD><CODE>0, 1, 2 </CODE></TD>
+    <TD>
+      <P>Start at zero and go up to, but not including, 3.</P></TD></TR>
+  <TR>
+    <TD><CODE>range(5)</CODE></TD>
+    <TD><CODE>0, 1, 2, 3, 4</CODE></TD>
+    <TD>
+      <P>Start at zero and go up to, but not including, 
+5.</P></TD></TR></TBODY></TABLE>
+<P>Here we have passed the integer 3 into the <CODE>range</CODE> function.&nbsp; 
+&nbsp;&nbsp;When we call <CODE>range(3)</CODE>, we get the numbers <CODE>0, 1, 
+2</CODE>. </P>
+<P>Note that the first item in the sequence is a zero.&nbsp; And notice that the 
+sequence goes up to, but does not include, 3.</P>
+<P>We can use <CODE>range(3)</CODE> in a <CODE>for</CODE> loop like this:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>for n in range(3):<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD><CODE>0<BR>              1<BR>              
+2</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson3_13" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_13" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part4_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson3_14" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_14" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part4_files/python_launch_100.png"></A></P>
+<P>Of course, we don't want every sequence to begin with a zero.&nbsp; The 
+<CODE>range</CODE> function has other options as well, and you pass these into 
+the function too.&nbsp; Adding a second integer will allow you to control where 
+you start and where you stop.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Sequence</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>range(1, 3)</CODE></TD>
+    <TD><CODE>1, 2 </CODE></TD>
+    <TD>
+      <P>Start at 1 and go up to, but not including, 3.</P></TD></TR>
+  <TR>
+    <TD><CODE>range(2, 5)</CODE></TD>
+    <TD><CODE>2, 3, 4</CODE></TD>
+    <TD>
+      <P>Start at 2 and go up to, but not including, 5.</P></TD></TR></TBODY></TABLE>
+<P>When we use <CODE>range(2, 5)</CODE> in a <CODE>for</CODE> statement, we 
+get:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>for n in range(2, 5):<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD><CODE>2<BR>              3<BR>              4 
+</CODE></TD></TR></TBODY></TABLE>
+<P>Notice that the first integer passed into the <CODE>range</CODE> function 
+controls the starting integer in the sequence.&nbsp; The second integer passed 
+into the <CODE>range</CODE> function controls the ending integer - but again, it 
+is up to an not including that integer.</P>
+<P class="exercise"><A class="exercise" id="lesson3_15" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_15" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part4_files/python_launch_100.png"></A></P>
+<P>Finally, we might want to be able to skip count.&nbsp; Remember as a 
+kid?&nbsp; Counting to 100 by 10s?&nbsp; That was skip counting.&nbsp; Python 
+calls this the step. The third argument passed into the <CODE>range</CODE> 
+function controls the step in which the sequence is incremented or decremented 
+(because you can also go backwards!).&nbsp; Here are some examples:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Sequence</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>range(1, 10, 2)</CODE></TD>
+    <TD><CODE>1, 3, 5, 7, 9 </CODE></TD>
+    <TD>
+      <P>Start at 1 and go up to, but not including, 10.&nbsp; Go up in steps of 
+      2.</P></TD></TR>
+  <TR>
+    <TD><CODE>range(5, 35, 4)</CODE></TD>
+    <TD><CODE>5, 9, 13, 17, 21, 25, 29, 33</CODE></TD>
+    <TD>
+      <P>Start at 5 and go up to, but not including, 35.&nbsp; Go up in steps of 
+      4.</P></TD></TR></TBODY></TABLE>
+<P>When we use <CODE>range(1, 10, 2)</CODE> in a <CODE>for</CODE> statement, we 
+get:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>for n in range(1, 10, 2):<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD><CODE>1<BR>              3<BR>              5<BR>              7<BR>   
+                 9 </CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson3_16" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_16" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part4_files/python_launch_100.png"></A></P>
+<P>Remember how you can go backwards?&nbsp; Just start at a higher number, stop 
+at a lower number, and use a negative step.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Sequence</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>range(10, 0, -2)</CODE></TD>
+    <TD><CODE>10, 8, 6, 4, 2</CODE></TD>
+    <TD>
+      <P>Start at 10 and go <STRONG>down</STRONG> to, but not including, 
+      0.&nbsp; Go down in steps of 2.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Example: Countdown, Part 3</H1>
+<P>Here is how we can re-write the countdown program using the 
+<CODE>range</CODE> function:</P><CODE>for n in range(5, 0, -1):<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print(n)<BR><BR>      print('Blastoff!')</CODE>
+<H2>Output</H2><CODE>5<BR>      4<BR>      3<BR>      2<BR>      1<BR>      
+Blastoff!</CODE>
+<H2>How it Works</H2>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Explanation</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>for n in range(5, 0, -1):<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD><CODE>5<BR>              4<BR>              3<BR>              2<BR>   
+                 1</CODE></TD>
+    <TD>
+      <P>Range creates a sequence.&nbsp; It starts at 5.&nbsp; The step argument 
+      (the last one) tells us to down by 1 until, but not including, the stop 
+      argument of 0.&nbsp; In other words:</P><CODE>[5, 4, 3, 2, 1]</CODE>       
+              
+      <P>The <CODE>for</CODE> statement then iterated through the generated 
+      sequence like normal.</P></TD></TR>
+  <TR>
+    <TD><CODE>print('Blastoff!') </CODE></TD>
+    <TD><CODE>Blastoff!</CODE></TD>
+    <TD>
+      <P>We display the word <EM>Blastoff!</EM> The program is 
+  finished.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson3_17" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_17" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part4_files/python_launch_100.png"></A></P>
+<P>The arguments which are passed into the range function can be variables as 
+well - just so long as they are integers.&nbsp; This allows more control over 
+your program.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Sequence</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>start = 5<BR>              stop = 10<BR>              step = 
+      2<BR>              range(start, stop, step)</CODE></TD>
+    <TD><CODE>5, 7, 9 </CODE></TD>
+    <TD>
+      <P>Start at 5 and go up to, but not including, 10.&nbsp; Go up in steps of 
+      2.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 5<BR>              y = 35<BR>              z = 4<BR>         
+           range(x, y, z)</CODE></TD>
+    <TD><CODE>5, 9, 13, 17, 21, 25, 29, 33</CODE></TD>
+    <TD>
+      <P>Start at 5 and go up to, but not including, 35.&nbsp; Go up in steps of 
+      4.</P></TD></TR></TBODY></TABLE>
+<P>This means that you have your user control the countdown program as 
+well.</P></DIV>
+<DIV class="fullpage">
+<H1>The break Statement </H1>
+<P>The <CODE>break</CODE> statement is used to <EM>break</EM> out of a loop 
+statement i.e. stop the execution of a looping statement, even if the loop 
+condition has not become <CODE>False</CODE> or the sequence of items has not 
+been completely iterated over.</P>
+<P>For example, suppose you want to take input from the user until they type 
+done. You could write:</P><CODE>while True:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;line = input('Are you done? ')<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;if line == 'done':<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print(line)<BR><BR>      print('Done!')</CODE>
+<P>The loop condition is <CODE>True</CODE>, which is always true, so the loop 
+runs until it hits the <CODE>break</CODE> statement.</P>
+<P>Each time through, it prompts the user with the question <EM>Are you 
+done?</EM>&nbsp; If the user types <EM>done</EM>, the <CODE>break</CODE> 
+statement exits the loop. Otherwise the program echoes whatever the user types 
+and goes back to the top of the loop. Here’s a sample run:</P><CODE>Are you 
+done? <STRONG>not done</STRONG><BR>      Are you done? <STRONG>done</STRONG><BR> 
+     Done!</CODE>
+<P>This way of writing while loops is common because you can check the condition 
+anywhere in the loop (not just at the top) and you can express the stop 
+condition affirmatively ("stop when this happens") rather than negatively ("keep 
+going until that happens").</P>
+<P>An important note is that if you <EM>break</EM> out of a <CODE>for</CODE> or 
+<CODE>while</CODE> loop, any corresponding loop <CODE>else</CODE> block is 
+<STRONG>not</STRONG> executed.</P>
+<P>Note that you can use <CODE>break</CODE> with the <CODE>for</CODE> statement 
+as well.</P>
+<P class="exercise"><A class="exercise" id="lesson3_18" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_18" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>The continue Statement </H1>
+<P>The <CODE>continue</CODE> statement is used to tell Python to skip the rest 
+of the statements in the current loop block and to <EM>continue</EM> to the next 
+iteration of the loop.</P>
+<P>For example:</P><CODE>for n in [1, 2, 3]:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;if 
+n==2:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE>
+<P>When we execute this code, we get:</P><CODE>1<BR>      3</CODE>
+<P>So even though there is clearly a 2 in our list of 1, 2, 3, the 2 is 
+skipped.&nbsp; Why?&nbsp; In the body block of the <CODE>for</CODE> statement, 
+there is a conditional statement.&nbsp; The conditional is looking at whether 
+<CODE>n = 2</CODE>.&nbsp; When <CODE>n = 2</CODE>, the conditional uses the 
+<CODE>continue</CODE> statement to skip the rest of the body block of the 
+<CODE>for</CODE> statement and go straight to the next iteration.&nbsp; So, the 
+2 is never printed.&nbsp; It is skipped. </P>
+<P>The better practice might be to leave the 2 out of your list, but it is nice 
+to know that you can use <CODE>continue</CODE> if you need it.</P>
+<P>Note that you can use <CODE>continue</CODE> with the <CODE>while</CODE> 
+statement as well.</P>
+<P class="exercise"><A class="exercise" id="lesson3_19" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_19" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Nested Loops</H1>
+<P>Just as with conditional statements, you can also nest loops.&nbsp; You can 
+nest <CODE>for</CODE> loops in <CODE>while</CODE> loops and <CODE>while</CODE> 
+loops in <CODE>for</CODE> loops.&nbsp; You can nest <CODE>for</CODE> loops in 
+other <CODE>for</CODE> loops and <CODE>while</CODE> loops in other 
+<CODE>while</CODE> loops.&nbsp; What follows are some examples and ideas for 
+creating programs.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Triangles</H1>
+<P>This code produces some pretty triangles:</P><CODE>for x in range(3):<BR>     
+ &nbsp;&nbsp;&nbsp;&nbsp;for y in range(3, 0, -1):<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("|", " "*x, "*"*y)</CODE>
+<H2>Output</H2><CODE>|&nbsp;&nbsp;***<BR>      |&nbsp;&nbsp;**<BR>      
+|&nbsp;&nbsp;*<BR>      |&nbsp;&nbsp;&nbsp;***<BR>      
+|&nbsp;&nbsp;&nbsp;**<BR>      |&nbsp;&nbsp;&nbsp;*<BR>      
+|&nbsp;&nbsp;&nbsp;&nbsp;***<BR>      |&nbsp;&nbsp;&nbsp;&nbsp;**<BR>      
+|&nbsp;&nbsp;&nbsp;&nbsp;*<BR>      |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***<BR>      
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<BR>      
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</CODE>
+<H2>How It Works</H2>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Explanation</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>for x in range(4):</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>This is the outer <CODE>for</CODE> loop.&nbsp; It will be iterated 3 
+      times.&nbsp; The variable <CODE>x</CODE> will take on the values of 0, 1, 
+      2, and 3.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp; for y in range(3, 0, -1): </CODE></TD>
+    <TD>
+      <P><EM>None </EM></P></TD>
+    <TD>
+      <P>This is the inner <CODE>for</CODE> loop.&nbsp; It will also be iterated 
+      3 times.&nbsp; The variable <CODE>y</CODE> will take on the values of 3, 
+      2, and 1.&nbsp; </P>
+      <P>Because the inner <CODE>for</CODE> loop is inside of the outer 
+      <CODE>for</CODE> loop, the inner <CODE>for</CODE> loop will completely 
+      execute a total of 3 times <STRONG>each</STRONG> time the outer 
+      <CODE>for</CODE> loop runs.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print("|", " "*x, 
+      "*"*y)</CODE></TD>
+    <TD></TD>
+    <TD>
+      <P>This is the statement which changes during each iteration. Let's do 
+      these one at a time.</P>
+      <P>When the outer <CODE>for</CODE> loop runs, <CODE>x = 0</CODE>.&nbsp; 
+      Immediately, the inner <CODE>for</CODE> loop runs where <CODE>y = 
+      4</CODE>. Let's look at the below table to see each individual 
+      iteration.</P></TD></TR></TBODY></TABLE>
+<P>Here are our iterations.&nbsp; Since the outer loop will run 4 times and the 
+inner loop will run 3 times, there will be 12 total iterations:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Iteration</TH>
+    <TH>x value</TH>
+    <TH>y value</TH>
+    <TH>print statement</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD>1</TD>
+    <TD>0</TD>
+    <TD>3</TD>
+    <TD><CODE>print("|", " "*0, "*"*3)</CODE></TD>
+    <TD><CODE>| &nbsp;***</CODE></TD></TR>
+  <TR>
+    <TD>2 </TD>
+    <TD>0 </TD>
+    <TD>2</TD>
+    <TD><CODE>print("|", " "*0, "*"*2)</CODE></TD>
+    <TD><CODE>| &nbsp;**</CODE></TD></TR>
+  <TR>
+    <TD>3</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD><CODE>print("|", " "*0, "*"*1)</CODE></TD>
+    <TD><CODE>| &nbsp;*</CODE></TD></TR>
+  <TR>
+    <TD>4</TD>
+    <TD>1</TD>
+    <TD>3</TD>
+    <TD><CODE>print("|", " "*1, "*"*3)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;***</CODE></TD></TR>
+  <TR>
+    <TD>5 </TD>
+    <TD>1 </TD>
+    <TD>2</TD>
+    <TD><CODE>print("|", " "*1, "*"*2)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;**</CODE></TD></TR>
+  <TR>
+    <TD>6</TD>
+    <TD>1</TD>
+    <TD>1</TD>
+    <TD><CODE>print("|", " "*1, "*"*1)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;*</CODE></TD></TR>
+  <TR>
+    <TD>7</TD>
+    <TD>2</TD>
+    <TD>3</TD>
+    <TD><CODE>print("|", " "*2, "*"*3)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;&nbsp;***</CODE></TD></TR>
+  <TR>
+    <TD>8 </TD>
+    <TD>2 </TD>
+    <TD>2</TD>
+    <TD><CODE>print("|", " "*2, "*"*2)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;&nbsp;**</CODE></TD></TR>
+  <TR>
+    <TD>9</TD>
+    <TD>2</TD>
+    <TD>1</TD>
+    <TD><CODE>print("|", " "*2, "*"*1)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;&nbsp;*</CODE></TD></TR>
+  <TR>
+    <TD>10</TD>
+    <TD>3</TD>
+    <TD>3</TD>
+    <TD><CODE>print("|", " "*3, "*"*3)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;&nbsp;&nbsp;***</CODE></TD></TR>
+  <TR>
+    <TD>11 </TD>
+    <TD>3 </TD>
+    <TD>2</TD>
+    <TD><CODE>print("|", " "*3, "*"*2)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;&nbsp;&nbsp;**</CODE></TD></TR>
+  <TR>
+    <TD>12</TD>
+    <TD>3</TD>
+    <TD>1</TD>
+    <TD><CODE>print("|", " "*3, "*"*1)</CODE></TD>
+    <TD><CODE>| &nbsp;&nbsp;&nbsp;&nbsp;*</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson3_20" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_20" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Debugging</H1>
+<P>As you start writing bigger programs, you might find yourself spending more 
+time debugging. More code means more chances to make an error and more places 
+for bugs to hide.</P>
+<P>One way to cut your debugging time is "debugging by bisection". For example, 
+if there are 100 lines in your program and you check them one at a time, it 
+would take 100 steps.</P>
+<P>Instead, try to break the problem in half. Look at the middle of the program, 
+or near it, for an intermediate value you can check. Add a print statement (or 
+something else that has a verifiable effect) and run the program.</P>
+<P>If the mid-point check is incorrect, there must be a problem in the first 
+half of the program. If it is correct, the problem is in the second half.</P>
+<P>Every time you perform a check like this, you halve the number of lines you 
+have to search. After six steps (which is fewer than 100), you would be down to 
+one or two lines of code, at least in theory.</P>
+<P>In practice it is not always clear what the "middle of the program" is and 
+not always possible to check it. It doesn’t make sense to count lines and find 
+the exact midpoint. Instead, think about places in the program where there might 
+be errors and places where it is easy to put a check. Then choose a spot where 
+you think the chances are about the same that the bug is before or after the 
+check.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

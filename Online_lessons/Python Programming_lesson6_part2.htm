@@ -1,0 +1,274 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_6_part_2.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_2" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson6_part2_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part2_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part2_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part2_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part2_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part2_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson6_part2_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson6_part2_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson6_part2_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson6_part2_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 6, Bit 2: Lists and Strings</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>A string is a sequence of characters and a list is a sequence of values, but 
+a list of characters is not the same as a string. To convert from a string to a 
+list of characters, you can use list:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>s = 'spam'<BR><BR>              t = list[s]<BR><BR>              
+      print(t)</CODE></TD>
+    <TD><CODE>['s', 'p', 'a', 'm']</CODE> </TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>Because <CODE>list</CODE> is the name of a built-in function, you should 
+avoid using it as a variable name. I also avoid the letter l because it looks 
+too much like the number 1. So that's why I use <CODE>t</CODE>.</P></DIV>
+<DIV class="fullpage">
+<P>The <CODE>list</CODE> function breaks a string into individual letters. If 
+you want to break a string into words, you can use the <CODE>split</CODE> 
+method:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>s = 'pining for the fjords'<BR><BR>              t = 
+      s.split()<BR><BR>              print(t)</CODE></TD>
+    <TD><CODE>['pining', 'for', 'the', 'fjords']</CODE> </TD></TR></TBODY></TABLE>
+<P>Once you have used <CODE>split</CODE> to break the string into a list of 
+words, you can use the index operator (square bracket) to look at a particular 
+word in the list.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print(t[2])</CODE></TD>
+    <TD><CODE>the</CODE> </TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>You can call <CODE>split</CODE> with an optional argument called a delimiter 
+that specifies which characters to use as word boundaries. The following example 
+uses a hyphen as a delimiter:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>s = 'spam-spam-spam'<BR><BR>              t = 
+      s.split('-')<BR><BR>              print(t)</CODE></TD>
+    <TD><CODE>['spam', 'spam', 'spam']</CODE> </TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H2>Join</H2>
+<P><CODE>join</CODE> is the inverse of <CODE>split</CODE>. It takes a list of 
+strings and concatenates the elements. <CODE>join</CODE> is a string method, so 
+you have to invoke it on the delimiter and pass the list as a parameter:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['pining', 'for', 'the', 'fjords']<BR><BR>              
+      delimiter = ' '<BR><BR>              delimiter.join(t)</CODE></TD>
+    <TD><CODE>pining for the fjords</CODE> </TD></TR></TBODY></TABLE>
+<P>In this case the delimiter is a space character, so <CODE>join</CODE> puts a 
+space between words. To concatenate strings without spaces, you can use the 
+empty string, ", as a delimiter.</P></DIV>
+<DIV class="fullpage">
+<H1>Aliasing</H1>
+<P>If <CODE>a</CODE> refers to an object and you assign <CODE>b = a</CODE>, then 
+both variables refer to the same object:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>a = [1, 2, 3]<BR><BR>              b = a<BR><BR>              b 
+      is a</CODE></TD>
+    <TD><CODE>True</CODE> </TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>The association of a variable with an object is called a 
+<STRONG><EM>reference</EM></STRONG>. In this example, there are two references 
+to the same object: both <CODE>a</CODE> and <CODE>b</CODE> point to the same 
+list.</P>
+<P>An object with more than one reference has more than one name, so we say that 
+the object is <STRONG><EM>aliased</EM></STRONG>.</P></DIV>
+<DIV class="fullpage">
+<P>If the aliased object is mutable, changes made with one alias affect the 
+other:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>a = [1, 2, 3]<BR><BR>              b = a<BR><BR>              
+      b[0] = 17<BR><BR>              print(a)<BR>              
+print(b)</CODE></TD>
+    <TD><CODE>[17, 2, 3]<BR>              [17, 2, 3]</CODE> 
+</TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>Although this behavior can be useful, it is error-prone. In general, it is 
+safer to avoid aliasing when you are working with mutable objects.</P></DIV>
+<DIV class="fullpage">
+<P>For immutable objects like strings, aliasing is not as much of a problem. In 
+this example:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>a = 'banana'<BR><BR>              b = a<BR><BR>              b = 
+      'apple'<BR><BR>              print(a)<BR>              print(b)</CODE></TD>
+    <TD><CODE>banana<BR>              apple</CODE> </TD></TR></TBODY></TABLE>
+<P>It almost never makes a difference whether <CODE>a</CODE> and <CODE>b</CODE> 
+refer to the same string or not.</P></DIV>
+<DIV class="fullpage">
+<H1>List Arguments</H1>
+<P>When you pass a list to a function, the function gets a reference to the 
+list. If the function modifies a list parameter, the caller sees the change. For 
+example, <CODE>delete_head</CODE> removes the first element from a 
+list:</P><CODE>def delete_head(t):<BR>      &nbsp;&nbsp;&nbsp;&nbsp;del 
+t[0]</CODE>
+<P>Here's how it is used:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>letters = ['a', 'b', 'c']<BR><BR>              
+      delete_head(letters)<BR><BR>              print(letters)</CODE></TD>
+    <TD><CODE>['b', 'c']</CODE></TD></TR></TBODY></TABLE>
+<P>The parameter <CODE>t</CODE> and the variable <CODE>letters</CODE> are 
+aliases for the same object.</P></DIV>
+<DIV class="fullpage">
+<P>It is important to distinguish between operations that <EM>modify</EM> lists 
+and operations that <EM>create</EM> new lists. For example, the 
+<CODE>append</CODE> method modifies a list, but the <CODE>+</CODE> operator 
+creates a new list:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t1 = [1, 2]<BR><BR>              t2 = t1.append(3)<BR><BR>       
+             print(t1)</CODE></TD>
+    <TD><CODE>[1, 2, 3]</CODE></TD></TR>
+  <TR>
+    <TD><CODE>print(t2)</CODE></TD>
+    <TD><CODE>None</CODE></TD></TR>
+  <TR>
+    <TD><CODE>t3 = t1 + [3]<BR><BR>              print(t3)</CODE></TD>
+    <TD><CODE>[1, 2, 3]</CODE></TD></TR>
+  <TR>
+    <TD><CODE>t2 is t3</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>This difference is important when you write functions that are supposed to 
+modify lists. For example, this function does not delete the head of a 
+list:</P><CODE>def bad_delete_head(t):<BR>      &nbsp;&nbsp;&nbsp;&nbsp;t = 
+t[1:]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+# WRONG!</CODE>
+<P>The <CODE>slice</CODE> operator (<CODE>:</CODE>) creates a new list and the 
+assignment makes <CODE>t</CODE> refer to it, but none of that has any effect on 
+the list that was passed as an argument.</P></DIV>
+<DIV class="fullpage">
+<P>An alternative is to write a function that creates and returns a new list. 
+For example, <CODE>tail</CODE> returns all but the first element of a 
+list:</P><CODE>def tail(t):<BR>      &nbsp;&nbsp;&nbsp;&nbsp;return t[1:]</CODE>
+<P>This function leaves the original list unmodified. Here's how it is used:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>letters = ['a', 'b', 'c']<BR><BR>              rest = 
+      tail(letters)<BR><BR>              print(rest)</CODE></TD>
+    <TD><CODE>['b', 'c']</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Debugging Lists</H1>
+<P>Careless use of lists (and other mutable objects) can lead to long hours of 
+debugging. Here are some common pitfalls and ways to avoid them:</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>1. Don't forget that most list methods modify the argument and return 
+</STRONG><CODE>None</CODE><STRONG>.</STRONG> This is the opposite of the string 
+methods, which return a new string and leave the original alone.</P>
+<P>If you are used to writing string code like this:</P><CODE>word = 
+word.strip()</CODE>
+<P>It is tempting to write list code like this:</P><CODE>t = 
+t.sort()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # 
+WRONG!</CODE>
+<P>Because sort returns <CODE>None</CODE>, the next operation you perform with 
+<CODE>t</CODE> is likely to fail.</P>
+<P>Before using list methods and operators, you should read the documentation 
+carefully and then test them in interactive mode. </P></DIV>
+<DIV class="fullpage">
+<P><STRONG>2. Pick an idiom and stick with it.</STRONG></P>
+<P>Part of the problem with lists is that there are too many ways to do things. 
+For example, to remove an element from a list, you can use <CODE>pop</CODE>, 
+<CODE>remove</CODE>, <CODE>del</CODE>, or even a <CODE>slice</CODE> 
+assignment.</P>
+<P>To add an element, you can use the <CODE>append</CODE> method or the 
+<CODE>+</CODE> operator. But don't forget that these are 
+right:</P><CODE>t.append(x)<BR>      t = t + [x]</CODE>
+<P>And these are 
+wrong:</P><CODE>t.append([x])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+# WRONG!<BR>      t = t.append(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # 
+WRONG!<BR>      t + 
+[x]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+# WRONG!<BR>      t = t + 
+x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+# WRONG!</CODE>
+<P>Try out each of these examples in interactive mode to make sure you 
+understand what they do. Notice that only the last one causes a runtime error; 
+the other three are legal, but they do the wrong thing.</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>3. Make copies to avoid aliasing.</STRONG></P>
+<P>If you want to use a method like sort that modifies the argument, but you 
+need to keep the original list as well, you can make a copy.</P><CODE>orig = 
+t[:]<BR>      t.sort()</CODE>
+<P>In this example you could also use the built-in function sorted, which 
+returns a new, sorted list and leaves the original alone. But in that case you 
+should avoid using sorted as a variable name!       </P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

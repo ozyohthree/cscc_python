@@ -1,0 +1,394 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_3_part_1.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson3_part1_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part1_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part1_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part1_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part1_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part1_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson3_part1_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson3_part1_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson3_part1_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson3_part1_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Lesson 3: Iteration</H1></DIV>
+<DIV class="fullpage">
+<P>Computers are often used to automate repetitive tasks. Repeating identical or 
+similar tasks without making errors is something that computers do well and 
+people do poorly. In a computer program, repetition is also called 
+iteration.</P>
+<P>Because iteration is so common, Python provides language features to make it 
+easier.</P></DIV>
+<DIV class="fullpage">
+<H1>The while Statement</H1>
+<P>The <CODE>while</CODE> statement allows you to repeatedly execute a block of 
+statements so long as a condition is true. &nbsp;It is considered to be a 
+condition-controlled statement.</P>
+<P>The simplest form of the <CODE>while</CODE> statement is this:</P><CODE>while 
+<EM>[condition]</EM>:<BR>&nbsp;&nbsp;&nbsp;&nbsp;<EM>[do something]</EM></CODE>
+<P>Just like with the <CODE>if</CODE> statement, the Boolean expression after 
+<CODE>while</CODE> is called the <STRONG>condition</STRONG>. If the condition is 
+true, the body of the <CODE>while</CODE> statement executes.&nbsp; Once the body 
+is completed, the condition is re-evaluated.&nbsp; If it is found to still be 
+true, then the body executes again.&nbsp; This repeats until the condition is 
+found to be false.&nbsp; At that point, the <CODE>while</CODE> statement stops 
+and the rest of the program continues to run.</P>
+<P>More formally, here is the flow of execution for a <CODE>while</CODE> 
+statement:</P>
+<UL>
+  <LI>Determine whether the condition is true or false.</LI>
+  <LI>If false, exit the <CODE>while</CODE> statement and continue execution at 
+  the next statement.</LI>
+  <LI>If the condition is true, run the body and then go back to step 1.</LI></UL>
+<P>This type of flow is called a <STRONG>loop</STRONG> because the third step 
+loops back around to the top.</P></DIV>
+<DIV class="fullpage">
+<H1>Pretest Loop</H1>
+<P>The <CODE>while</CODE> statement is considered to be a pretest loop – this 
+means it tests the condition before it decided to execute.&nbsp; So if you need 
+to run the body of the <CODE>while</CODE> statement at least once, you may need 
+to prime the <CODE>while</CODE> statement by setting the condition to be true 
+ahead of time.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Bad Joke</H1>
+<P>Here is a program which tells a knock knock joke using a <CODE>while</CODE> 
+statement:</P><CODE>knock_knock = True<BR><BR>while 
+knock_knock:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("\nKnock, 
+knock!")<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("&nbsp; Who's 
+there?")<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("Banana.")<BR>&nbsp;&nbsp;&nbsp;&nbsp;print("&nbsp; 
+Banana who?\n")<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp; again = 
+input("Continue the joke? y/n 
+")<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if 
+again!="y":<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;knock_knock 
+= False<BR><BR>print("\nKnock, knock!")<BR>print("&nbsp; Who's 
+there?")<BR>print("Orange.")<BR>print("&nbsp; Orange who?")<BR>print("Orange you 
+glad I didn't say 'banana'?")</CODE>
+<H2>Output</H2><CODE>Knock, knock!<BR>&nbsp;&nbsp;Who's 
+there?<BR>Banana.<BR>&nbsp;&nbsp;Banana who?<BR><BR>Continue the joke? y/n 
+<STRONG>y</STRONG><BR><BR>Knock, knock!<BR>&nbsp;&nbsp;Who's 
+there?<BR>Banana.<BR>&nbsp;&nbsp;Banana who?<BR><BR>Continue the joke? y/n 
+<STRONG>n</STRONG><BR><BR>Knock, knock!<BR>&nbsp;&nbsp;Who's 
+there?<BR>Orange.<BR>&nbsp;&nbsp;Orange who?<BR>Orange you glad I didn't say 
+'banana'?</CODE>
+<H2>How it Works</H2>
+<P>We've set a condition control <CODE>knock_knock</CODE> equal to True.&nbsp; 
+The while statement checks that <CODE>knock_knock</CODE> is true, then performs 
+the actions in the body of the statement.&nbsp; In this case, the user is 
+prompted to enter a value, the value is evaluated using a conditional 
+statement.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Explanation</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>knock_knock = True</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>First, we assign the Boolean value <CODE>True</CODE> to the variable 
+      <CODE>knock_knock.</CODE> </P></TD></TR>
+  <TR>
+    <TD><CODE>while knock_knock:</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We begin the <CODE>while</CODE> statement with the condition of 
+      <CODE>knock_knock</CODE>. &nbsp;This is a shortcut way of writing 
+      <CODE>knock_knock == True</CODE>. We first check this condition.&nbsp; 
+      Since <CODE>knock_knock</CODE> IS True, the condition evaluates as 
+      true.&nbsp; We move on to execute the body.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp; print("\nKnock, knock!")<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print("&nbsp; Who's there?")<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print("Banana.")<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print("&nbsp; Banana who?\n")</CODE></TD>
+    <TD><CODE>Knock, knock!<BR>              &nbsp;&nbsp;Who's there?<BR>      
+              Banana.<BR>              &nbsp;&nbsp;Banana who?</CODE></TD>
+    <TD>
+      <P>We display the beginning of a bad knock knock joke.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp;&nbsp;again = input("Continue the joke? y/n 
+      ")</CODE></TD>
+    <TD><CODE>Continue the joke? y/n</CODE></TD>
+    <TD>
+      <P>We accept input from the user.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp;&nbsp;if again!="y":<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;knock_knock = 
+    False</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We evaluate the input.&nbsp; If the user enters something other than 
+      'y' we set the value of <CODE>knock_knock</CODE> to 
+      <CODE>False</CODE>.&nbsp; If the user enters 'y' then nothing happens and 
+      the <CODE>while</CODE> loop continues.&nbsp; In our example, we entered 
+      'y' so the <CODE>while</CODE> loop repeats.</P></TD></TR>
+  <TR>
+    <TD><CODE>print("\nKnock, knock!")<BR>              print("&nbsp; Who's 
+      there?")<BR>              print("Orange.")<BR>              print("&nbsp; 
+      Orange who?")<BR>              print("Orange you glad I didn't say 
+      'banana'?")</CODE></TD>
+    <TD><CODE>Knock, knock!<BR>              &nbsp;&nbsp;Who's there?<BR>      
+              Orange.<BR>              &nbsp;&nbsp;Orange who?<BR>              
+      Orange you glad I didn't say 'banana'?</CODE></TD>
+    <TD>
+      <P>After we set the value of <CODE>knock_knock</CODE> to 
+      <CODE>False</CODE>, the program continues.&nbsp; In this case, we display 
+      the punchline. </P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson3_01" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_01" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Example: Countdown</H1>
+<P>Here is a program which counts down to 0 using a <CODE>while</CODE> 
+statement:</P><CODE>n = 5<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>while n &gt; 
+0:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(n)<BR>&nbsp;&nbsp;&nbsp;&nbsp;n = n – 
+1<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>print('Blastoff!')</CODE>
+<H2>Output</H2><CODE>5<BR>4<BR>3<BR>2<BR>1<BR>Blastoff!</CODE>
+<H2>How it Works</H2>
+<P>You can almost read the <CODE>while</CODE> statement as if it were English. 
+It means, "While <CODE>n</CODE> is greater than 0, display the value of 
+<CODE>n</CODE> and then decrement <CODE>n</CODE>. When you get to 0, display the 
+word <EM>Blastoff!</EM>"</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Explanation</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>n = 5</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>First, we assign the literal constant value <CODE>5</CODE> to the 
+      variable <CODE>n.</CODE> </P></TD></TR>
+  <TR>
+    <TD><CODE>while n &gt; 0:</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We begin the <CODE>while</CODE> statement with the condition of <CODE>n 
+      &gt; 0</CODE>.&nbsp; We first check this condition.&nbsp; Since <CODE>n = 
+      5</CODE> and <CODE>5 &gt; 0</CODE>, the condition evaluates as true.&nbsp; 
+      We move on to execute the body.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp; print(n)              n = n – 1</CODE></TD>
+    <TD><CODE>5</CODE></TD>
+    <TD>
+      <P>We display the value of <CODE>n</CODE>, then reassign <CODE>n</CODE> to 
+      be one less.</P></TD></TR>
+  <TR>
+    <TD><CODE>while n &gt; 0:</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We re-evaluate the condition again.&nbsp; <CODE>n = 4</CODE> and 
+      <CODE>4 &gt; 0</CODE>, so the condition again evaluates as true.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp; print(n)              n = n – 1</CODE></TD>
+    <TD><CODE>4</CODE></TD>
+    <TD>
+      <P>We display the value of <CODE>n</CODE>, then reassign <CODE>n</CODE> to 
+      be one less.</P></TD></TR>
+  <TR>
+    <TD><CODE>while n &gt; 0:</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We re-evaluate the condition again.&nbsp; <CODE>n = 3</CODE> and 
+      <CODE>3 &gt; 0</CODE>, so the condition again evaluates as true.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp; print(n)              n = n – 1</CODE></TD>
+    <TD><CODE>3</CODE></TD>
+    <TD>
+      <P>We display the value of <CODE>n</CODE>, then reassign <CODE>n</CODE> to 
+      be one less.</P></TD></TR>
+  <TR>
+    <TD><CODE>while n &gt; 0:</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We re-evaluate the condition again.&nbsp; <CODE>n = 2</CODE> and 
+      <CODE>2 &gt; 0</CODE>, so the condition again evaluates as true.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp; print(n)              n = n – 1</CODE></TD>
+    <TD><CODE>2</CODE></TD>
+    <TD>
+      <P>We display the value of <CODE>n</CODE>, then reassign <CODE>n</CODE> to 
+      be one less.</P></TD></TR>
+  <TR>
+    <TD><CODE>while n &gt; 0:</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We re-evaluate the condition again.&nbsp; <CODE>n = 1</CODE> and 
+      <CODE>1 &gt; 0</CODE>, so the condition again evaluates as true.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp; print(n)              n = n – 1</CODE></TD>
+    <TD><CODE>1</CODE></TD>
+    <TD>
+      <P>We display the value of <CODE>n</CODE>, then reassign <CODE>n</CODE> to 
+      be one less.</P></TD></TR>
+  <TR>
+    <TD><CODE>while n &gt; 0:</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We re-evaluate the condition again.&nbsp; <CODE>n = 0</CODE>, but 
+      <CODE>0</CODE> is not greater than 0, so the condition&nbsp; evaluates as 
+      false.&nbsp; The <CODE>while</CODE> statement is finished and the program 
+      moves on.</P></TD></TR>
+  <TR>
+    <TD><CODE>print('Blastoff!') </CODE></TD>
+    <TD><CODE>Blastoff!</CODE></TD>
+    <TD>
+      <P>We display the word <EM>Blastoff!</EM> The program is 
+  finished.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson3_02" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_02" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Infinite Loops</H1>
+<P>The body of the loop should change the value of one or more variables so that 
+the condition becomes false eventually and the loop terminates. Otherwise the 
+loop will repeat forever, which is called an <STRONG>infinite loop</STRONG>. An 
+endless source of amusement for computer scientists is the observation that the 
+directions on shampoo, "Lather, rinse, repeat", are an infinite loop.</P>
+<P>In the case of the countdown, we can prove that the loop terminates: if 
+<CODE>n</CODE> is zero or negative, the loop never runs. Otherwise, 
+<CODE>n</CODE> gets smaller by one each time through the loop, so eventually we 
+have to get to 0.</P>
+<P>For some other loops, it is not so easy to tell. For example:</P><CODE>while 
+n != 
+1:<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(n)<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;if 
+n % 2 == 0:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# n is 
+even<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = n / 
+2<BR>&nbsp;&nbsp;&nbsp;&nbsp;else:<BR>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; # n 
+is odd<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = n*3 + 1</CODE>
+<P>The condition for this loop is <CODE>n != 1</CODE>, so the loop will continue 
+until <CODE>n</CODE> is 1, which makes the condition false.</P>
+<P>Each time through the loop, the program outputs the value of <CODE>n</CODE> 
+and then checks whether it is even or odd. If it is even, <CODE>n</CODE> is 
+divided by 2. If it is odd, the value of <CODE>n</CODE> is replaced with 
+<CODE>n*3 + 1</CODE>. For example, if the argument passed to sequence is 3, the 
+resulting values of <CODE>n</CODE> are 3, 10, 5, 16, 8, 4, 2, 1.</P>
+<P>Since <CODE>n</CODE> sometimes increases and sometimes decreases, there is no 
+obvious proof that <CODE>n</CODE> will ever reach 1, or that the program 
+terminates. For some particular values of <CODE>n</CODE>, we can prove 
+termination. For example, if the starting value is a power of two, 
+<CODE>n</CODE> will be even every time through the loop until it reaches 1. The 
+previous example ends with such a sequence, starting with 16.</P>
+<P>The hard question is whether we can prove that this program terminates for 
+all positive values of <CODE>n</CODE>. So far, no one has been able to prove it 
+or disprove it! (See <A 
+href="http://en.wikipedia.org/wiki/Collatz_conjecture">http://en.wikipedia.org/wiki/Collatz_conjecture</A> 
+.)</P>
+<P class="exercise"><A class="exercise" id="lesson3_03" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_03" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>else: Alternative Execution</H1>
+<P>A <CODE>while</CODE> statement can have an optional <CODE>else</CODE> 
+clause.&nbsp; This code will execute once the condition is no longer true.&nbsp; 
+We can re-write the Countdown program using the <CODE>else</CODE> clause like 
+this:</P><CODE>n = 5<BR>&nbsp;&nbsp;&nbsp;&nbsp;  <BR>while n &gt; 
+0:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(n)<BR>&nbsp;&nbsp;&nbsp;&nbsp;n = n – 
+1<BR>else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('Blastoff!')</CODE>
+<P>We will get the exact same output.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Number Guessing, Part 2</H1>
+<P>In this program, we are still playing the guessing game, but the advantage is 
+that the user is allowed to keep guessing until he guesses correctly - there is 
+no need to repeatedly run the program for each guess, as we have done in the 
+previous section. This aptly demonstrates the use of the <CODE>while</CODE> 
+statement.</P><CODE>number = 23<BR>running = True<BR><BR>while 
+running:<BR>&nbsp;&nbsp;&nbsp;&nbsp;guess = int(input('Enter an integer: 
+'))<BR><BR>&nbsp;&nbsp;&nbsp; if guess == 
+number:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('You guessed 
+it!')<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;running = 
+False<BR>&nbsp;&nbsp;&nbsp; elif guess &lt; 
+number:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('No, you are 
+too low!')<BR>&nbsp;&nbsp;&nbsp; else:<BR>&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;print('No, you are too 
+high!')<BR>else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('The while loop is 
+over.')<BR><BR>print('Done') <BR></CODE>
+<H2>Output:</H2><CODE>Enter an integer: <STRONG>50</STRONG><BR>No, you are too 
+high!<BR><BR>Enter an integer: <STRONG>22</STRONG><BR>No, you are too 
+low!<BR><BR>Enter an integer: <STRONG>23</STRONG><BR>You guessed it!<BR><BR>The 
+while loop is over.<BR>Done</CODE>
+<H2>How It Works</H2>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Explanation</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>number = 23<BR>              running = True</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>First, we assign the literal constant value <CODE>23</CODE> to the 
+      variable <CODE>number</CODE> using the assignment operator 
+      (<CODE>=</CODE>).&nbsp; We also assign the boolean value of 
+      <CODE>True</CODE> to the variable <CODE>running</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>while running:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;guess = 
+      int(input('Enter an integer: '))<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp; if guess == number:         
+            <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('You guessed 
+      it!')               <BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;running = False<BR>        
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+      &nbsp;&nbsp;&nbsp; elif guess                                              
+                               &lt; number:<BR>&nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp;&nbsp;print('No, you are too low!')               
+      <BR><BR>&nbsp;&nbsp;&nbsp; else:               <BR>&nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp;&nbsp;print('No, you are too high!')               
+      </CODE></TD>
+    <TD>
+      <P><EM>Varies depending on the user’s input</EM></P></TD>
+    <TD>
+      <P>We move the <CODE>input</CODE> and <CODE>if</CODE> statements to inside 
+      the <CODE>while</CODE> loop and set the variable <CODE>running</CODE> to 
+      <CODE>True</CODE> before the while loop. </P>
+      <P>First, we check if the variable <CODE>running</CODE> is 
+      <CODE>True</CODE> and then proceed to execute the corresponding 
+      <EM>while-block</EM>. </P>
+      <P>After this block is executed, the condition is again checked which in 
+      this case is the <CODE>running</CODE> variable. </P>
+      <P>If it is true, we execute the while-block again, otherwise we continue 
+      to execute the optional else-block and then continue to the next 
+      statement.</P>
+      <P>Notice that when the correct number is guessed, we change the value of 
+      <CODE>running</CODE> to <CODE>False</CODE>.&nbsp; This will stop the while 
+      loop and continue in our program.</P></TD></TR>
+  <TR>
+    <TD><CODE>else:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print('The while 
+      loop is over.')</CODE></TD>
+    <TD><CODE>The while loop is over.</CODE></TD>
+    <TD>
+      <P>The <CODE>else</CODE> block is executed when the <CODE>while</CODE> 
+      loop condition becomes <CODE>False</CODE> - this may even be the first 
+      time that the condition is checked. If there is an <CODE>else</CODE> 
+      clause for a <CODE>while</CODE> loop, it is always executed unless you 
+      break out of the loop with a <CODE>break</CODE> statement.</P></TD></TR>
+  <TR>
+    <TD><CODE>print('Done')</CODE></TD>
+    <TD><CODE>Done</CODE></TD>
+    <TD>
+      <P>The <CODE>while</CODE> statement is finished.&nbsp; The program 
+      continues and the word <CODE>Done</CODE> is 
+displayed.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson3_04" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_04" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part1_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

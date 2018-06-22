@@ -1,0 +1,627 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_1_part_4.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_4" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson1_part4_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part4_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part4_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part4_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part4_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part4_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson1_part4_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson1_part4_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson1_part4_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson1_part4_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Expressions, Operators, and Statements</H1></DIV>
+<DIV class="fullpage">
+<P>Time for a little more lingo. All programs will contain a combination of 
+expressions, operators, and statements.</P></DIV>
+<DIV class="fullpage">
+<H1>Expressions</H1>
+<P>Most programs that you write will contain <EM>expressions</EM>. An expression 
+is a combination of values, variables, and operators. A simple example of an 
+expression is <CODE>2 + 3</CODE>. &nbsp;When you type an expression at the 
+prompt, the interpreter evaluates it, which means that it finds the value of the 
+expression. In this case, the expression 2 + 3 evaluates to 5 (because 2 + 3 = 
+5). </P>
+<P>However, a value all by itself is also considered an expression, and so is a 
+variable, so the following are all legal expressions: </P>
+<TABLE cellspacing="0" cellpadding="0" summary="Expression Example">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>42</STRONG></CODE></TD>
+    <TD><CODE>42</CODE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>n</STRONG></CODE></TD>
+    <TD><CODE>17</CODE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>n + 25</STRONG></CODE></TD>
+    <TD><CODE>42</CODE></TD>
+    <TD>
+      <P>In this example, <CODE>n</CODE> has the value <CODE>17</CODE> and 
+      <CODE>n + 25</CODE> has the value <CODE>42</CODE> because <CODE>17 + 25 = 
+      42</CODE>. </P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Operators</H1>
+<P><EM>Operators</EM> are functionality that do something and can be represented 
+by symbols such as <CODE>+</CODE> or by special keywords. Operators require some 
+data to operate on and such data is called <EM>operands</EM>. In this case, 
+<CODE>2</CODE> and <CODE>3</CODE> are the operands.</P>
+<P>The following are expressions which contain an operator:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Code Example">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>2 + 3</STRONG></CODE></TD>
+    <TD><CODE>5</CODE></TD>
+    <TD>
+      <P>We are performing addition in this example. The operator is the plus 
+      sign. </P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>3 * 5</STRONG></CODE></TD>
+    <TD><CODE>15</CODE></TD>
+    <TD>
+      <P>We are performing multiplication in this example. The operator is the 
+      multiplication sign.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Statements</H1>
+<P>A <STRONG><EM>statement</EM></STRONG> is a unit of code that has an effect, 
+like creating a variable or displaying a value. &nbsp;Statements contain 
+expressions. Expressions may contain one or more operators.</P><CODE>n = 17
+ print(n)</CODE>
+<P>The first line is an assignment statement that gives a value to 
+<CODE>n</CODE>. The second line is a <CODE>print</CODE> statement that displays 
+the value of <CODE>n</CODE>.</P>
+<P>When you type a statement, the interpreter executes it, which means that it 
+does whatever the statement says. In general, statements don't have values – 
+they perform actions.</P></DIV>
+<DIV class="fullpage">
+<H1>Mathematical Operators</H1>
+<P>Here is a brief run through of the most common mathematical operators in 
+Python. A special thing to note is that these operators can work on all data 
+types – not just integers and floats. Strings, sequences, and objects can all 
+use these mathematical operators.</P></DIV>
+<DIV class="fullpage">
+<H1><CODE>+</CODE> (plus)</H1>
+<P>The plus + operator performs addition on two objects. </P>
+<TABLE cellspacing="0" cellpadding="0" summary="Code Example">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>3 + 5</STRONG></CODE></TD>
+    <TD><CODE>8</CODE></TD>
+    <TD>
+      <P>Notice that the result is an integer.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>1.5 + 2.5</STRONG></CODE></TD>
+    <TD><CODE>4.0</CODE></TD>
+    <TD>
+      <P>Notice that the result is a float.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>1 + 1.0</STRONG></CODE></TD>
+    <TD><CODE>2.0</CODE></TD>
+    <TD>
+      <P>Notice that we are adding an integer and a float. The result is a 
+      float.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>'a' + 'b'</STRONG></CODE></TD>
+    <TD><CODE>'ab'</CODE></TD>
+    <TD><CODE></CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_13" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_13" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1><CODE>-</CODE> (minus)</H1>
+<P>The minus – operator gives the subtraction of one number from the other; if 
+the first operand is absent it is assumed to be zero. Minus does not work with 
+strings.</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Code Example">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>-5.2</STRONG></CODE></TD>
+    <TD><CODE>-5.2</CODE></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>50 – 24</STRONG></CODE></TD>
+    <TD><CODE>26</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_14" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_14" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1><CODE>*</CODE> (multiply)</H1>
+<P>The multiply operator gives the multiplication of the two numbers or returns 
+the string repeated that many times.</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Code Example">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>2 * 3</STRONG></CODE></TD>
+    <TD><CODE>6</CODE></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>'la' * 3</STRONG></CODE></TD>
+    <TD><CODE>'lalala'</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_15" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_15" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1><CODE>**</CODE> (power)</H1>
+<P>The power operator performs an exponentiation; that is, it returns x to the 
+power of y. Power does not work with strings.</P>
+<TABLE width="637" cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>3 ** 4</STRONG></CODE></TD>
+    <TD><CODE>81</CODE></TD>
+    <TD>
+      <P>This is the same as 3<SUP>4</SUP> which is the same as <CODE>3 * 3 * 3 
+      * 3</CODE></P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>4 ** 2</STRONG></CODE></TD>
+    <TD><CODE>16</CODE></TD>
+    <TD>
+      <P>This is the same as 4<SUP>2</SUP> which is the same as 4 * 4 = 
+  16</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1><CODE>/</CODE> (divide)</H1>
+<P>The division / operator divides x by y. Python will always return a float. 
+Divide does not work with strings.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR>
+  <TR>
+    <TD><CODE><STRONG>13 / 3</STRONG></CODE></TD>
+    <TD><CODE>4.333333333333333</CODE></TD>
+    <TD>
+      <P>Note that this returns a float</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>4 / 2</STRONG></CODE></TD>
+    <TD><CODE>2.0</CODE></TD>
+    <TD>
+      <P>Note that even though 4 / 2 = 2, python returns a float and not an 
+      integer.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>0 / 5</STRONG></CODE></TD>
+    <TD><CODE>0.0</CODE></TD>
+    <TD>
+      <P>Note that even though 0 / 5 = 0, python returns a float and not an 
+      integer.</P></TD></TR></THEAD></TABLE></DIV>
+<DIV class="fullpage">
+<H1><CODE>//</CODE> (divide and floor)</H1>
+<P>The floor division operator, <CODE>//</CODE>, divides two numbers and rounds 
+down to an integer. Divide and floor does not work with strings.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR>
+  <TR>
+    <TD><CODE><STRONG>13 // 3</STRONG></CODE></TD>
+    <TD><CODE>4</CODE></TD>
+    <TD>
+      <P>Note that this returns an integer</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>4 // 2</STRONG></CODE></TD>
+    <TD><CODE>2</CODE></TD>
+    <TD>
+      <P>Note that this returns an integer</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>0 // 5</STRONG></CODE></TD>
+    <TD><CODE>0</CODE></TD>
+    <TD>
+      <P>Note that this returns an integer</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>-13 // 5</STRONG></CODE></TD>
+    <TD><CODE>-3</CODE></TD>
+    <TD>
+      <P>Note that this returns an integer</P></TD></TR></THEAD></TABLE>
+<P>When would you want to use this? Suppose the run time of a movie is 105 
+minutes. You might want to know how long that is in hours. Conventional division 
+returns a floating-point number:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>minutes = 105</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>minutes = minutes / 60</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print(minutes)</STRONG></CODE></TD>
+    <TD><CODE>1.75</CODE></TD></TR></TBODY></TABLE>
+<P>But we don't normally write hours with decimal points. Floor division returns 
+the integer number of hours, dropping the fraction part:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>minutes = 105</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>hours = minutes // 60</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print(hours)</STRONG></CODE></TD>
+    <TD><CODE>1</CODE></TD></TR></TBODY></TABLE>
+<P>To get the remainder, you could subtract off one hour in minutes:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>remainder = minutes - hours * 60</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print(remainder)</STRONG></CODE></TD>
+    <TD><CODE>45</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_16" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_16" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1><CODE>%</CODE> (modulo)</H1>
+<P>The modulus operator <CODE>%</CODE> divides two numbers and returns the 
+remainder.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Expression</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR>
+  <TR>
+    <TD><CODE><STRONG>13 % 3</STRONG></CODE></TD>
+    <TD><CODE>1</CODE></TD>
+    <TD>
+      <P>Note that this returns an integer</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>-25.5 % 2.25</STRONG></CODE></TD>
+    <TD><CODE>1.5</CODE></TD>
+    <TD>
+      <P>Note that this returns a float</P></TD></TR></THEAD></TABLE>
+<P>We can use the modulus operator <CODE>%</CODE> on our movie running time 
+example.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>remainder = minutes % 60</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print(remainder)</STRONG></CODE></TD>
+    <TD><CODE>45</CODE></TD></TR></TBODY></TABLE>
+<P>The modulus operator is more useful than it seems. For example, you can check 
+whether one number is divisible by another - if <CODE>x % y</CODE> is zero, then 
+<CODE>x</CODE> is divisible by <CODE>y</CODE>. </P>
+<P>Also, you can extract the right-most digit or digits from a number. For 
+example, <CODE>x % 10</CODE> yields the right-most digit of <CODE>x</CODE> (in 
+base 10). Similarly <CODE>x % 100</CODE> yields the last two digits.</P>
+<P class="exercise"><A class="exercise" id="lesson1_17" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_17" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson1_18" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_18" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Assignment and Operation Shortcuts</H1>
+<P>It is common to run a math operation on a variable and then assign the result 
+of the operation back to the variable, hence there is a shortcut for such 
+expressions:</P><CODE>a = 2 a = a * 3</CODE>
+<P>can be written as:</P><CODE>a = 2<BR>a *= 3</CODE>
+<P>Notice that <CODE>variable = variable operation expression</CODE> becomes 
+<CODE>variable operation= expression</CODE>.</P>
+<P>Other examples:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Code Example">
+  <THEAD>
+  <TR>
+    <TH>Long Code</TH>
+    <TH>Shortcut Code</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>a = a + 5</CODE></TD>
+    <TD><CODE><STRONG>a += 5</STRONG></CODE></TD></TR>
+  <TR>
+    <TD><CODE>a = a – 2.25</CODE></TD>
+    <TD><CODE><STRONG>a -= 2.25</STRONG></CODE></TD></TR>
+  <TR>
+    <TD><CODE>a = a * 4</CODE></TD>
+    <TD><CODE><STRONG>a *= 4</STRONG></CODE></TD></TR>
+  <TR>
+    <TD><CODE>a = a/3</CODE></TD>
+    <TD><CODE><STRONG>a /= 3</STRONG></CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Order of Operations</H1>
+<P>If you had an expression such as <CODE>2 + 3 * 4</CODE>, is the addition done 
+first or the multiplication?</P>
+<P>When an expression contains more than one operator, the order of evaluation 
+depends on the order of operations. For mathematical operators, Python follows 
+mathematical convention. The acronym PEMDAS is a useful way to remember the 
+rules:</P>
+<UL>
+  <LI><STRONG>Parentheses</STRONG> have the highest precedence and can be used 
+  to force an expression to evaluate in the order you want. Since expressions in 
+  parentheses are evaluated first, 2 * (3-1) is 4, and (1+1)**(5-2) is 8. You 
+  can also use parentheses to make an expression easier to read, as in (minute * 
+  100) / 60, even if it doesn't change the result.</LI>
+  <LI><STRONG>Exponentiation</STRONG> has the next highest precedence, so 1 + 
+  2**3 is 9, not 27, and 2 * 3**2 is 18, not 36.</LI>
+  <LI><STRONG>Multiplication and Division</STRONG> have higher precedence than 
+  Addition and Subtraction. So 2*3-1 is 5, not 4, and 6+4/2 is 8, not 5.</LI>
+  <LI><STRONG>Operators</STRONG> with the same precedence are evaluated from 
+  left to right (except exponentiation). So in the expression degrees / 2 * pi, 
+  the division happens first and the result is multiplied by pi. To divide by 2 
+  π, you can use parentheses or write degrees / 2 / pi.</LI></UL>
+<P>I don't work very hard to remember the precedence of operators. If I can't 
+tell by looking at the expression, I use parentheses to make it obvious. </P>
+<P>For example, <CODE>2 + (3 * 4)</CODE> is definitely easier to understand than 
+<CODE>2 + 3 * 4</CODE> which requires knowledge of the operator precedences. As 
+with everything else, the parentheses should be used reasonably (do not overdo 
+it) and should not be redundant, as in <CODE>(2 + (3 * 4))</CODE>.</P>
+<P>There is an additional advantage to using parentheses - it helps us to change 
+the order of evaluation. For example, if you want addition to be evaluated 
+before multiplication in an expression, then you can write something like 
+<CODE>(2 + 3) * 4</CODE>.</P>
+<P>Operators are usually associated from left to right. This means that 
+operators with the same precedence are evaluated in a left to right manner. For 
+example, <CODE>2 + 3 + 4</CODE> is evaluated as <CODE>(2 + 3) + 4</CODE>.</P>
+<P class="exercise"><A class="exercise" id="lesson1_19" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_19" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Example: Calculating on a Rectangle</H1>
+<P>Type and run the following program:</P><CODE>length = 5 breadth = 2 area = 
+length * breadth print('Area is', area) print('Perimeter is', 2 * (length + 
+breadth))</CODE>
+<H2>Output:</H2><CODE>Area is 10 Perimeter is 14</CODE>
+<H2>How It Works</H2>
+<P>Here's how this program works. </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>length = 5</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>First, we assign the literal constant value <CODE>5</CODE> to the 
+      variable <CODE>length</CODE> using the assignment operator 
+      (<CODE>=</CODE>). </P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>breadth = 2</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>Next, we assign the literal constant value <CODE>2</CODE> to the 
+      variable <CODE>breadth</CODE> using the assignment operator 
+      (<CODE>=</CODE>).</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>area = length * breadth</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>We use these to calculate the area and perimeter of the rectangle with 
+      the help of expressions. We store the result of the expression 
+      <CODE>length * breadth</CODE> in the variable area </P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print('Area is', area)</STRONG></CODE></TD>
+    <TD><CODE>Area is 10</CODE></TD>
+    <TD>
+      <P>Next, we print the value of <CODE>area</CODE> using the 
+      <CODE>print</CODE> statement.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print('Perimeter is', 2 * (length + 
+      breadth))</STRONG></CODE></TD>
+    <TD><CODE>Perimeter is 14</CODE></TD>
+    <TD>
+      <P>Finally, we directly use the value of the expression <CODE>2 * (length 
+      + breadth)</CODE> in the print function to display the perimeter of the 
+      rectangle.</P></TD></TR></TBODY></TABLE>
+<P>Notice how Python <EM>pretty-prints</EM> the output. Even though we have not 
+specified a space between <CODE>'Area is'</CODE> and the variable 
+<CODE>area</CODE>, Python puts it for us so that we get a clean nice output and 
+the program is much more readable this way (since we don't need to worry about 
+spacing in the strings we use for output). This is an example of how Python 
+makes life easy for the programmer.</P></DIV>
+<DIV class="fullpage">
+<H1>Getting Input from the Keyboard</H1>
+<P>There will be situations where your program has to interact with the user. 
+For example, you would want to take information from the user and then display 
+some results back. We can achieve this using the input() function and print 
+function respectively.</P>
+<P>The built-in function, input, stops the program and waits for the user to 
+type something. When the user presses Return or Enter, the program resumes and 
+input returns what the user typed as a string.</P>
+<P>Look at the following example:</P><CODE>my_name = input('What is your name?')
+ print(my_name)</CODE>
+<P>When we execute this code, the interpreter will prompt us for our name and 
+allow us to enter whatever we like. </P>
+<P><IMG width="740" height="259" alt="code example" src="Python%20Programming_lesson1_part4_files/lesson1_20.png"> 
+</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>my_name = input('What is your name?')</STRONG></CODE></TD>
+    <TD><CODE>What is your name?</CODE></TD>
+    <TD>
+      <P>When this code is executed, the program displays the input statement's 
+      prompt string, in this case What is your name? and waits for the user to 
+      provide some input. The program pauses until the Enter or Return key is 
+      pressed. Then the program assigns the input received from the user – in 
+      this case the string Heather - &nbsp;to the variable my_name and 
+      continues.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print('Hi,', my_name)</STRONG></CODE></TD>
+    <TD><CODE>Heather</CODE></TD>
+    <TD>
+      <P>Now that the program has received input from the user, we display the 
+      string <CODE>Hi, </CODE> followed by the value of <CODE>my_name</CODE> – 
+      Heather - using the <CODE>print</CODE> statement.</P></TD></TR></TBODY></TABLE>
+<P>Notice that the input received from the user – in this case the string 
+Heather – is right up against the prompt What is your name? This is rather ugly. 
+You can make it look nice by either adding a space at the end of the prompt:</P>
+<P><IMG width="739" height="237" src="Python%20Programming_lesson1_part4_files/lesson1_21.png"> 
+</P>
+<P>Or you can cause the input to be entered on a new line by using a special 
+sequence <CODE>\n</CODE>.  As you should recall, the sequence <CODE>\n</CODE> at 
+the end of the prompt represents a newline and causes a line break. </P>
+<P><IMG width="743" height="287" src="Python%20Programming_lesson1_part4_files/lesson1_22.png"> 
+</P>
+<P class="exercise"><A class="exercise" id="lesson1_20" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_20" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P>
+<H2>Converting Input to Integers and Floats</H2>
+<P>Also notice that everything which is entered by the user has a type of 
+string.  Even numbers.  If you need to use the user's input to perform a 
+mathematical calculation, you will need to convert the string to either an 
+integer or to a float before you perform the calculation.  To do this, you use 
+the statements <CODE>int()</CODE> and <CODE>float()</CODE>.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>my_age = input('What is your age?')<BR>my_age = 
+      int(my_age) </STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>Get the user's age.  It is automatically a string, even if the user 
+      types a number.</P>
+      <P>Convert the the <CODE>my_age</CODE> variable to an integer using 
+      <CODE>int()</CODE>.</P>
+      <P>Now you can perform mathematical calculations on the number.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>cost = input('Enter the cost')<BR>cost = float(cost) 
+      </STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>Get the cost of an item.  It is automatically a string, even if the 
+      user types a number.</P>
+      <P>Convert the the <CODE>cost</CODE> variable to a float using 
+      <CODE>float()</CODE>.</P>
+      <P>Now you can perform mathematical calculations on the 
+  number.</P></TD></TR></TBODY></TABLE>
+<P>However if the user types something other than a valid number, you will get 
+an error if you use <CODE>int()</CODE> or 
+<CODE>float()</CODE>.</P><CODE>&gt;&gt;&gt; age = input('How old are you?') How 
+old are you? too old&gt;&gt;&gt; int(age) ValueError: invalid literal for int() 
+with base 10</CODE>
+<P>We will see how to handle this kind of error later. But this is something to 
+keep in mind – users will unintentionally mess up your programs and it is 
+important to plan for it.</P>
+<P class="exercise"><A class="exercise" id="lesson1_21" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_21" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson1_22" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_22" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Converting Integers and Floats to Strings</H1>
+<P>There may come a time when you need to convert an integer or float to a 
+string.  To do this, you use the <CODE>str()</CODE> statement:.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>my_age = 20<BR>my_age = 
+      str(my_age)<BR>print(type(my_age))</STRONG></CODE></TD>
+    <TD><class 'str'=""></class></TD>
+    <TD>
+      <P>Assign the integer 20 to the variable <CODE>my_age</CODE>.</P>
+      <P>Convert the the <CODE>my_age</CODE> variable to a string using 
+      <CODE>str()</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>cost = 19.25<BR>cost = str(cost)<BR>print(type(cost)) 
+      </STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>Assign the float 19.25 to the variable <CODE>cost</CODE>.</P>
+      <P>Convert the the <CODE>cost</CODE> variable to a string using 
+      <CODE>str()</CODE>.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Debugging, Part 2</H1>
+<P>Three kinds of errors can occur in a program: syntax errors, runtime errors, 
+and semantic errors. It is useful to distinguish between them in order to track 
+them down more quickly.</P>
+<H2>Syntax error:</H2>
+<P>"Syntax" refers to the structure of a program and the rules about that 
+structure. For example, parentheses have to come in matching pairs, so <CODE>(1 
++ 2)</CODE> is legal, but <CODE>8)</CODE> is a syntax error.</P>
+<P>If there is a syntax error anywhere in your program, Python displays an error 
+message and quits, and you will not be able to run the program. During the first 
+few weeks of your programming career, you might spend a lot of time tracking 
+down syntax errors. As you gain experience, you will make fewer errors and find 
+them faster.</P>
+<H2>Runtime error:</H2>
+<P>The second type of error is a runtime error, so called because the error does 
+not appear until after the program has started running. These errors are also 
+called exceptions because they usually indicate that something exceptional (and 
+bad) has happened.</P>
+<P>In the previous section, you saw that a <CODE>ValueError</CODE> was thrown 
+when we tried to convert the string <CODE>old</CODE> to an integer. This is an 
+example of a runtime error.</P>
+<H2>Semantic error:</H2>
+<P>The third type of error is "semantic", which means related to meaning. If 
+there is a semantic error in your program, it will run without generating error 
+messages, but it will not do the right thing. It will do something else. 
+Specifically, it will do what you told it to do.</P>
+<P>Identifying semantic errors can be tricky because it requires you to work 
+backward by looking at the output of the program and trying to figure out what 
+it is doing. </P></DIV></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></BODY></HTML>

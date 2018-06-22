@@ -1,0 +1,355 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_4_part_4.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_4" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson4_part4_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part4_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part4_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part4_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part4_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part4_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson4_part4_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson4_part4_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson4_part4_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson4_part4_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Modules</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>You have seen how you can reuse code in your program by  defining functions 
+once. What if you wanted to reuse a number of functions in  other programs that 
+you write? As you might have guessed, the answer is  modules.</P>
+<P>There are various methods of writing modules, but the  simplest way is to 
+create a file with a <CODE>.py</CODE> extension that contains functions and 
+variables.</P>
+<P>Another method is to write the modules in the native  language in which the 
+Python interpreter itself was written. For example, you  can write modules in 
+the C programming language and when compiled, they can be  used from your Python 
+code when using the standard Python interpreter.</P>
+<P>A module can be imported by another program to make use of  its 
+functionality. This is how we can use the Python standard library as well.  
+First, we will see how to use the standard library modules.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Module</H1><CODE>import math<BR><BR>print('The value of pi is', 
+math.pi)<BR>print('The square root of 4 is', math.sqrt(4))</CODE>
+<H2>Output:</H2><CODE>The value of pi is 3.141592653589793<BR>The square root of 
+4 is 2.0</CODE>
+<H2>How It Works</H2>
+<P>First, we import the <CODE>math</CODE> module using the <CODE>import</CODE> 
+statement.  Basically, this translates to us telling Python that we want to use 
+this  module. The <CODE>math</CODE> module contains various  mathematical 
+functions – like <CODE>sin</CODE>, <CODE>cos</CODE>, and <CODE>tan</CODE> – as 
+well as constants such as <CODE>pi</CODE> and <CODE>e</CODE>.</P>
+<P>When Python executes the <CODE>import math</CODE> statement, it looks for the 
+<CODE>math</CODE> module. In this case, it is one of the built-in modules, and 
+hence Python knows  where to find it.</P>
+<P>If it was not a compiled module i.e. a module written in  Python, then the 
+Python interpreter will search for it in the directories  listed in system path 
+which was set up when Python was installed. If the module  is found, then the 
+statements in the body of that module are run and the module  is made available 
+for you to use. Note that the initialization is done only the  first time that 
+we import a module.</P>
+<P>The <CODE>pi</CODE> variable in  the <CODE>math</CODE> module is accessed 
+using the dotted  notation i.e. <CODE>math.pi</CODE>. It clearly  indicates that 
+this name is part of the <CODE>math</CODE> module. Another advantage of this 
+approach is that the name does not clash with  any <CODE>pi</CODE> variable used 
+in your program.</P>
+<P>The <CODE>math.pi</CODE> variable is a 15-decimal approximation of the value 
+of pi π.</P>
+<P>The <CODE>sqrt()</CODE> function in the <CODE>math</CODE> module  calculates 
+the square root of any integer or floating point number entered as  an argument. 
+Just like with pi, it is accessed using the dotted notation of 
+<CODE>math.sqrt()</CODE>.</P>
+<P class="exercise"><A class="exercise" id="lesson4_12" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_12" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Example: More from the Math Module</H1>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>import math<BR><BR>signal_power = 100<BR>noise_power = 
+      17<BR><BR>ratio = signal_power/noise_power<BR>decibels = 10 * 
+      math.log10(ratio)<BR><BR>print(decibels)</CODE></TD>
+    <TD><CODE>7.695510786217261</CODE></TD>
+    <TD>
+      <P>This example uses the function <CODE>math.log10()</CODE> to compute the 
+      logarithm base 10 of the signal-to-noise ratio.</P></TD></TR>
+  <TR>
+    <TD><CODE>import math<BR><BR>degrees = 45<BR><BR>radians = 
+      degrees/360*2*math.pi<BR><BR>print(math.sin(radians))</CODE></TD>
+    <TD><CODE>0.7071067811865475</CODE></TD>
+    <TD>
+      <P>The second    example finds the sine of 45 degrees.&nbsp;    First, it 
+      converts the degrees to radians (divide by 360 and multiply    by 2 π) and 
+      then it uses the <CODE>math.sin()</CODE> function to calculate sine. 
+      <BR><BR>The expression <CODE>math.pi</CODE> gets the variable 
+      <CODE>pi</CODE> from the math module. The value    of this variable is an 
+      approximation of π, accurate to about 15 digits. </P></TD></TR></TBODY></TABLE>
+<P>Here is a selection of the various functions available  within the 
+<CODE>math</CODE> module.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Function</TH>
+    <TH>Description</TH>
+    <TH>Example Code</TH>
+    <TH>Example Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>ceil(x)</CODE></TD>
+    <TD>
+      <P>Return the ceiling of <CODE>x</CODE> as an    Integral. This is the 
+      smallest integer &gt;= <CODE>x</CODE>.</P></TD>
+    <TD><CODE>math.ceil(4.5)</CODE></TD>
+    <TD><CODE>5</CODE></TD></TR>
+  <TR>
+    <TD><CODE>cos(x)</CODE></TD>
+    <TD>
+      <P>Return the    cosine of <CODE>x</CODE> (measured in radians).</P></TD>
+    <TD><CODE>math.cos(math.pi)</CODE></TD>
+    <TD><CODE>-1.0</CODE></TD></TR>
+  <TR>
+    <TD><CODE>degrees(x)</CODE></TD>
+    <TD>
+      <P>Convert angle <CODE>x</CODE> from radians to degrees.</P></TD>
+    <TD><CODE>math.degrees(math.pi)</CODE></TD>
+    <TD><CODE>180.0</CODE></TD></TR>
+  <TR>
+    <TD><CODE>factorial(x)</CODE></TD>
+    <TD>
+      <P>Find <CODE>x</CODE>!.    Raise a ValueError if <CODE>x</CODE> is 
+      negative or    non-integral.</P></TD>
+    <TD><CODE>math.factorial(5)</CODE></TD>
+    <TD><CODE>120</CODE></TD></TR>
+  <TR>
+    <TD><CODE>floor(x)</CODE></TD>
+    <TD>
+      <P>Return the floor of <CODE>x</CODE> as an Integral. This is the    
+      largest integer &lt;= <CODE>x</CODE>.</P></TD>
+    <TD><CODE>math.floor(4.5)</CODE></TD>
+    <TD><CODE>4</CODE></TD></TR>
+  <TR>
+    <TD><CODE>gcd(x, y)</CODE></TD>
+    <TD>
+      <P>Returns the greatest    common divisor of <CODE>x</CODE> and 
+      <CODE>y</CODE></P></TD>
+    <TD><CODE>math.gcd(28,91)</CODE></TD>
+    <TD><CODE>7</CODE></TD></TR>
+  <TR>
+    <TD><CODE>log(x[, base])</CODE></TD>
+    <TD>
+      <P>Return the logarithm of <CODE>x</CODE> to the    given base. If the 
+      base not specified, returns the natural logarithm (base e)    of 
+      <CODE>x</CODE>.</P></TD>
+    <TD><CODE>math.log(10,2)</CODE></TD>
+    <TD><CODE>3.3219280948873626</CODE></TD></TR>
+  <TR>
+    <TD><CODE>log10(x)</CODE></TD>
+    <TD>
+      <P>Return the base    10 logarithm of <CODE>x</CODE>.</P></TD>
+    <TD><CODE>math.log10(2)</CODE></TD>
+    <TD><CODE>0.3010299956639812</CODE></TD></TR>
+  <TR>
+    <TD><CODE>pow(x, y)</CODE></TD>
+    <TD>
+      <P>Return <CODE>x**y</CODE> (<CODE>x</CODE> to    the power of 
+      <CODE>y</CODE>).</P></TD>
+    <TD><CODE>math.pow(2,10)</CODE></TD>
+    <TD><CODE>1024.0</CODE></TD></TR>
+  <TR>
+    <TD><CODE>radians(x)</CODE></TD>
+    <TD>
+      <P>Convert angle <CODE>x</CODE> from degrees to radians.</P></TD>
+    <TD><CODE>math.radians(180)</CODE></TD>
+    <TD><CODE>3.141592653589793</CODE></TD></TR>
+  <TR>
+    <TD><CODE>sin(x)</CODE></TD>
+    <TD>
+      <P>Return the sine of <CODE>x</CODE> (measured in radians).</P></TD>
+    <TD><CODE>math.sin(1.777)</CODE></TD>
+    <TD><CODE>0.9788152469968777</CODE></TD></TR>
+  <TR>
+    <TD><CODE>sqrt(x)</CODE></TD>
+    <TD>
+      <P>Return the    square root of <CODE>x</CODE>.</P></TD>
+    <TD><CODE>math.sqrt(10)</CODE></TD>
+    <TD><CODE>3.1622776601683795</CODE></TD></TR>
+  <TR>
+    <TD><CODE>tan(x)</CODE></TD>
+    <TD>
+      <P>Return the tangent of <CODE>x</CODE> (measured in radians).</P></TD>
+    <TD><CODE>math.tan(1.777)</CODE></TD>
+    <TD><CODE>-4.780643944967509</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The from-import statement</H1>
+<P>If you want to directly import a specific variable or  function into your 
+program (to avoid having to type the dot notation every  time), then you can use 
+the <CODE>from-import</CODE> statement.</P>
+<P>from [module] import [function or variable]</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>from math import sqrt<BR>print('The square root of 8 is', 
+      sqrt(8))</CODE></TD>
+    <TD><CODE>The square root of 8 is 2.8284271247461903</CODE></TD></TR>
+  <TR>
+    <TD><CODE>from math import pi<BR>print('pi * 2 =', (pi*2))</CODE></TD>
+    <TD><CODE>pi * 2 = 6.283185307179586</CODE></TD></TR></TBODY></TABLE>
+<P>Notice that you do not need to type <CODE>math</CODE> and a dot in front of 
+<CODE>pi</CODE> or <CODE>sqrt()</CODE>.&nbsp;  This is great if you are lazy, 
+but bad if you have your own variable  called <CODE>pi</CODE> or your own 
+function called <CODE>sqrt()</CODE>.</P>
+<P>In general, avoid using the <CODE>from-import</CODE> statement, use the 
+<CODE>import</CODE> statement  instead. This way your program will avoid name 
+clashes and will be more  readable.</P>
+<P class="exercise"><A class="exercise" id="lesson4_13" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_13" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Byte-compiled .pyc files</H1>
+<P>Importing a module is a relatively costly affair, so Python  does some tricks 
+to make it faster. One way is to create byte-compiled files  with the extension 
+<CODE>.pyc</CODE> which is an  intermediate form that Python transforms the 
+program into (remember the  introduction section on how Python works?). This 
+<CODE>.pyc</CODE> file is useful when you import the module the next time from a 
+different  program - it will be much faster since a portion of the processing 
+required in  importing a module is already done. Also, these byte-compiled files 
+are  platform-independent.</P>
+<P>NOTE: These <CODE>.pyc</CODE> files are usually created in the same directory 
+as the corresponding <CODE>.py</CODE> files. If Python does not have permission  
+to write to files in that directory, then the <CODE>.pyc</CODE> files will not 
+be created.</P></DIV>
+<DIV class="fullpage">
+<H1>Making Your Own Modules</H1>
+<P>Creating your own modules is easy, you've been doing it all  along! This is 
+because every Python program is also a module. You just have to  make sure it 
+has a <CODE>.py</CODE> extension. The  following example should make it 
+clear.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Creating My Module</H1><CODE>def 
+say_hi():<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('Hi, this is mymodule  
+speaking.')<BR><BR>word = 'Hi!'</CODE>
+<P>We save this code in a file called <CODE>mymodule.py</CODE>.</P>
+<P>The above was a sample module. As you can see, there is  nothing particularly 
+special about it compared to our usual Python program. We  will next see how to 
+use this module in our other Python programs.</P>
+<P>Remember that the module should be placed either in the same  directory as 
+the program from which we import it, or in one of the directories  listed in the 
+system path.&nbsp; Now let's  import our new module:</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Using My Module</H1><CODE>import 
+mymodule<BR><BR>mymodule.say_hi()<BR>print(mymodule.__version__)</CODE>
+<H2>Output:</H2><CODE>Hi, this is mymodule speaking.<BR>Version 0.1</CODE>
+<H2>How It Works</H2>
+<P>Notice that we use the same dotted notation to access  members of the module. 
+Python makes good reuse of the same notation to give the  distinctive 'Pythonic' 
+feel to it so that we don't have to keep learning new  ways to do 
+things.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Using My Module with from-import</H1><CODE>from mymodule import 
+say_hi, __version__<BR><BR>say_hi()<BR>print('Version', __version__)</CODE>
+<H2>Output:</H2><CODE>Hi, this is mymodule speaking.<BR>Version 0.1</CODE>
+<P>Look!&nbsp; The output is  the same!</P>
+<P>Notice that if there was already a <CODE>__version__</CODE> name declared in 
+the module that imports <CODE>mymodule</CODE>,  there would be a clash. This is 
+also likely because it is common practice for  each module to declare its 
+version number using this name. Hence, it is always  recommended to prefer the 
+import statement even though it might make your  program a little 
+longer.</P></DIV>
+<DIV class="fullpage">
+<H1>Zen of Python</H1>
+<P>One of Python's guiding principles is that "Explicit is  better than 
+Implicit". Run <CODE>import this</CODE> in Python to learn more.</P>
+<P class="exercise"><A class="exercise" id="lesson4_14" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_14" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>The Random Module</H1>
+<P>Given the same inputs, most computer programs generate the same  outputs 
+every time, so they are said to be <STRONG><EM>deterministic</EM></STRONG>. 
+Determinism is  usually a good thing, since we expect the same calculation to 
+yield the same  result. For some applications, though, we want the computer to 
+be  unpredictable. Games are an obvious example, but there are more.</P>
+<P>Making a program truly nondeterministic turns out to be not  so easy, but 
+there are ways to make it at least seem nondeterministic. One of  them is to use 
+algorithms that generate pseudorandom numbers. Pseudorandom  numbers are not 
+truly random because they are generated by a deterministic  computation, but 
+just by looking at the numbers it is all but impossible to  distinguish them 
+from random.</P>
+<P>The <CODE>random</CODE> module  provides functions that generate pseudorandom 
+numbers (which I will simply call  “random” from here on).</P>
+<P>The function <CODE>random</CODE> returns a random float between 0.0 and 1.0 
+(including 0.0 but not 1.0). Each  time you call <CODE>random</CODE>, you get 
+the  next number in a long series. </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>import random<BR><BR>for i in 
+      range(10):<BR>&nbsp;&nbsp;&nbsp;&nbsp;x = 
+      random.random()<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(x)</CODE></TD>
+    <TD><CODE>0.301927091705<BR>0.513787075867<BR>0.319470430881<BR>0.285145917252<BR>0.839069045123<BR>0.322027080731<BR>0.550722110248<BR>0.366591677812<BR>0.396981483964<BR>0.838116437404</CODE></TD></TR></TBODY></TABLE>
+<P>The <CODE>random</CODE> function is only one of many functions that handle 
+random numbers. The function <CODE>randint</CODE> takes the parameters 
+<CODE>low</CODE> and <CODE>high</CODE>,  and returns an integer between 
+<CODE>low</CODE> and <CODE>high</CODE> (including both).</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>import random<BR><BR>for i in 
+      range(10):<BR>&nbsp;&nbsp;&nbsp;&nbsp;x = random.randint(5, 
+      10)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(x)</CODE></TD>
+    <TD><CODE>5<BR>6<BR>9<BR>5<BR>6<BR>5<BR>10<BR>9<BR>7<BR>5</CODE></TD></TR></TBODY></TABLE>
+<P>The random module also provides functions to generate random  values from 
+continuous distributions including Gaussian, exponential, gamma,  and a few 
+more.</P>
+<P class="exercise"><A class="exercise" id="lesson4_15" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_15" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part4_files/python_launch_100.png"></A></P>
+<P>Another useful function in the <CODE>random</CODE> module is 
+<CODE>randrange</CODE>.&nbsp; The <CODE>randrange</CODE> function accepts 
+parameters for <CODE>low</CODE>, <CODE>high</CODE>, and <CODE>step</CODE> – 
+which allows you to generate a random list of numbers in specific  
+increments.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>import random<BR><BR>for i in 
+      range(10):<BR>&nbsp;&nbsp;&nbsp;&nbsp;x = random.randrange(100, 1500, 
+      50)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(x)</CODE></TD>
+    <TD><CODE>250<BR>100<BR>250<BR>700<BR>1100<BR>600<BR>300<BR>1200<BR>650<BR>1450</CODE></TD></TR></TBODY></TABLE>
+<P>In this example, we generated a list of numbers from (and including)  100 to 
+(and excluding) 1500 in increments of 50.</P>
+<P class="exercise"><A class="exercise" id="lesson4_16" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_16" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part4_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

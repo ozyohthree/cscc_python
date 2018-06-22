@@ -1,0 +1,425 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_2_part_4.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson2_part4_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part4_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part4_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part4_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part4_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part4_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson2_part4_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson2_part4_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson2_part4_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson2_part4_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Controlling Output</H1></DIV>
+<DIV class="fullpage">
+<P>Let's switch topics for a moment. Thus far, we have been merely displaying 
+data using the <CODE>print</CODE> statement and its default characteristics = 
+namely, printing a space between components and ending the statement with a line 
+break. We can control this behavior.</P></DIV>
+<DIV class="fullpage">
+<H1>Item Separator</H1>
+<P>We have seen that you can print multiple literal constants and variables 
+using the <CODE>print</CODE> statement:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print("A", "B", "C") </CODE></TD>
+    <TD><CODE>A B C</CODE></TD></TR>
+  <TR>
+    <TD><CODE>color = "blue"<BR>              print('The sky is', 
+    color)</CODE></TD>
+    <TD><CODE>The sky is blue</CODE></TD></TR></TBODY></TABLE>
+<P>Python automatically separates each component using a space. By what if we 
+don't want to use a space? What if we want to use a hyphen or a comma or nothing 
+at all? Python has you covered. </P>
+<P>The components which make up the print statement are called 
+<EM>arguments</EM>. In the above examples, the string <CODE>"I see"</CODE>, the 
+variable <CODE>number</CODE>, the variable <CODE>animal</CODE>, and the string 
+<CODE>"running"</CODE> are all arguments.</P>
+<P>The print statement has a special argument which controls item separator:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print("A", "B", "C", sep="") </CODE></TD>
+    <TD><CODE>ABC</CODE></TD>
+    <TD>
+      <P>We set the <CODE>sep</CODE> argument equal to an empty string. When the 
+      components were displayed, they ran together.</P></TD></TR>
+  <TR>
+    <TD><CODE>color = "blue"<BR>              print('The sky is', color, 
+      sep='')</CODE></TD>
+    <TD><CODE>The sky isblue</CODE></TD>
+    <TD>
+      <P>We set the <CODE>sep</CODE> argument equal to an empty string. When the 
+      components were displayed, they ran together.</P></TD></TR></TBODY></TABLE>
+<P>You can use any string value for the sep argument:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print("A", "B", "C", sep="-") </CODE></TD>
+    <TD><CODE>A-B-C</CODE></TD>
+    <TD>
+      <P>We set the <CODE>sep</CODE> argument equal to a hyphen.</P></TD></TR>
+  <TR>
+    <TD><CODE>print("A", "B", "C", sep="!!") </CODE></TD>
+    <TD><CODE>A!!B!!C</CODE></TD>
+    <TD>
+      <P>We set the <CODE>sep</CODE> argument equal to two exclamation 
+      points.</P></TD></TR>
+  <TR>
+    <TD><CODE>print("A", "B", "C", sep="\n")</CODE></TD>
+    <TD><CODE>A<BR>              B<BR>              C</CODE></TD>
+    <TD>
+      <P>We set the <CODE>sep</CODE> argument equal to a line 
+  break.</P></TD></TR></TBODY></TABLE>
+<P>When you do not specify the <CODE>sep</CODE> argument, Python defaults to a 
+space. When you want to use it, just separate it from the other components with 
+a comma, then set your separator to whatever string you like.</P></DIV>
+<DIV class="fullpage">
+<H1>End Behavior</H1>
+<P>We have also seen that the <CODE>print</CODE> statement automatically ends 
+each statement with a line break.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print("Line 1")<BR>              print("Line 2") </CODE></TD>
+    <TD><CODE>Line 1<BR>              Line 2 </CODE></TD></TR>
+  <TR>
+    <TD><CODE>print("Line 1\nLine 2")<BR>              print("Line 
+    3")</CODE></TD>
+    <TD><CODE>Line 1<BR>              Line 2<BR>              Line 
+  3</CODE></TD></TR></TBODY></TABLE>
+<P>The print statement also has an argument to control the end behavior:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print("Line 1", end=" ")<BR>              print("Line 2") 
+    </CODE></TD>
+    <TD><CODE>Line 1 Line 2 </CODE></TD>
+    <TD>
+      <P>We set the <CODE>end</CODE> argument equal to a space of the first 
+      statement to a space and let the second one default. This ran the first 
+      and second statements together and separated them with a space. The second 
+      statement still ends with a line break.</P></TD></TR>
+  <TR>
+    <TD><CODE>print("Line 1", end="")<BR>              print("Line 2") 
+    </CODE></TD>
+    <TD><CODE>Line 1Line 2</CODE></TD>
+    <TD>
+      <P>We set the <CODE>end</CODE> argument equal to an empty string. Now they 
+      run together. The second statement still ends in a line 
+  break.</P></TD></TR></TBODY></TABLE>
+<P>You can use any string for the <CODE>end</CODE> argument as well:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print("Line 1", end="\n\n")<BR>              print("Line 2") 
+      </CODE></TD>
+    <TD><CODE>Line 1<BR><BR>              Line 2 </CODE></TD>
+    <TD>
+      <P>Two line breaks</P></TD></TR>
+  <TR>
+    <TD><CODE>print("Line 1", end="\n\t~")<BR>              print("Line 2") 
+      </CODE></TD>
+    <TD><CODE>Line 1<BR>              ~Line 2</CODE></TD>
+    <TD>
+      <P>Line break, tab, and a tilde</P></TD></TR></TBODY></TABLE>
+<P>When you do not specify the <CODE>end</CODE> argument, Python defaults to a 
+line break. When you want to use it, just separate it from the other components 
+with a comma, then set your <CODE>end</CODE> argument to whatever string you 
+like.</P></DIV>
+<DIV class="fullpage">
+<H1>Using Them Together</H1>
+<P>You can use the <CODE>sep</CODE> and <CODE>end</CODE> arguments individually 
+as needed or together. The order does not matter, so long as they follow your 
+list of components. Here are some examples:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print("Line 1", "Line 2", sep="!", end="")<BR>              
+      print("Line 3") </CODE></TD>
+    <TD><CODE>Line 1!Line 2Line3 </CODE></TD></TR>
+  <TR>
+    <TD><CODE>print("Line 1", "Line 2", end=" ", sep="\n")<BR>              
+      print("Line 3")</CODE></TD>
+    <TD><CODE>Line 1<BR>              Line 2 Line 3</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-17" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-17" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Formatting Numbers</H1>
+<P>We saw in the last lesson that numbers do not always display "prettily" when 
+we want them to. For example, if we were to calculate the 4.75% tax on a $2.99 
+purchase we get:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>tax_rate = 0.0475<BR>              cost = 2.99<BR>              
+      tax = 0.0475*2.99<BR>              print("You pay", tax, "in tax") 
+    </CODE></TD>
+    <TD><CODE>You pay 0.142025 in tax </CODE></TD></TR></TBODY></TABLE>
+<P>Wait a minute! We can't pay $0.142025 in tax – we have no coin to represent 
+fractions of a penny! It would make sense to round down to 0.14 and just display 
+that. Fortunately, Python makes it easy for us to format numbers using the 
+<CODE>format</CODE> function.</P>
+<P>Just like the <CODE>print</CODE> statement, the <CODE>format</CODE> function 
+accepts arguments. At the very least, it requires two: the number being 
+formatted, and the <EM>format specifier</EM>. The format specifier is a special 
+string which instructs Python on how to present the value. It is actually a 
+whole language unto itself, but we'll display some of the more common 
+examples.</P></DIV>
+<DIV class="fullpage">
+<H1>Formatting Floats</H1>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>tax_rate = 0.0475<BR>              cost = 2.99<BR>              
+      tax = 0.0475*2.99<BR>              print("You pay", format(tax, ".2f"), 
+      "in tax") </CODE></TD>
+    <TD><CODE>You pay 0.14 in tax </CODE></TD></TR></TBODY></TABLE>
+<P>The code we used - <CODE>format(tax, ".2f")</CODE> – accepted the variable 
+tax as the first argument. The second argument is the format specifier. The 
+<CODE>.2</CODE> represents the precision we want; in this case, 2 decimal 
+places. The <CODE>f</CODE> represents the type of formatting we are performing. 
+There is a whole library on the different types, but in this case f is for a 
+fixed point number.</P>
+<P>Note that <CODE>format()</CODE> will round up or down depending on the value 
+of the next decimal place. If the number is greater than or equal to 5, it will 
+round up. If the decimal is less than 5, it will round down.</P>
+<P>Let's look at an estimation of the number pi and format it.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>pi = 3.14159265359 </CODE></TD>
+    <TD>
+      <P><EM>none</EM></P></TD>
+    <TD>
+      <P>We assign the approximate value of pi to the variable 
+      <CODE>pi</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>format(pi, ".0f")</CODE></TD>
+    <TD><CODE>3</CODE></TD>
+    <TD>
+      <P><CODE>.0</CODE> means no decimal places. Notice that this rounded down. 
+      The next number after 3 was a 1. 1 is less than 5, so it rounded 
+    down.</P></TD></TR>
+  <TR>
+    <TD><CODE>format(pi, ".1f")</CODE></TD>
+    <TD><CODE>3.1</CODE></TD>
+    <TD>
+      <P><CODE>.1</CODE> means one decimal place. Notice that this rounded down. 
+      The next number after 3.1 was a 4. 4 is less than 5, so it rounded 
+      down.</P></TD></TR>
+  <TR>
+    <TD><CODE>format(pi, ".2f")</CODE></TD>
+    <TD><CODE>3.14</CODE></TD>
+    <TD>
+      <P><CODE>.2</CODE> means two decimal places. Notice that this rounded 
+      down. The next number after 3.14 was a 1. 1 is less than 5, so it rounded 
+      down.</P></TD></TR>
+  <TR>
+    <TD><CODE>format(pi, ".3f")</CODE></TD>
+    <TD><CODE>3.142</CODE></TD>
+    <TD>
+      <P><CODE>.3</CODE> means three decimal places. Notice that this rounded 
+      up. The next number after 3.141 was a 5. 5 is greater than or equal to 5, 
+      so it rounded up to 3.142.</P></TD></TR>
+  <TR>
+    <TD><CODE>format(pi, ".4f")</CODE></TD>
+    <TD><CODE>3.1416</CODE></TD>
+    <TD>
+      <P><CODE>.4</CODE> means four decimal places. Notice that this rounded up. 
+      The next number after 3.1415 was a 9. 9 is greater than or equal to 5, so 
+      it rounded up to 3.1416</P></TD></TR></TBODY></TABLE>
+<P>When you are dealing with large numbers, you might want to use a comma to 
+separate the thousandths place like this: 14,726,986.19. We just need to add a 
+comma to the format specifier:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>big_number = 14726986.192271 </CODE></TD>
+    <TD>
+      <P><EM>none</EM></P></TD></TR>
+  <TR>
+    <TD><CODE>format(big_number, ",.0f")</CODE></TD>
+    <TD><CODE>14,726,986</CODE></TD></TR>
+  <TR>
+    <TD><CODE>format(big_number, ",.1f")</CODE></TD>
+    <TD><CODE>14,726,986.2</CODE></TD></TR>
+  <TR>
+    <TD><CODE>format(big_number, ",.2f")</CODE></TD>
+    <TD><CODE>14,726,986.19</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-18" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-18" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part4_files/python_launch_100.png"></A></P>
+<P>Perhaps we want to format a percentage? In this case, we drop the 
+<CODE>f</CODE> from the format specifier and replace it with a percentage sign 
+<CODE>%</CODE>. Then we set our precision level to whatever we like:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>test_score = 0.754931</CODE></TD>
+    <TD>
+      <P><EM>none</EM></P></TD></TR>
+  <TR>
+    <TD><CODE>format(test_score, ".0%")</CODE></TD>
+    <TD><CODE>75%</CODE></TD></TR>
+  <TR>
+    <TD><CODE>format(test_score, ".1%")</CODE></TD>
+    <TD><CODE>75.5%</CODE></TD></TR>
+  <TR>
+    <TD><CODE>format(test_score, ".2%")</CODE></TD>
+    <TD><CODE>75.49%</CODE></TD></TR></TBODY></TABLE>
+<P>You can even combine the comma formatting with the percentage:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>sales_increase = 74290.754931</CODE></TD>
+    <TD>
+      <P><EM>none</EM></P></TD></TR>
+  <TR>
+    <TD><CODE>format(sales_increase, ",.2%")</CODE></TD>
+    <TD><CODE>7,429,075.49%</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-19" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-19" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Formatting Integers</H1>
+<P>Integers don't have decimal values as they are whole numbers. You can still 
+use <CODE>,.0f</CODE> to format a large integer, but it would be more proper to 
+use <CODE>d</CODE> (for "decimal integer in base 10") instead of <CODE>f</CODE>. 
+And since integers do not have decimal values, we can drop the precision. Look 
+how these two different format specifiers produce identical results.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>cars = 10473</CODE></TD>
+    <TD>
+      <P><EM>none</EM></P></TD></TR>
+  <TR>
+    <TD><CODE>format(cars, ",.0f")</CODE></TD>
+    <TD><CODE>10,473</CODE></TD></TR>
+  <TR>
+    <TD><CODE>format(cars, ",d")</CODE></TD>
+    <TD><CODE>10,473</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-20" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-20" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="title">
+<H1>Debugging</H1></DIV>
+<DIV class="fullpage">
+<P>When a syntax or runtime error occurs, the error message contains a lot of 
+information, but it can be overwhelming. The most useful parts are usually:</P>
+<UL>
+  <LI>What kind of error it was, and</LI>
+  <LI>Where it occurred.</LI></UL>
+<P>Syntax errors are usually easy to find, but there are a few gotchas. 
+Whitespace errors can be tricky because spaces and tabs are invisible and we are 
+used to ignoring them. </P>
+<PRE>&gt;&gt;&gt; x = 5
+&gt;&gt;&gt;&nbsp;y = 6
+&nbsp;&nbsp;File "&lt;stdin&gt;", line 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = 6
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^
+IndentationError: unexpected indent</PRE>
+<P>In this example, the problem is that the second line is indented by one 
+space. But the error message points to <CODE>y</CODE>, which is misleading. In 
+general, error messages indicate where the problem was discovered, but the 
+actual error might be earlier in the code, sometimes on a previous line. </P>
+<P>The same is true of runtime errors. Suppose you are trying to compute a 
+signal-to-noise ratio in decibels. The formula is SNR<SUB>db</SUB> = 10 
+log<SUB>10</SUB> (P<SUB>signal</SUB> / P<SUB>noise</SUB>). In Python, you might 
+write something like this:</P>
+<PRE>import math
+signal_power = 9
+noise_power = 10
+ratio = signal_power // noise_power
+decibels = 10 * math.log10(ratio)
+print(decibels)</PRE>
+<P>When you run this program, you get an exception: </P>
+<PRE>Traceback (most recent call last):
+&nbsp;&nbsp;File "snr.py", line 5, in ?
+&nbsp;&nbsp;&nbsp;&nbsp;decibels = 10 * math.log10(ratio)
+ValueError: math domain error</PRE>
+<P>The error message indicates line 5, but there is nothing wrong with that 
+line. To find the real error, it might be useful to print the value of 
+<CODE>ratio</CODE>, which turns out to be 0. The problem is in line 4, which 
+uses floor division <CODE>//</CODE> instead of floating-point division 
+<CODE>/</CODE>. </P>
+<P>You should take the time to read error messages carefully, but don’t assume 
+that everything they say is correct.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

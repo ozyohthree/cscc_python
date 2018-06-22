@@ -1,0 +1,165 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_3_part_2.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson3_part2_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part2_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part2_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part2_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part2_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part2_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson3_part2_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson3_part2_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson3_part2_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson3_part2_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>The for Statement</H1></DIV>
+<DIV class="fullpage">
+<P>Sometimes, we may prefer to loop a specific number of times, rather than 
+checking whether a condition is true or false.&nbsp; Fortunately, we have the 
+<CODE>for</CODE> statement which does exactly that.&nbsp; </P>
+<P>The <CODE>for</CODE> statement is another looping statement which 
+<EM>iterates</EM> over a sequence of objects i.e. go through each item in a 
+sequence. We will see more about sequences in detail in later lessons. What you 
+need to know right now is that a sequence is just an ordered collection of 
+items.</P>
+<P>The <CODE>for</CODE> statement is considered to be a count-controlled 
+statement.</P>
+<P>The simplest form of the <CODE>for</CODE> statement is this:</P><CODE>for 
+<EM>[variable]</EM> in <EM>[item1, item2, item3, 
+etc]</EM>:&nbsp;&nbsp;&nbsp;&nbsp;<EM>[do something]</EM></CODE></DIV>
+<DIV class="fullpage">
+<H1>Example: Countdown, Part 2</H1>
+<P>Here is how we can re-write the countdown program using a <CODE>for</CODE> 
+statement:</P><CODE>for n in [5, 4, 3, 2, 
+1]:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(n)<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>print('Blastoff!')</CODE>
+<H2>Output</H2><CODE>5<BR>4<BR>3<BR>2<BR>1<BR>Blastoff!</CODE>
+<H2>How it Works</H2>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Explanation</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>for n in [5, 4, 3, 2, 1]:</CODE></TD>
+    <TD><EM>None</EM></TD>
+    <TD>
+      <P>We begin the <CODE>for</CODE> statement by selecting a variable – and 
+      we can call it anything.&nbsp; <CODE>n</CODE> is a traditional variable to 
+      use to represent a number, but we could really call it almost anything. 
+      </P>
+      <P>Then we create our list.&nbsp; We separate each item using a comma and 
+      we enclose the entire list in bracket symbols <CODE>[ ]</CODE>.</P>
+      <P>We then move on to execute the body.</P></TD></TR>
+  <TR>
+    <TD><CODE>&nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD>
+      <P>5 </P></TD>
+    <TD>
+      <P>The first time we go through the loop, the variable n represents the 
+      first element in the list. </P>
+      <P>We display the value of <CODE>n</CODE>.&nbsp; And that’s it for the 
+      body of the loop.</P></TD></TR>
+  <TR>
+    <TD><CODE>for n in [5, 4, 3, 2, 1]:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD><CODE>4</CODE></TD>
+    <TD>
+      <P>The second time we go through the loop, the variable n represents the 
+      second element in the list. </P>
+      <P>We display the value of <CODE>n</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>for n in [5, 4, 3, 2, 1]:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD><CODE>3</CODE></TD>
+    <TD>
+      <P>The third time we go through the loop, the variable n represents the 
+      third element in the list. </P>
+      <P>We display the value of <CODE>n</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>for n in [5, 4, 3, 2, 1]:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD><CODE>2</CODE></TD>
+    <TD>
+      <P>The fourth time we go through the loop, the variable n represents the 
+      fourth element in the list. </P>
+      <P>We display the value of <CODE>n</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>for n in [5, 4, 3, 2, 1]:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(n)</CODE></TD>
+    <TD><CODE>1</CODE></TD>
+    <TD>
+      <P>The fifth time we go through the loop, the variable n represents the 
+      fifth element in the list. </P>
+      <P>We display the value of <CODE>n</CODE>.</P>
+      <P>We’re out of elements in the list now, so the <CODE>for</CODE> 
+      statement is finished and the program moves on.</P></TD></TR>
+  <TR>
+    <TD><CODE>print('Blastoff!') </CODE></TD>
+    <TD><CODE>Blastoff!</CODE></TD>
+    <TD>
+      <P>We display the word <EM>Blastoff!</EM> The program is 
+  finished.</P></TD></TR></TBODY></TABLE>
+<P>A list doesn’t have to contain numbers.&nbsp; It can contain strings and 
+other objects as well:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>for day in ['Mon', 'Tues', 'Weds']:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(day)</CODE></TD>
+    <TD><CODE>Mon<BR>              Tues<BR>              Weds</CODE></TD></TR>
+  <TR>
+    <TD><CODE>for stuff in [0, 'hi', 2.75, 'bye']:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(stuff)</CODE></TD>
+    <TD><CODE>0<BR>              hi<BR>              2.75<BR>              
+      bye</CODE></TD></TR></TBODY></TABLE>
+<P>We'll learn more about lists in a later lesson.</P>
+<P class="exercise"><A class="exercise" id="lesson3_05" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_05" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part2_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson3_06" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_06" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>else: Alternative Execution</H1>
+<P>A <CODE>for</CODE> statement can also have an optional <CODE>else</CODE> 
+clause.&nbsp; This code will execute once the list is exhausted.&nbsp; We can 
+re-write the Countdown program using the <CODE>else</CODE> clause like 
+this:</P><CODE>for n in [5, 4, 3, 2, 1]:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print(n)<BR>      else:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print('Blastoff!')</CODE>
+<P>Again, we will get the exact same output.</P>
+<P class="exercise"><A class="exercise" id="lesson3_07" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_07" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Loop Patterns</H1>
+<P>Often we use a <CODE>for</CODE> or <CODE>while</CODE> loop to go through a 
+list of items or the contents of a file and we are looking for something such as 
+the largest or smallest value of the data we scan through.</P>
+<P>These loops are generally constructed by:</P>
+<UL>
+  <LI>Initializing one or more variables before the loop starts</LI>
+  <LI>Performing some computation on each item in the loop body, possibly 
+  changing the variables in the body of the loop</LI>
+  <LI>Looking at the resulting variables when the loop completes</LI></UL>
+<P>We will use a list of numbers to demonstrate the concepts and construction of 
+these loop patterns.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

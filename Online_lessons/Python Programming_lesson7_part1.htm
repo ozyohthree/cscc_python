@@ -1,0 +1,137 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_7_part_1.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_1" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson7_part1_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part1_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part1_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part1_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part1_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part1_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson7_part1_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson7_part1_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson7_part1_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson7_part1_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 7: Files, Databases, and Pickles</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<H1>Persistence</H1>
+<P>So far, we have learned how to write programs and communicate our intentions 
+to the <STRONG><EM>Central Processing Unit</EM></STRONG> using conditional 
+execution, functions, and iterations. We have learned how to create and use data 
+structures in the <STRONG><EM>Main Memory</EM></STRONG>. The CPU and memory are 
+where our software works and runs. It is where all of the "thinking" 
+happens.</P>
+<P>But once the power is turned off, anything stored in either the CPU or main 
+memory is erased. So up to now, our programs have just been transient fun 
+exercises to learn Python.</P>
+<P>In this lesson, we start to work with <STRONG><EM>Secondary 
+Memory</EM></STRONG>. Secondary memory is not erased even when the power is 
+turned off. Or in the case of a USB flash drive, the data we write from our 
+programs can be removed from the system and transported to another system.</P>
+<P>These programs are <STRONG><EM>persistent</EM></STRONG>: they run for a long 
+time (or all the time); they keep at least some of their data in permanent 
+storage (a hard drive, for example); and if they shut down and restart, they 
+pick up where they left off.</P>
+<P>Examples of persistent programs are operating systems, which run pretty much 
+whenever a computer is on, and web servers, which run all the time, waiting for 
+requests to come in on the network.</P>
+<P>One of the simplest ways for programs to maintain their data is by reading 
+and writing text files. </P>
+<P>An alternative is to store the state of the program in a database. In this 
+lesson I will present a simple database and a module, <CODE>pickle</CODE>, that 
+makes it easy to store program data.</P>
+<P>We will primarily focus on reading and writing text files such as those we 
+create in a text editor. </P></DIV>
+<DIV class="fullpage">
+<H1>Files</H1>
+<P>A text file is a sequence of characters stored on a permanent medium like a 
+hard drive, flash memory, or CD - ROM.</P></DIV>
+<DIV class="fullpage">
+<H1>First Thing's First</H1>
+<P>For the examples in this lesson we need few files.</P>
+<P>The first one is called <CODE>words.txt</CODE> and it is a list of 113,809 
+official crosswords; that is, words that are considered valid in crossword 
+puzzles and other word games.&nbsp; This is part of the Moby lexicon project 
+(see <A 
+href="http://wikipedia.org/wiki/Moby_Project">http://wikipedia.org/wiki/Moby_Project</A>).</P>
+<P>The second one is a list of emails from an open source coding project, called 
+<CODE>mbox.txt</CODE>.</P>
+<P>The third is from Act 2, Scene 2 of Romeo and Juliet, called 
+<CODE>romeo-full.txt</CODE>.</P>
+<P>You can download them here:</P>
+<UL>
+  <LI><A 
+  href="https://online.cscc.edu/apps/python/book/words.txt">https://online.cscc.edu/apps/python/book/words.txt</A></LI>
+  <LI><A 
+  href="https://online.cscc.edu/apps/python/book/mbox.txt">https://online.cscc.edu/apps/python/book/mbox.txt</A></LI>
+  <LI><A 
+  href="https://online.cscc.edu/apps/python/book/romeo-full.txt">https://online.cscc.edu/apps/python/book/romeo-full.txt</A></LI></UL></DIV>
+<DIV class="fullpage">
+<P>For ease, you will want to save these files in the same folder that you are 
+in when you start Python.&nbsp; To find this folder, open IDLE and then go to 
+<EM>File &gt; Save As</EM>.&nbsp; </P>
+<P><IMG width="582" height="286" alt="screenshot" src="Python%20Programming_lesson7_part1_files/lesson7_01.png"></P>
+<P>The default folder which displays should be where you save this file.</P>
+<P><IMG width="856" height="605" alt="screenshot" src="Python%20Programming_lesson7_part1_files/lesson7_02.png"></P>
+<P>In the above example, I want to save the files in the 
+<CODE>\AppData\Local\Programs\Python\Python35-32\</CODE> folder.</P></DIV>
+<DIV class="fullpage">
+<H1>Opening Files</H1>
+<P>When we want to read or write a file, we first must open the file. Opening 
+the file communicates with your operating system, which knows where the data for 
+each file is stored. When you open a file, you are asking the operating system 
+to find the file by name and make sure the file exists. </P>
+<P>This file is in plain text, so you can open it with a text editor, but you 
+can also read it from Python. The built - in function <CODE>open</CODE> takes 
+the name of the file as a parameter and returns a file object you can use to 
+read the file.</P><CODE>fin = open('words.txt')</CODE>
+<P><CODE>fin</CODE> is a common name for a file object used for input. </P>
+<P>If we display the value of fin, we get this:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fin = open('words.txt')<BR>              print(fin)</CODE></TD>
+    <TD><CODE>&lt;_io.TextIOWrapper name='words.txt' mode='r' 
+      encoding='cp1252'&gt;</CODE></TD></TR></TBODY></TABLE>
+<P>If the <CODE>open</CODE> is successful, the operating system returns us a 
+<STRONG><EM>file handle</EM></STRONG>. The file handle is not the actual data 
+contained in the file, but instead it is a "handle" that we can use to read the 
+data. You are given a handle if the requested file exists and you have the 
+proper permissions to read the file.</P>
+<P class="exercise"><A class="exercise" id="lesson7_00" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson7_00" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson7_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>If the file does not exist, open will fail with a <CODE>traceback</CODE> and 
+you will not get a handle to access the contents of the file:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fin = open('stuff.txt')<BR>              print(fin)</CODE></TD>
+    <TD><CODE>FileNotFoundError: [Errno 2] No such file or directory: 
+      stuff.txt'</CODE></TD></TR></TBODY></TABLE>
+<P>Later we will use try and except to deal more gracefully with the situation 
+where we attempt to open a file that does not exist.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

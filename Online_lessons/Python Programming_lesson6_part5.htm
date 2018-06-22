@@ -1,0 +1,296 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_6_part_5.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson6_part5_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part5_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part5_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part5_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part5_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part5_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson6_part5_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson6_part5_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson6_part5_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson6_part5_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 6, Bit 5: Combining Data Structures</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<H1>Dictionaries and Tuples</H1>
+<P>Dictionaries have a method called <CODE>items</CODE> that returns a list of 
+tuples, where each tuple is a key-value pair.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>d = {'a':10, 'b':1, 'c':22}<BR><BR>              t = 
+      list(d.items())<BR><BR>              print(t)</CODE></TD>
+    <TD><CODE>[('a', 10), ('c', 22), ('b', 1)]</CODE></TD></TR></TBODY></TABLE>
+<P>As you should expect from a dictionary, the items are in no particular 
+order.</P></DIV>
+<DIV class="fullpage">
+<P>However, since the list of tuples is a list, and tuples are comparable, we 
+can now sort the list of tuples. Converting a dictionary to a list of tuples is 
+a way for us to output the contents of a dictionary sorted by key:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>d = {'a':10, 'b':1, 'c':22}<BR><BR>              t = 
+      list(d.items())<BR><BR>              print(t)</CODE></TD>
+    <TD><CODE>[('a', 10), ('c', 22), ('b', 1)]</CODE></TD></TR>
+  <TR>
+    <TD><CODE>t.sort()<BR><BR>              print(t)</CODE></TD>
+    <TD><CODE>[('a', 10), ('b', 1), ('c', 22)]</CODE></TD></TR></TBODY></TABLE>
+<P>The new list is sorted in ascending alphabetical order by the key value.</P>
+<P class="exercise"><A class="exercise" id="lesson6_25" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_25" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part5_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Multiple Assignment with Dictionaries</H1>
+<P>Combining items, tuple assignment, and <CODE>for</CODE>, you can see a nice 
+code pattern for traversing the keys and values of a dictionary in a single 
+loop:</P><CODE>for key, val in d.items():<BR>      &nbsp;&nbsp;&nbsp;&nbsp;print 
+val, key</CODE>
+<P>This loop has two iteration variables because items returns a list of tuples 
+and <CODE>key</CODE>, <CODE>val</CODE> is a tuple assignment that successively 
+iterates through each of the key-value pairs in the dictionary.</P>
+<P>For each iteration through the loop, both <CODE>key</CODE> and 
+<CODE>value</CODE> are advanced to the next key-value pair in the dictionary 
+(still in hash order).</P>
+<P>The output of this loop is:</P><CODE>10 a<BR>      22 c<BR>      1 b</CODE>
+<P>Again, it is in hash key order (i.e., no particular order).</P></DIV>
+<DIV class="fullpage">
+<P>If we combine these two techniques, we can print out the contents of a 
+dictionary sorted by the value stored in each key-value pair.</P>
+<P>To do this, we first make a list of tuples where each tuple is (value, key). 
+The items method would give us a list of (key, value) tuples—but this time we 
+want to sort by value, not key. Once we have constructed the list with the 
+value-key tuples, it is a simple matter to sort the list in reverse order and 
+print out the new, sorted list.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>d = {'a':10, 'b':1, 'c':22}</CODE></TD>
+    <TD><CODE><EM>None</EM></CODE></TD>
+    <TD>
+      <P>We create the dictionary <CODE>d</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>l = list()</CODE></TD>
+    <TD><CODE><EM>None</EM></CODE> </TD>
+    <TD>
+      <P>We create an empty list called <CODE>l</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>for key, val in d.items():<BR>            
+      &nbsp;&nbsp;&nbsp;&nbsp;l.append((val, key))</CODE></TD>
+    <TD><CODE><EM>None</EM></CODE> </TD>
+    <TD>
+      <P>Iterate through the dictionary <CODE>d</CODE>.&nbsp; Append to the list 
+      <CODE>l</CODE> a tuple which contains the value and key of each dictionary 
+      entry. </P></TD></TR>
+  <TR>
+    <TD><CODE>print(l)</CODE></TD>
+    <TD><CODE>[(10, 'a'), (22, 'c'), (1, 'b')]</CODE></TD>
+    <TD>
+      <P>We display the resulting list of tuples.<CODE></CODE> </P></TD></TR>
+  <TR>
+    <TD><CODE>l.sort(reverse=True)</CODE></TD>
+    <TD><CODE><EM>None</EM></CODE></TD>
+    <TD>
+      <P><CODE>sort</CODE> compares the first element (value) first, and only 
+      considers the second element to break ties. The keyword argument 
+      <CODE>reverse=True</CODE> tells sort to go in decreasing order.</P></TD></TR>
+  <TR>
+    <TD><CODE>print(l)</CODE></TD>
+    <TD><CODE>[(22, 'c'), (10, 'a'), (1, 'b')]</CODE></TD>
+    <TD>
+      <P>We display the resulting, newly-sorted, list of 
+  tuples.</P></TD></TR></TBODY></TABLE>
+<P>By carefully constructing the list of tuples to have the value as the first 
+element of each tuple, we can sort the list of tuples and get our dictionary 
+contents sorted by value.</P></DIV>
+<DIV class="fullpage">
+<H1>Using Tuples as Keys in Dictionaries</H1>
+<P>Because tuples are hashable and lists are not, if we want to create a 
+composite key to use in a dictionary we must use a tuple as the key.</P>
+<P>We would encounter a composite key if we wanted to create a telephone 
+directory that maps from last-name, first-name pairs to telephone numbers. 
+Assuming that we have defined the variables last, first, and number, we could 
+write a dictionary assignment statement as follows:</P><CODE>directory[last, 
+first] = number</CODE>
+<P>The expression in brackets is a tuple. We could use tuple assignment in a 
+<CODE>for</CODE> loop to traverse this dictionary.</P><CODE>for last, first in 
+directory:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;print(first, last, 
+directory[last,first])</CODE>
+<P>This loop traverses the keys in directory, which are tuples. It assigns the 
+elements of each tuple to last and first, then prints the name and corresponding 
+telephone number.</P></DIV>
+<DIV class="fullpage">
+<H1>Keeping Them All Straight:</H1>
+<P>Quotes, parentheses, brackets, curly braces: these are important.&nbsp; Here 
+is a quick chart so you know which is used for which type:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>a = ''</CODE></TD>
+    <TD>
+      <P>String</P></TD></TR>
+  <TR>
+    <TD><CODE>b = ()</CODE></TD>
+    <TD>
+      <P>Tuple</P></TD></TR>
+  <TR>
+    <TD><CODE>c = {}</CODE></TD>
+    <TD>
+      <P>Dictionary</P></TD></TR>
+  <TR>
+    <TD><CODE>d = []</CODE></TD>
+    <TD>
+      <P>List</P></TD></TR></TBODY></TABLE>
+<P>When you access the individual elements within the sequence, you always use 
+square bracket notation with the index or key:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>my_string = 'hello!'<BR>              
+    print(my_string[0])</CODE></TD>
+    <TD><CODE>'h'</CODE></TD></TR>
+  <TR>
+    <TD><CODE>my_tuple = (1, 'two')<BR>              
+    print(my_tuple[1])</CODE></TD>
+    <TD><CODE>two</CODE></TD></TR>
+  <TR>
+    <TD><CODE>my_dict = {'firstname':'Fred', 'lastname':'Weasley'}<BR>         
+           print(my_dict['firstname'])</CODE></TD>
+    <TD><CODE>Fred</CODE></TD></TR>
+  <TR>
+    <TD><CODE>my_list = ['one', 2]<BR>              
+print(my_list[0])</CODE></TD>
+    <TD><CODE>one</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Sequences: Strings, Lists, and Tuples – Oh my!</H1>
+<P>Several examples focused on lists of tuples, but almost all of the examples 
+in this lesson also work with lists of lists, tuples of tuples, and tuples of 
+lists. To avoid enumerating the possible combinations, it is sometimes easier to 
+talk about sequences of sequences.</P>
+<P>In many contexts, the different kinds of sequences (strings, lists, and 
+tuples) can be used interchangeably. So how and why do you choose one over the 
+others?</P></DIV>
+<DIV class="fullpage">
+<P>To start with the obvious, <STRONG>strings</STRONG> are more limited than 
+other sequences because the elements have to be characters. They are also 
+immutable. If you need the ability to change the characters in a string (as 
+opposed to creating a new string), you might want to use a list of characters 
+instead.</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>Lists</STRONG> are more common than tuples, mostly because they are 
+mutable. But there are a few cases where you might prefer tuples:</P>
+<UL>
+  <LI>In some contexts, like a return statement, it is syntactically simpler to 
+  create a tuple than a list. In other contexts, you might prefer a list.</LI>
+  <LI>If you want to use a sequence as a dictionary key, you have to use an 
+  immutable type like a tuple or string.</LI>
+  <LI>If you are passing a sequence as an argument to a function, using tuples 
+  reduces the potential for unexpected behavior due to aliasing.</LI></UL></DIV>
+<DIV class="fullpage">
+<P>Because <STRONG>tuples</STRONG> are immutable, they don't provide methods 
+like <CODE>sort</CODE> and <CODE>reverse</CODE>, which modify existing lists. 
+However Python provides the built-in functions <CODE>sorted</CODE> and 
+<CODE>reversed</CODE>, which take any sequence as a parameter and return a new 
+sequence with the same elements in a different order.</P></DIV>
+<DIV class="fullpage">
+<H1>Debugging Data Structures</H1>
+<P>Lists, dictionaries and tuples are known generically as data structures; in 
+this chapter we are starting to see compound data structures, like lists of 
+tuples, and dictionaries that contain tuples as keys and lists as values. 
+Compound data structures are useful, but they are prone to what I call shape 
+errors; that is, errors caused when a data structure has the wrong type, size, 
+or composition, or perhaps you write some code and forget the shape of your data 
+and introduce an error.</P>
+<P>For example, if you are expecting a list with one integer and I give you a 
+plain old integer (not in a list), it won't work.</P>
+<P>When you are debugging a program, and especially if you are working on a hard 
+bug, there are four things to try:</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>reading:</STRONG> Examine your code, read it back to yourself, and 
+check that it says what you meant to say.</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>running:</STRONG> Experiment by making changes and running different 
+versions. Often if you display the right thing at the right place in the 
+program, the problem becomes obvious, but sometimes you have to spend some time 
+to build scaffolding.</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>ruminating:</STRONG> Take some time to think! What kind of error is 
+it: syntax, runtime, semantic? What information can you get from the error 
+messages, or from the output of the program? What kind of error could cause the 
+problem you're seeing? What did you change last, before the problem 
+appeared?</P></DIV>
+<DIV class="fullpage">
+<P><STRONG>retreating:</STRONG> At some point, the best thing to do is back off, 
+undoing recent changes, until you get back to a program that works and that you 
+understand. Then you can start rebuilding.</P></DIV>
+<DIV class="fullpage">
+<P>Beginning programmers sometimes get stuck on one of these activities and 
+forget the others. Each activity comes with its own failure mode.</P></DIV>
+<DIV class="fullpage">
+<P>For example, reading your code might help if the problem is a typographical 
+error, but not if the problem is a conceptual misunderstanding. If you don't 
+understand what your program does, you can read it 100 times and never see the 
+error, because the error is in your head.</P>
+<P>Running experiments can help, especially if you run small, simple tests. But 
+if you run experiments without thinking or reading your code, you might fall 
+into a pattern I call "random walk programming", which is the process of making 
+random changes until the program does the right thing. Needless to say, random 
+walk programming can take a long time.</P></DIV>
+<DIV class="fullpage">
+<P>You have to take time to think. Debugging is like an experimental science. 
+You should have at least one hypothesis about what the problem is. If there are 
+two or more possibilities, try to think of a test that would eliminate one of 
+them.</P>
+<P>Taking a break helps with the thinking. So does talking. If you explain the 
+problem to someone else (or even to yourself), you will sometimes find the 
+answer before you finish asking the question.</P></DIV>
+<DIV class="fullpage">
+<P>But even the best debugging techniques will fail if there are too many 
+errors, or if the code you are trying to fix is too big and complicated. 
+Sometimes the best option is to retreat, simplifying the program until you get 
+to something that works and that you understand.</P>
+<P>Beginning programmers are often reluctant to retreat because they can't stand 
+to delete a line of code (even if it's wrong). If it makes you feel better, copy 
+your program into another file before you start stripping it down. Then you can 
+paste the pieces back in a little bit at a time.</P>
+<P>Finding a hard bug requires reading, running, ruminating, and sometimes 
+retreating. If you get stuck on one of these activities, try the 
+others.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

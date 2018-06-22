@@ -1,0 +1,373 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_5_part_2.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson5_part2_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part2_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part2_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part2_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part2_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part2_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson5_part2_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson5_part2_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson5_part2_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson5_part2_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 5, Bit 2: String Slices</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>A segment of a string is called a <EM>slice</EM>. Selecting a slice is 
+similar to selecting a character:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>name = 'Monty Python'<BR>name[0:5]</CODE></TD>
+    <TD><CODE>Monty</CODE></TD></TR>
+  <TR>
+    <TD><CODE>name[6:12]</CODE></TD>
+    <TD><CODE>Python</CODE></TD></TR></TBODY></TABLE>
+<P>The operator <CODE>[n:m]</CODE> returns the part of the string from the 
+"n-eth" character to the "m-eth" character, including the first but excluding 
+the last.</P>
+<P class="exercise"><A class="exercise" id="lesson5_04" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_04" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>If you omit the first index (before the colon), the slice starts at the 
+beginning of the string. If you omit the second index, the slice goes to the end 
+of the string:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR><BR>print(fruit[:3])</CODE></TD>
+    <TD><CODE>ban</CODE></TD></TR>
+  <TR>
+    <TD><CODE>print(fruit[3:])</CODE></TD>
+    <TD><CODE>ana</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_05" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_05" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part2_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson5_06" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_06" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>If the first index is greater than or equal to the second the result is an 
+empty string, represented by two quotation marks:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR><BR>print(fruit[3:3])</CODE></TD>
+    <TD><CODE>(<EM>empty string</EM>)</CODE></TD></TR>
+  <TR>
+    <TD><CODE>print(fruit[4:3])</CODE></TD>
+    <TD><CODE>(<EM>empty string</EM>)</CODE></TD></TR></TBODY></TABLE>
+<P>An empty string contains no characters and has length 0, but other than that, 
+it is the same as any other string.</P></DIV>
+<DIV class="fullpage">
+<P>Just like with negative indices, you can use negative numbers to slice 
+backwards from the end of the string.&nbsp; A negative number as the first 
+argument</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>sentence = "Tis but a flesh 
+      wound!"<BR><BR>print(sentence[-2:])</CODE></TD>
+    <TD><CODE>d!</CODE></TD>
+    <TD>
+      <P>We start 2 characters in from the end and display the remainder of the 
+      string.</P></TD></TR>
+  <TR>
+    <TD><CODE>print(sentence[-6:-1])</CODE></TD>
+    <TD><CODE>wound</CODE></TD>
+    <TD>
+      <P>We start 6 characters in from the end of the string and end 1 character 
+      from the end of the string.</P></TD></TR>
+  <TR>
+    <TD><CODE>print(sentence[:-15])</CODE></TD>
+    <TD><CODE>Tis but</CODE></TD>
+    <TD>
+      <P>We start at the beginning of the string and end 15 characters from the 
+      end of the string.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_07" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_07" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>You can also combine positive and negative numbers, though it might get 
+confusing.  Be careful if you decide to do this:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>sentence = "Tis but a flesh 
+      wound!"<BR><BR>print(sentence[10:-1])</CODE></TD>
+    <TD><CODE>flesh wound</CODE></TD>
+    <TD>
+      <P>We start on the 10<SUP>th</SUP> index (the 11<SUP>th</SUP> character) 
+      and end one character from the end.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>Finally, recall the <CODE>range</CODE> and <CODE>randrange</CODE> 
+functions.&nbsp; Remember how you could set a <CODE>step</CODE> argument?&nbsp; 
+Slicing allows you to step as well with an optional third argument.&nbsp; Note 
+carefully how the step argument works.&nbsp; You will always get the first 
+character in your set, then skip ahead <CODE>n</CODE>-number of characters to 
+get to the next one.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>sentence = "Tis but a flesh 
+      wound!"<BR><BR>print(sentence[::2])</CODE></TD>
+    <TD><CODE>Tsbtafehwud</CODE></TD>
+    <TD>
+      <P>We start at the beginning and we go to the end and we want every 
+      2<SUP>nd</SUP> character.&nbsp; The first, 3<SUP>rd</SUP>, 5<SUP>th</SUP>, 
+      etc characters are selected.</P></TD></TR>
+  <TR>
+    <TD><CODE>print(sentence[1::3])</CODE></TD>
+    <TD><CODE>ib fswn</CODE></TD>
+    <TD>
+      <P>We start with index 1 (the second character) and go to the end, then 
+      select every 3<SUP>rd</SUP> character.</P></TD></TR>
+  <TR>
+    <TD><CODE>sentence[-10:-1:4]</CODE></TD>
+    <TD><CODE>ewd</CODE></TD>
+    <TD>
+      <P>We start at the 10<SUP>th</SUP> character from the end and go to 
+      1<SUP>st</SUP> character from the last character, then take every 
+      4<SUP>th</SUP> character.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_08" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_08" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Strings are Immutable</H1>
+<P>It is tempting to use the <CODE>[]</CODE> operator on the left side of an 
+assignment, with the intention of changing a character in a string. For 
+example:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>greeting = 'Hello, world!'<BR><BR>greeting[0] = 'J'</CODE></TD>
+    <TD><CODE>TypeError: object does not support item 
+  assignment</CODE></TD></TR></TBODY></TABLE>
+<P>The "object" in this case is the string and the "item" is the character you 
+tried to assign. For now, an object is the same thing as a value, but we will 
+refine that definition later. An item is one of the values in a sequence.</P>
+<P>The reason for the error is that strings are <EM>immutable</EM>, which means 
+you can’t change an existing string. The best you can do is create a new string 
+that is a variation on the original:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>greeting = 'Hello, world!'<BR><BR>new_greeting = 
+      'J'+greeting[1:]<BR><BR>print(new_greeting)<BR>print(greeting)</CODE></TD>
+    <TD><CODE>Jello, world!<BR>Hello, world!</CODE></TD></TR></TBODY></TABLE>
+<P>This example concatenated a new first letter onto a slice of greeting. It has 
+no effect on the original string.</P></DIV>
+<DIV class="fullpage">
+<H1>Looping and Counting</H1>
+<P>The following program counts the number of times the letter <EM>a</EM> 
+appears in a string:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>word = 'banana'<BR><BR>count = 0<BR><BR>for letter in 
+      word:<BR>&nbsp;&nbsp;&nbsp;&nbsp;if letter == 
+      'a':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count += 
+      1<BR><BR>print(count)</CODE></TD>
+    <TD><CODE>3</CODE></TD></TR></TBODY></TABLE>
+<P>This program demonstrates another pattern of computation called a 
+<STRONG><EM>counter</EM></STRONG>. The variable <CODE>count</CODE> is 
+initialized to 0 and then incremented each time an 'a' is found. When the loop 
+exits, <CODE>count</CODE> contains the result—the total number of a's.</P></DIV>
+<DIV class="fullpage">
+<H1>The in Operator</H1>
+<P>The word <CODE>in</CODE> is a boolean operator that takes two strings and 
+returns <CODE>True</CODE> if the first appears as a substring in the second:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>'a' in 'banana'</CODE></TD>
+    <TD><CODE>True</CODE></TD></TR>
+  <TR>
+    <TD><CODE>'seed' in 'banana'</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR></TBODY></TABLE>
+<P>You can also use the logical operator <CODE>not</CODE> to check if something 
+is not found in a string:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>'a' not in 'banana'</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR>
+  <TR>
+    <TD><CODE>'seed' not 'banana'</CODE></TD>
+    <TD><CODE>True</CODE></TD></TR></TBODY></TABLE>
+<P>Here is how you might use this in code:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>word = 'banana'<BR><BR>if 'a' in 
+      word:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('We found an 
+      A!')<BR>else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('There is no A in this 
+      word')</CODE></TD>
+    <TD><CODE>We found an A!</CODE></TD></TR>
+  <TR>
+    <TD><CODE>dessert = 'banana pie'<BR><BR>if 'pie' not in 
+      dessert:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('No pie for 
+      you!')<BR>else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('We\'re having pie 
+      tonight!')</CODE></TD>
+    <TD><CODE>We're having pie tonight!</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_09" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_09" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>String Comparison</H1>
+<P>The comparison operators work on strings. </P>
+<P>To see if two strings are equal:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>if word == 'banana':<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('All 
+      right, bananas.')</CODE></TD></TR></TBODY></TABLE>
+<P>Other comparison operations are useful for putting words in alphabetical 
+order:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>if word &lt; 'banana':<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(word+', 
+      comes before banana.')<BR><BR>            elif word &gt; 
+      'banana':<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(word+', comes after 
+      banana.')<BR><BR>            else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;print('All 
+      right, bananas.')</CODE></TD></TR></TBODY></TABLE>
+<P>Python does not handle uppercase and lowercase letters the same way that 
+people do. All the uppercase letters come before all the lowercase letters, 
+so:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>Pineapple comes before banana.
+      <P></P></CODE></TD></TR></TBODY></TABLE>
+<P>A common way to address this problem is to convert strings to a standard 
+format, such as all lowercase, before performing the comparison. Keep that in 
+mind in case you have to defend yourself against a man armed with a 
+Pineapple.</P></DIV>
+<DIV class="fullpage">
+<H1>Concatenating Strings</H1>
+<P>Concatenation is a fancy word for combining.&nbsp; When we concatenate 
+strings, we are combining them into a single string.&nbsp; We saw way back in 
+Lesson 1 that the + operator can be used to "add" strings together.&nbsp; This 
+is concatenation.&nbsp; You can concatenate strings and variables together:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR>dessert = 'pie'<BR><BR>print(fruit + 
+      dessert)</CODE></TD>
+    <TD><CODE>bananapie</CODE></TD></TR>
+  <TR>
+    <TD><CODE>dessert = 'banana ' + 'pie'<BR><BR>print(dessert)</CODE></TD>
+    <TD><CODE>banana pie</CODE></TD></TR>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR><BR>print(fruit+' pie')</CODE></TD>
+    <TD><CODE>banana pie</CODE></TD></TR></TBODY></TABLE>
+<P>You can also use the shortcut code <CODE>+=</CODE> to concatenate multiple 
+strings.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'b'<BR>fruit += 'a'<BR>fruit += 'n'<BR>fruit += 
+      'a'<BR>fruit += 'n'<BR>fruit += 'a'<BR><BR>print(fruit)</CODE></TD>
+    <TD><CODE>banana</CODE></TD></TR>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR><BR>fruit += ' '<BR><BR>fruit += 
+      'pie<BR><BR>print(fruit)</CODE></TD>
+    <TD><CODE>banana pie</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_10" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_10" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Replicating Strings</H1>
+<P>We also saw way back in Lesson 1 that the <CODE>*</CODE> operator can be used 
+to "multiply" strings.&nbsp; </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>greeting = 'Hi!'<BR><BR>print(greeting * 5)</CODE></TD>
+    <TD><CODE>Hi!Hi!Hi!Hi!Hi!</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_11" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_11" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part2_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

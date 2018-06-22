@@ -1,0 +1,387 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_2_part_3.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson2_part3_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part3_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part3_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part3_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part3_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part3_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson2_part3_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson2_part3_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson2_part3_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson2_part3_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Logical Operators</H1></DIV>
+<DIV class="fullpage">
+<P>Sometimes we need to compare multiple things to make a determination about 
+which path to follow. </P>
+<P>For example, let's say I want to see a movie. I have a child with me, so I 
+can't see a PG-13 or R-rated movie. I don't have enough money for a 3D film, so 
+that selection is out. And it is the weekend, so all the first run movies are 
+sold out; I am limited to movies which have been in the theater for a while. 
+This is a complicated scenario that looks at several things at once. </P>
+<P>I can use <STRONG>logical operators</STRONG> to string several things 
+together at once.</P>
+<P>There are three logical operators in Python: <CODE>and</CODE>, 
+<CODE>or</CODE>, and <CODE>not</CODE>. The semantics (meaning) of these 
+operators is similar to their meaning in English. </P></DIV>
+<DIV class="fullpage">
+<H1>and</H1>
+<P>Just as in English, and in Python looks at two scenarios. In other for the 
+entire statement to evaluate as true, both scenarios have to true. <CODE>x and 
+y</CODE> returns <CODE>False</CODE> if x is <CODE>False</CODE>, otherwise it 
+returns evaluation of y.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = False<BR>              y = True<BR>              x and 
+      y</CODE></TD>
+    <TD><CODE>False </CODE></TD>
+    <TD>
+      <P>The only way this evaluates as true is when BOTH <CODE>x</CODE> and 
+      <CODE>y</CODE> are <CODE>True</CODE>. Since <CODE>x</CODE> is 
+      <CODE>False</CODE>, this entire statement evaluates to false.</P>
+      <P>In this case, Python will not evaluate y since it knows that the left 
+      hand side of the ‘and’ expression is <CODE>False</CODE> which implies that 
+      the whole expression will be <CODE>False</CODE> irrespective of the other 
+      values. This is called short-circuit evaluation.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 3<BR>              x &gt; 0 and x &lt; 10</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>We know <CODE>x = 3</CODE>. 3 is greater than 0 and 3 is less than 10, 
+      so this evaluates to true.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 15<BR>              x &gt; 0 and x &lt; 10</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>While it is true that 15 is greater than 0, 15 is not less than 10. 
+      Since <CODE>x &lt; 10</CODE> is false, then the entire statement evaluates 
+      as false.</P></TD></TR></TBODY></TABLE>
+<P>How would this look in a conditional statement?</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Evaluates As</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = False<BR>              y = True<BR>			  if x and y:<BR>      
+              &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              else:<BR>   
+                 &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>false</CODE> </TD></TR>
+  <TR>
+    <TD><CODE>x = 3<BR>              if x &gt; 0 and x &lt; 10:<BR>            
+        &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              else:<BR>         
+           &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>true</CODE> </TD></TR>
+  <TR>
+    <TD><CODE>x = 15<BR>              if x &gt; 0 and x &lt; 10:<BR>           
+         &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              else:<BR>        
+            &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>false</CODE> </TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-13" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-13" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>or </H1>
+<P>Once again Python looks at two scenarios but this one acts a little 
+differently. If <EM>one or both</EM> of the scenarios is true, then the entire 
+statement will evaluate to true. If x is <CODE>True</CODE>, it returns True, 
+else it returns evaluation of y.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = False<BR>              y = True<BR>              x or 
+      y</CODE></TD>
+    <TD><CODE>True </CODE></TD>
+    <TD>
+      <P>This evaluates as true is when EITHER <CODE>x</CODE> and <CODE>y</CODE> 
+      are <CODE>True</CODE>. Since <CODE>x</CODE> is <CODE>False</CODE>, then 
+      Python looks at y. Since y is True, then this entire statement evaluates 
+      to true.</P>
+      <P>Short-circuit evaluation applies here as well. If <CODE>x</CODE> had 
+      evaluated as true, then Python would not have bothered to evalute 
+      <CODE>y</CODE>. and the entire statement would evaluate as true.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 3<BR>              x &gt; 0 or x &lt; 10</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>We know <CODE>x = 3</CODE>. 3 is greater than 0, so Python would stop 
+      right there and evaluate this to true.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = -10<BR>              x &gt; 0 or x &lt; 10</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>Negative 10 is not greater than 0, so Python looks at the second 
+      scenario. -10 is less than 10, so the entire statement evaluates as 
+      true.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 3<BR>              x &lt;= 2 or x &gt; 5</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>3 is not less than or equal to 2, so the first scenario evaluates as 
+      false. 3 is also not greater than 5. Since both scenarios evaluate as 
+      false, the entire statement is false.</P></TD></TR></TBODY></TABLE>
+<P>How would this look in a conditional statement?</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = False<BR>              y = True<BR>              if x or 
+      y:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              
+      else:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>true</CODE> </TD></TR>
+  <TR>
+    <TD><CODE>x = 3<BR>              if x &gt; 0 or x &lt; 10:<BR>             
+       &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              else:<BR>          
+          &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>true</CODE> </TD></TR>
+  <TR>
+    <TD><CODE>x = -10<BR>              if x &gt; 0 or x &lt; 10:<BR>           
+         &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              else:<BR>        
+            &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>true</CODE> </TD></TR>
+  <TR>
+    <TD><CODE>x = 3<BR>              if x &lt;= 2 or x &gt; 5:<BR>             
+       &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              else:<BR>          
+          &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>false</CODE> </TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-14" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-14" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>not</H1>
+<P>The <CODE>not</CODE> operator negates a boolean expression – or does the 
+opposite, so not (x &gt; y) is True if x &gt; y is False, that is, if x is less 
+than or equal to y.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = True<BR>              not x</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>If <CODE>x = True</CODE>, then the opposite of <CODE>True</CODE> is 
+      <CODE>False</CODE>. So <CODE>not x</CODE> is the same as saying 
+      <CODE>not</CODE> <CODE>True</CODE>, which is <CODE>False</CODE>. So 
+      <CODE>not x</CODE> evaluates to <CODE>False</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 4<BR>              y = 5<BR>              not x &gt; 
+    y</CODE></TD>
+    <TD><CODE>True </CODE></TD>
+    <TD>
+      <P>Look from the inside, out. Inside, we have <CODE>x &gt; y</CODE>. 4 is 
+      not greater than 5, so <CODE>x &gt; y</CODE> evaluates as false. But then 
+      we have <CODE>not (False)</CODE>. The opposite of<CODE> False </CODE>is 
+      <CODE>True</CODE>, so the entire statement evaluates as 
+      <CODE>True</CODE>.</P></TD></TR></TBODY></TABLE>
+<P>How would this look in a conditional statement?</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = True<BR>              if not x:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              else:<BR>           
+         &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>false</CODE> </TD></TR>
+  <TR>
+    <TD><CODE>x = 4<BR>              y = 5<BR>              if not x &gt; 
+      y:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print("true")<BR>              
+      else:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print("false")</CODE></TD>
+    <TD><CODE>true</CODE> </TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-15" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-15" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Simplifying Nested Conditionals</H1>
+<P>Logical operators often provide a way to simplify nested conditional 
+statements. For example, we can rewrite the following code using a single 
+conditional:</P><CODE>if 0 &lt; x:&nbsp;&nbsp;&nbsp;&nbsp; if x &lt; 10:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('x is a positive 
+single-digit number.')</CODE>
+<P>The print statement runs only if we make it past both conditionals, so we can 
+get the same effect with the <CODE>and</CODE> operator:</P><CODE>if 0 &lt; x and 
+x &lt; 10:&nbsp;&nbsp;&nbsp;&nbsp; print('x is a positive single-digit 
+number.')</CODE>
+<P>For this kind of condition, Python provides a more concise 
+option:</P><CODE>if 0 &lt; x &lt; 10:&nbsp;&nbsp;&nbsp;&nbsp; print('x is a 
+positive single-digit number.')</CODE>
+<P class="exercise"><A class="exercise" id="lesson2-12" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-12" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Using Logical Operators with non-Boolean Objects</H1>
+<P>Strictly speaking, the operands of the logical operators should be Boolean 
+expressions, but Python is not very strict. Any nonzero number is interpreted as 
+True:</P>
+<PRE>&gt;&gt;&gt; 42 and True
+True</PRE>
+<P>This flexibility can be useful, but there are some subtleties to it that 
+might be confusing. You might want to avoid it (unless you know what you are 
+doing).</P></DIV>
+<DIV class="fullpage">
+<H1>Using Parenthesis in Conditional Statements</H1>
+<P>When you use multiple logical operators, it can be helpful – more readable 
+and less prone to error – to group them together using parenthesis:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Example</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>if (x and y):</CODE></TD></TR>
+  <TR>
+    <TD><CODE>if (x &gt; 0) and (x &lt; 10):</CODE></TD></TR>
+  <TR>
+    <TD><CODE>if (color1=="blue") and (color2=="green" or 
+      color2=="purple"):</CODE></TD></TR>
+  <TR>
+    <TD><CODE>if not (color1=="blue" or 
+color1=="red"):</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-11" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-11" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Example: Number Guessing</H1>
+<P>In this program, we take guesses from the user and check if it is the number 
+that we have.</P><CODE>number = 23 guess = int(input('Enter an integer: '))  if 
+guess == number:&nbsp;&nbsp;&nbsp;&nbsp; # New block starts here
+&nbsp;&nbsp;&nbsp;&nbsp; print('You guessed it!')&nbsp;&nbsp;&nbsp;&nbsp; # New 
+block ends here elif guess &lt; number:&nbsp;&nbsp;&nbsp;&nbsp; # Another block
+&nbsp;&nbsp;&nbsp;&nbsp; print('No, you are too low!')  else:
+&nbsp;&nbsp;&nbsp;&nbsp; # you must have guessed &gt; number to reach here
+&nbsp;&nbsp;&nbsp;&nbsp; print('No, you are too high!') print('Done') # This 
+last statement is always executed, # after the if statement is executed. </CODE>
+<H2>Output:</H2>
+<P><STRONG>First Execution:</STRONG></P>
+<PRE>Enter an integer : 50
+No, it is a little lower than that
+Done</PRE>
+<P><STRONG>Second Execution:</STRONG></P>
+<PRE>Enter an integer : 22
+No, it is a little higher than that
+Done</PRE>
+<P><STRONG>Third Execution:<CODE></CODE></STRONG></P>
+<PRE>Enter an integer : 23
+Congratulations, you guessed it.
+(but you do not win any prizes!)
+Done</PRE>
+<H2>How It Works</H2>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>number = 23 </CODE></TD>
+    <TD>
+      <P><EM>None</EM><EM><CODE> </CODE></EM></P></TD>
+    <TD>
+      <P>First, we assign the literal constant value <CODE>23</CODE> to the 
+      variable <CODE>number</CODE> using the assignment operator 
+      (<CODE>=</CODE>). </P></TD></TR>
+  <TR>
+    <TD><CODE>guess = int(input('Enter an integer: '))</CODE></TD>
+    <TD><CODE>Enter an integer: </CODE></TD>
+    <TD>
+      <P>Next, we use the <CODE>input</CODE> statement to ask the user to enter 
+      a number. We also use the <CODE>int</CODE> statement to convert the input 
+      to an integer. We assign this integer to the variable <CODE>guess 
+      </CODE>and continues.</P>
+      <P><EM>Note: if the user enters non-numerals, such as the word "Hi" then 
+      the program will throw a Runtime error when trying to convert it to an 
+      integer.</EM></P></TD></TR>
+  <TR>
+    <TD><CODE>if guess == number:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;# 
+      New block starts here<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print('You 
+      guessed it!')<BR>              &nbsp;&nbsp;&nbsp;&nbsp;# New block ends 
+      here</CODE></TD>
+    <TD><CODE>You guessed it!</CODE></TD>
+    <TD>
+      <P>Next, we compare the guess of the user with the number we have 
+      chosen.</P>
+      <P>If they are equal, we print a success message. Notice that we use 
+      indentation levels to tell Python which statements belong to which block. 
+      This is why indentation is so important in Python. I hope you are sticking 
+      to the "consistent indentation" rule. Are you?</P>
+      <P>Notice how the <CODE>if</CODE> statement contains a colon at the end - 
+      we are indicating to Python that a block of statements follows.</P></TD></TR>
+  <TR>
+    <TD><CODE>elif guess &lt; number:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;# Another block<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print('No, you are too low!') &nbsp;</CODE></TD>
+    <TD><CODE>No, you are too low! </CODE></TD>
+    <TD>
+      <P>Then, we check if the guess is less than the number, and if so, we 
+      inform the user that they must guess a little higher than that. What we 
+      have used here is the <CODE>elif</CODE> clause which actually combines two 
+      related <CODE>if else-if else</CODE> statements into one combined 
+      <CODE>if-elif-else</CODE> statement. This makes the program easier and 
+      reduces the amount of indentation required. </P></TD></TR>
+  <TR>
+    <TD><CODE>else:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;# you must have 
+      guessed &gt;<BR>              &nbsp;&nbsp;&nbsp;&nbsp;# number to reach 
+      here<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print('No, you are too 
+      high!')</CODE></TD>
+    <TD><CODE>No, you are too high! </CODE></TD>
+    <TD>
+      <P>Finally, if <CODE>guess</CODE> is not equal to <CODE>number</CODE> and 
+      <CODE>guess</CODE> is not less than <CODE>number</CODE>, then we use the 
+      <CODE>else</CODE> clause to tell them they picked a number which was too 
+      large.</P>
+      <P>We could also have written this as</P><CODE>elif guess &gt; 
+      number:</CODE>               
+      <P>but using <CODE>else</CODE> accomplished the same thing.</P></TD></TR>
+  <TR>
+    <TD><CODE>print('Done')<BR>              # This last statement is always 
+      executed,<BR>              # after the if statement is executed.</CODE></TD>
+    <TD><CODE>Done</CODE></TD>
+    <TD>
+      <P>After Python has finished executing the complete <CODE>if</CODE> 
+      statement along with the associated <CODE>elif</CODE> and 
+      <CODE>else</CODE> clauses, it moves on to the next statement in the block 
+      containing the <CODE>if</CODE> statement. In this case, it is the main 
+      block (where execution of the program starts), and the next statement is 
+      the <CODE>print('Done')</CODE> statement. After this, Python sees the ends 
+      of the program and simply finishes up.</P></TD></TR></TBODY></TABLE>
+<P>Even though this is a very simple program, I have been pointing out a lot of 
+things that you should notice. All these are pretty straightforward (and 
+surprisingly simple for those of you from C/C++ backgrounds). You will need to 
+become aware of all these things initially, but after some practice you will 
+become comfortable with them, and it will all feel 'natural' to 
+you.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

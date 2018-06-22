@@ -1,0 +1,567 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_1_part_3.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_3" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson1_part3_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part3_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part3_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part3_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part3_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part3_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson1_part3_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson1_part3_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson1_part3_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson1_part3_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Data Types and Variables</H1></DIV>
+<DIV class="fullpage">
+<P>Just printing <CODE>Hello World!</CODE> is not enough, is it? You want to do 
+more than that - you want to take some input, manipulate it and get something 
+out of it. We can achieve this in Python using constants and variables, and 
+we'll learn some other concepts as well in this chapter.</P></DIV>
+<DIV class="fullpage">
+<H1>Values and Types</H1>
+<P>A value is one of the basic things a program works with, like a letter or a 
+number. Some values we have seen so far are 2, 42.0, and <CODE>'Hello, 
+World!'</CODE>.</P>
+<P>These values belong to different types: 2 is an integer, 42.0 is a 
+floating-point number, and <CODE>'Hello, World!'</CODE> is a string, so-called 
+because the letters it contains are strung together. </P>
+<P>If you are not sure what type a value has, the interpreter can tell you:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Discovering types">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>type(2)</CODE></STRONG></TD>
+    <TD><CODE>class 'int'</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>type(42.0)</CODE></STRONG></TD>
+    <TD><CODE>class 'float'</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>type('Hello, World!')</CODE></STRONG></TD>
+    <TD><CODE>class 'str'</CODE></TD></TR></TBODY></TABLE>
+<P>In these results, the word "class" is used in the sense of a category; a type 
+is a category of values. </P>
+<P>Not surprisingly, integers belong to the type <CODE>int</CODE>, strings 
+belong to <CODE>str</CODE> and floating-point numbers belong to 
+<CODE>float</CODE>. </P>
+<P>Each of these values <CODE>–2</CODE>, <CODE>42.0</CODE>, and <CODE>"Hello 
+World!"</CODE> are examples of <STRONG><EM>literal 
+constants</EM></STRONG>.&nbsp; They are called a literal because it is 
+<EM>literal</EM> - you use its value literally. The number <CODE>2</CODE> always 
+represents itself and nothing else - it is a <EM>constant</EM> because its value 
+cannot be changed. Hence, all these are referred to as literal 
+constants.</P></DIV>
+<DIV class="fullpage">
+<H1>Numbers</H1>
+<P>Numbers are mainly of two types - <STRONG>integers</STRONG> and 
+<STRONG>floating-point numbers</STRONG>.</P>
+<P>An example of an integer is <CODE>2</CODE> which is just a whole 
+number.&nbsp; Other integers are <CODE>-5</CODE>, <CODE>0</CODE>, and 
+<CODE>124789</CODE>.</P>
+<P>Floating-point numbers (or <EM>floats</EM> for short) are numbers with a 
+decimal.&nbsp; Some examples include <CODE>3.23</CODE> and <CODE>52.3E-4</CODE>. 
+The <CODE>E</CODE> notation indicates powers of 10. In this case, 
+<CODE>52.3E-4</CODE> means <CODE>52.3 * 10^-4^</CODE> or 0.000523.</P>
+<P><STRONG><EM>Note for Experienced Programmers:&nbsp; </EM></STRONG><EM>There 
+is no separate </EM><CODE>long</CODE><EM> type. The </EM><CODE>int</CODE><EM> 
+type can be an integer of any size.</EM></P>
+<P>When you type a large integer, you might be tempted to use commas between 
+groups of digits, as in 1,000,000. This is not a legal <EM>integer</EM> in 
+Python, but it is legal syntax:</P>
+<TABLE cellspacing="0" cellpadding="0" 
+summary="Using a comma in a large number">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>1,000,000</CODE></STRONG></TD>
+    <TD><CODE>(1, 0, 0)</CODE></TD></TR></TBODY></TABLE>
+<P>That's not what we expected at all! Python interprets 1,000,000 as a 
+comma-separated sequence of integers. We'll learn more about this kind of 
+sequence later. </P></DIV>
+<DIV class="fullpage">
+<H1>Strings</H1>
+<P>A string is a <EM>sequence</EM> of <EM>characters</EM>. Strings are basically 
+just a bunch of words.&nbsp; In our Hello World! program, "Hello World!" was a 
+string.&nbsp; We used the print statement to display the string.</P>
+<P>You will be using strings in almost every Python program that you write, so 
+pay attention to the following part.</P></DIV>
+<DIV class="fullpage">
+<H1>Single Quote</H1>
+<P>You can specify strings using single quotes such as <CODE>'Quote me on 
+this'</CODE>.</P>
+<P>All white space i.e. spaces and tabs, within the quotes, are preserved 
+as-is.</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Using single quotes">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print('Quote me on this')</CODE></STRONG></TD>
+    <TD><CODE>Quote me on this</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_02" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_02" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Double Quotes</H1>
+<P>Strings in double quotes work exactly the same way as strings in single 
+quotes. An example is <CODE>"What's your name?"</CODE>.</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Using double quotes">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print("What's your name?")</CODE></STRONG></TD>
+    <TD><CODE>What's your name?</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_03" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_03" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Triple Quotes </H1>
+<P>You can specify multi-line strings using triple quotes - (<CODE>"""</CODE> or 
+<CODE>'''</CODE>). You can use single quotes and double quotes freely within the 
+triple quotes. An example is:</P><CODE>'''This is a multi-line string. This is 
+the second line. "What's your name?," I asked. He said "Bond, James Bond."
+ '''</CODE>
+<TABLE cellspacing="0" cellpadding="0" summary="Using triple quotes">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print('''This is a multi-line string. <BR>This is the 
+      second line.<BR>"What's your name?," I asked.<BR>He said "Bond, James 
+      Bond."<BR>''')</CODE></STRONG></TD>
+    <TD><CODE>This is a multi-line string. <BR>This is the second line.<BR>
+      "What's your name?," I asked.<BR>He said "Bond, James 
+  Bond."</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_04" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_04" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Strings Are Immutable</H1>
+<P>This means that once you have created a string, you cannot change it. 
+Although this might seem like a bad thing, it really isn't. We will see why this 
+is not a limitation in the various programs that we see later on.</P>
+<P><STRONG><EM>Note for C/C++ Programmers: </EM></STRONG><EM>There is no 
+separate </EM><CODE>char</CODE><EM> data type in Python. There is no real need 
+for it and I am sure you won't miss it.</EM></P>
+<P><STRONG><EM>Note for Perl/PHP Programmers: </EM></STRONG><EM>Remember that 
+single-quoted strings and double-quoted strings are the same - they do not 
+differ in any way.</EM></P>
+<P>What about values like <CODE>'2'</CODE> and <CODE>'42.0'</CODE>? They look 
+like numbers, but they are in quotation marks like strings. </P>
+<TABLE cellspacing="0" cellpadding="0" summary="Types when numbers are enclosed in quotes">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>type('2')</CODE></STRONG></TD>
+    <TD><CODE>class 'str'</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>type('42.0')</CODE></STRONG></TD>
+    <TD><CODE>class 'str'</CODE></TD></TR></TBODY></TABLE>
+<P>They're strings.</P></DIV>
+<DIV class="fullpage">
+<H1>Escape Sequences</H1>
+<P>Suppose, you want to have a string which contains a single quote 
+(<CODE>'</CODE>), how will you specify this string? For example, the string is 
+<CODE>"What's your name?"</CODE>. You cannot specify <CODE>'What's your 
+name?'</CODE> because Python will be confused as to where the string starts and 
+ends. So, you will have to specify that this single quote does not indicate the 
+end of the string. </P>
+<P>This can be done with the help of what is called an <EM>escape sequence</EM>. 
+You specify the single quote as <CODE>\'</CODE> : notice the backslash. Now, you 
+can specify the string as <CODE>'What\'s your name?'</CODE>.</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Using an escape sequence">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print('What\'s your name?')</CODE></STRONG></TD>
+    <TD><CODE>What's your name?</CODE></TD></TR></TBODY></TABLE>
+<P>Another way of specifying this specific string would be <CODE>"What's your 
+name?"</CODE> i.e. using double quotes. Similarly, you have to use an escape 
+sequence for using a double quote itself in a double quoted string. Also, you 
+have to indicate the backslash itself using the escape sequence 
+<CODE>\\</CODE>.</P>
+<TABLE cellspacing="0" cellpadding="0" summary="More escape sequences">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print("He said, \"Hi!\"")</CODE></STRONG></TD>
+    <TD><CODE>He said, "Hi!"</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>print("This is a backslash: \\")</CODE></STRONG></TD>
+    <TD><CODE>This is a backslash: \</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_05" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_05" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P>
+<P>What if you wanted to specify a two-line string? One way is to use a 
+triple-quoted string as shown previously or you can use an escape sequence for 
+the newline character - <CODE>\n</CODE> to indicate the start of a new line. An 
+example is:</P><CODE>'Line 1\nLine 2'</CODE>
+<TABLE cellspacing="0" cellpadding="0" summary="Creating a new line">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print('Line 1\nLine 2')</CODE></STRONG></TD>
+    <TD><CODE>Line 1<BR>Line 2</CODE></TD></TR></TBODY></TABLE>
+<P>Another useful escape sequence to know is the tab: <CODE>\t</CODE>. This will 
+insert a tab into your string which can be useful for formatting:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Creating a tab">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print('First Column\tSecond Column')</CODE></STRONG></TD>
+    <TD><CODE>First Column&nbsp;&nbsp;&nbsp;&nbsp;Second 
+  Column</CODE></TD></TR></TBODY></TABLE>
+<P>There are many more escape sequences but I have mentioned only the most 
+useful ones here.</P>
+<P>One thing to note is that in a string, a single backslash at the end of the 
+line indicates that the string is continued in the next line, but no newline is 
+added. For example:</P><CODE>"Sentence 1. \ Sentence 2."</CODE>
+<TABLE cellspacing="0" cellpadding="0" summary="Creating a new line">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print("Sentence 1. \<BR>Sentence 2.")</CODE></STRONG></TD>
+    <TD><CODE>Sentence 1. Sentence 2.</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_06" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_06" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Raw String</H1>
+<P>If you need to specify some strings where no special processing such as 
+escape sequences are handled, then what you need is to specify a <EM>raw</EM> 
+string by prefixing <CODE>r</CODE> or <CODE>R</CODE> to the string. An example 
+is:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Raw strings">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print(r"Newlines are indicated by 
+\n")</CODE></STRONG></TD>
+    <TD><CODE>Newlines are indicated by \n</CODE></TD></TR></TBODY></TABLE>
+<P>See how the <CODE>\n</CODE> is not rendered as a new line, but is displayed 
+as-is.</P>
+<P><STRONG><EM>Note for Regular Expression Users: </EM></STRONG><EM>Always use 
+raw strings when dealing with regular expressions. Otherwise, a lot of 
+backwhacking may be required. For example, backreferences can be referred to as 
+</EM><CODE>'\\1'</CODE><EM> or </EM><CODE>r'\1'</CODE><EM>.</EM></P>
+<P class="exercise"><A class="exercise" id="lesson1_07" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_07" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>End Behavior</H1>
+<P>The <CODE>print</CODE> statement automatically ends each statement with a 
+line break.</P>
+<TABLE cellspacing="0" cellpadding="0" summary="End Behavior">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print("Line 1")<BR>print("Line 2")</CODE></STRONG></TD>
+    <TD><CODE>Line 1<BR>Line 2</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>print("Line 1\nLine 2")<BR>print("Line 
+      3")</CODE></STRONG></TD>
+    <TD><CODE>Line 1<BR>Line 2<BR>Line 3</CODE></TD></TR></TBODY></TABLE>
+<P>Later we'll learn how to control the end behavior of the <CODE>print</CODE> 
+statement.  For now, recognize that there will always be a line break at the end 
+of each <CODE>print</CODE> statement.</P></DIV>
+<DIV class="fullpage">
+<H1>Variables</H1>
+<P>Using just literal constants can soon become boring and impractical - we need 
+some way of storing any information and manipulate them as well. This is where 
+<EM>variables</EM> come into the picture. Variables are exactly what the name 
+implies - their value can vary, i.e., you can store anything using a variable. 
+Variables are just parts of your computer's memory where you store some 
+information. Unlike literal constants, you need some method of accessing these 
+variables and hence you give them names.</P></DIV>
+<DIV class="fullpage">
+<H1>Identifier Naming</H1>
+<P>Variables are examples of identifiers. <EM>Identifiers</EM> are names given 
+to identify <EM>something</EM>. There are some rules you have to follow for 
+naming identifiers:</P>
+<UL>
+  <LI>The first character of the identifier must be <STRONG>a letter of the 
+  alphabet</STRONG> (uppercase ASCII or lowercase ASCII or Unicode character) or 
+  an underscore (<CODE>_</CODE>).</LI>
+  <LI>The rest of the identifier name can consist of <STRONG>letters</STRONG> 
+  (uppercase ASCII or lowercase ASCII or Unicode character), 
+  <STRONG>underscores</STRONG> (<CODE>_</CODE>) or <STRONG>digits</STRONG> 
+  (0-9).</LI>
+  <LI>Identifier names are <STRONG>case-sensitive</STRONG>. For example, 
+  <CODE>myname</CODE> and <CODE>myName</CODE> are <EM>not</EM> the same. Note 
+  the lowercase <CODE>n</CODE> in the former and the uppercase <CODE>N</CODE> in 
+  the latter.</LI></UL>
+<P>Examples of <EM>valid</EM> identifier names are:</P>
+<UL>
+  <LI><CODE>i</CODE></LI>
+  <LI><CODE>name_2_3</CODE></LI>
+  <LI><CODE>_part_1</CODE></LI></UL>
+<P>Examples of <EM>invalid</EM> identifier names are:</P>
+<UL>
+  <LI><CODE>2things</CODE></LI>
+  <LI><CODE>this is spaced out</CODE></LI>
+  <LI><CODE>my-name</CODE></LI>
+  <LI><CODE>&gt;a1b2_c3</CODE></LI></UL>
+<P>If you give a variable an illegal name, you get a syntax error:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Raw strings">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>76trombones = 'big parade'</CODE></STRONG></TD>
+    <TD><CODE>SyntaxError: invalid syntax</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>more@ = 1000000</CODE></STRONG></TD>
+    <TD><CODE>SyntaxError: invalid syntax</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>class = 'Advanced Theoretical 
+Zymurgy'</CODE></STRONG></TD>
+    <TD><CODE>SyntaxError: invalid syntax</CODE></TD></TR></TBODY></TABLE>
+<P><CODE>76trombones</CODE> is illegal because it begins with a number. 
+<CODE>more@</CODE> is illegal because it contains an illegal character, 
+<CODE>@</CODE>. But what's wrong with class?</P>
+<P>It turns out that <CODE>class</CODE> is one of Python's keywords. The 
+interpreter uses keywords to recognize the structure of the program, and they 
+cannot be used as variable names. </P>
+<P>Python 3 has these keywords:</P>
+<UL class="columns_3">
+  <LI><CODE>and</CODE></LI>
+  <LI><CODE>as</CODE></LI>
+  <LI><CODE>assert</CODE></LI>
+  <LI><CODE>break</CODE></LI>
+  <LI><CODE>class</CODE></LI>
+  <LI><CODE>continue</CODE></LI>
+  <LI><CODE>def</CODE></LI>
+  <LI><CODE>del</CODE></LI>
+  <LI><CODE>elif</CODE></LI>
+  <LI><CODE>else</CODE></LI>
+  <LI><CODE>except</CODE></LI>
+  <LI><CODE>False</CODE></LI>
+  <LI><CODE>finally</CODE></LI>
+  <LI><CODE>for</CODE></LI>
+  <LI><CODE>from</CODE></LI>
+  <LI><CODE>global</CODE></LI>
+  <LI><CODE>if</CODE></LI>
+  <LI><CODE>import</CODE></LI>
+  <LI><CODE>in</CODE></LI>
+  <LI><CODE>is</CODE></LI>
+  <LI><CODE>lambda</CODE></LI>
+  <LI><CODE>None</CODE></LI>
+  <LI><CODE>nonlocal</CODE></LI>
+  <LI><CODE>not</CODE></LI>
+  <LI><CODE>or</CODE></LI>
+  <LI><CODE>pass</CODE></LI>
+  <LI><CODE>raise</CODE></LI>
+  <LI><CODE>return</CODE></LI>
+  <LI><CODE>True</CODE></LI>
+  <LI><CODE>try</CODE></LI>
+  <LI><CODE>while</CODE></LI>
+  <LI><CODE>with</CODE></LI>
+  <LI><CODE>yield</CODE></LI></UL>
+<P>You don't have to memorize this list. In most development environments, 
+keywords are displayed in a different color; if you try to use one as a variable 
+name, you'll know.</P></DIV>
+<DIV class="fullpage">
+<H1>Data Types</H1>
+<P>Variables can hold values of different data types. The basic types are 
+integers, floats and strings, which we have already discussed. In later lessons, 
+we will see how variables can hold other data types.</P></DIV>
+<DIV class="fullpage">
+<H1>Assignment Statements</H1>
+<P>An assignment statement creates a new variable and gives it a 
+value:</P><CODE>message = 'And now for something completely different' n = 17 pi 
+= 3.141592653589793</CODE>
+<P>This example makes three assignments. The first assigns a string to a new 
+variable named <CODE>message</CODE>; the second gives the integer 
+<CODE>17</CODE> to <CODE>n</CODE>; the third assigns the (approximate) value of 
+<CODE>π</CODE> to <CODE>pi</CODE>. </P>
+<P>If we were to display the variables using the print statement, we would see 
+their values:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Variable reassignments">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>message = 'And now for something completely 
+      different'<BR>print(message) </CODE></STRONG></TD>
+    <TD><CODE>And now for something completely different</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>n = 17<BR>print(n) </CODE></STRONG></TD>
+    <TD><CODE>17</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>pi = 3.141592653589793<BR>print(pi) </CODE></STRONG></TD>
+    <TD><CODE>3.141592653589793</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_08" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_08" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P>
+<P>You can make more than one assignment to the same variable. &nbsp;In fact, in 
+your programs, this will happen  frequently.&nbsp; A new assignment will make  
+the existing variable point to a new value – and stop referring to the old  
+value. &nbsp;To make a new assignment, you simply  write a new assignment 
+statement.</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Variable reassignments">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>x = 5<BR>print(x)<BR>x = 6<BR>print(x) 
+    </CODE></STRONG></TD>
+    <TD><CODE><BR>5<BR><BR>6</CODE></TD></TR></TBODY></TABLE>
+<P>Variables can also switch data types:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Variable reassignments">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>my_variable = 5<BR>print(my_variable)<BR>my_variable = 
+      "Good morning!"<BR>print(my_variable)</CODE></STRONG></TD>
+    <TD><CODE><BR>5<BR><BR>Good morning!</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_09" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_09" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Output with Variables and Literal Constants</H1>
+<P>There are times when we need to display one or more variables and literal 
+constants together.  The <CODE>print</CODE> statement has already got you 
+covered.  You simply separate the variables and literal constants using 
+commas:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Variables and literals">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>my_name = "Heather"<BR>print("Hi,", 
+      my_name)</CODE></STRONG></TD>
+    <TD><CODE>Hi, Heather</CODE></TD></TR></TBODY></TABLE>
+<P>Notice that I did not explicitly put a space after the comma – Python added 
+the space itself.  Later, we will learn how to control the character which 
+separates components of the <CODE>print</CODE> statement.</P>
+<P>Here are some more examples:</P>
+<TABLE cellspacing="0" cellpadding="0" summary="Variables and literals">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>fav_color = 'blue'<BR>print("I like", fav_color, 
+      "too!")</CODE></STRONG></TD>
+    <TD><CODE>I like blue too!</CODE></TD></TR>
+  <TR>
+    <TD><STRONG><CODE>animal = "dogs"<BR>number = 5<BR>print('I see', number, 
+      animal, "running")</CODE></STRONG></TD>
+    <TD><CODE>I see 5 dogs running</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson1_10" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_10" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson1_11" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_11" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson1_12" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_12" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part3_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Example: Using Variables and Literal Constants</H1><CODE>i = 5 print(i) i = 
+i + 1 print(i) s = '''This is a multi-line string. This is the second line.'''
+ print(s)</CODE>
+<H2>Output:</H2><CODE>5 6 This is a multi-line string. This is the second 
+line.</CODE>
+<H2>How It  Works</H2>
+<TABLE cellspacing="0" cellpadding="0" summary="Program explanation">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE><STRONG>i = 5</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>First, we assign the literal    constant value <CODE>5</CODE> to the 
+      variable <CODE>i</CODE> using the assignment operator (<CODE>=</CODE>). 
+      This line is called a statement because it    states that something should 
+      be done and in this case, we connect the    variable name <CODE>i</CODE> 
+      to the value <CODE>5</CODE>. </P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print(i)</STRONG></CODE></TD>
+    <TD><CODE>5</CODE></TD>
+    <TD>
+      <P>Next, we print the value of <CODE>i</CODE> using the <CODE>print</CODE> 
+      statement which, unsurprisingly, just prints    the value of the variable 
+      to the screen.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>i = "hello"</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>The we reassign <CODE>i</CODE> to the string 
+  <CODE>hello</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print(i)</STRONG></CODE></TD>
+    <TD><CODE>hello</CODE></TD>
+    <TD>
+      <P>We then print it and expectedly, we get the value 
+      <CODE>hello.</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>s = '''This is a multi-line string.<BR>This is the 
+      second line.'''</STRONG></CODE></TD>
+    <TD><EM>none</EM></TD>
+    <TD>
+      <P>Similarly, we assign the literal string to the variable s. </P></TD></TR>
+  <TR>
+    <TD><CODE><STRONG>print(s)</STRONG></CODE></TD>
+    <TD><CODE>This is a multi-line string.<BR>This is the second line.</CODE> 
+      <P></P></TD>
+    <TD>
+      <P>Then we print it.</P></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></BODY></HTML>

@@ -1,0 +1,296 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_7_part_3.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_3" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson7_part3_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part3_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part3_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part3_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part3_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson7_part3_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson7_part3_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson7_part3_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson7_part3_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson7_part3_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 7, Bit 3: Writing and Appending Data</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<H1>Writing Files</H1>
+<P>To write a file, you have to open it with mode '<CODE>w</CODE>' as a second 
+parameter:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fout = open('output.txt', 'w')<BR><BR>              
+      print(fout)</CODE></TD>
+    <TD><CODE>&lt;_io.TextIOWrapper name='output.txt' mode='w' 
+      encoding='cp1252'&gt;</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>If the file already exists, opening it in <CODE>write</CODE> mode clears out 
+the old data and starts fresh, so be careful! </P></DIV>
+<DIV class="fullpage">
+<P>If the file doesn't exist, a new one is created.</P></DIV>
+<DIV class="fullpage">
+<P>The write method of the file handle object puts data into the file. The 
+<CODE>write</CODE> method accepts a string as its input:</P><CODE>line1 = "This 
+here's the wattle,\n"<BR>      fout.write(line1)</CODE>
+<P>Again, the file object keeps track of where it is, so if you call 
+<CODE>write</CODE> again, it adds the new data to the end.</P></DIV>
+<DIV class="fullpage">
+<P>We must make sure to manage the ends of lines as we write to the file by 
+explicitly inserting the newline character when we want to end a line. The 
+<CODE>print</CODE> statement automatically appends a newline, but the 
+<CODE>write</CODE> method does not add the newline automatically.</P><CODE>line2 
+= 'the emblem of our land.\n'<BR>      fout.write(line2)</CODE></DIV>
+<DIV class="fullpage">
+<P>When you are done writing, you have to close the file to make sure that the 
+last bit of data is physically written to the disk so it will not be lost if the 
+power goes off.</P><CODE>fout.close()</CODE>
+<P>It is good programming practice to always close your files when you are 
+finished with them. When we are writing files, we certainly want to explicitly 
+close the files so as to leave nothing to chance.</P></DIV>
+<DIV class="fullpage">
+<H1>The writelines Method</H1>
+<P>If you have a list of strings, you can write them all into the file in one 
+fell swoop using the <CODE>writelines</CODE> method.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>my_list = ['Line 1', 'Line 2', 'Line 3']<BR><BR>              
+      fout = open('output.txt', 'w')<BR><BR>              
+      fout.writelines(my_list)<BR><BR>              fout.close()</CODE></TD>
+    <TD><CODE><EM>None</EM></CODE></TD></TR></TBODY></TABLE>
+<P>When we re-open <CODE>output.txt</CODE> in read mode and display the lines, 
+this is what we get:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fout = open('output.txt', 'r')<BR><BR>              for line in 
+      fout:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print(line)</CODE></TD>
+    <TD><CODE>Line 1Line 2Line 3</CODE></TD></TR></TBODY></TABLE>
+<P>Notice that there are no line breaks.&nbsp; Something to keep in mind when 
+using <CODE>writelines</CODE>: your list needs to have line breaks included if 
+you want to separate your strings with line breaks.</P></DIV>
+<DIV class="fullpage">
+<H1>Appending to Files</H1>
+<P>What if you want to merely append data to an existing file?&nbsp; You can use 
+the append mode of <CODE>'a'</CODE>:<CODE></CODE></P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fout = open('append.txt', 'a')<BR><BR>              
+      print(fout)</CODE></TD>
+    <TD><CODE>&lt;_io.TextIOWrapper name='append.txt' mode='a' 
+      encoding='cp1252'&gt;</CODE></TD></TR></TBODY></TABLE>
+<P>Just like with the write mode, append will create the file if it does not 
+already exist. Unlike <CODE>write</CODE> mode, <CODE>append</CODE> will leave 
+all of the existing data intact, and will merely add data to the end of the 
+file.</P>
+<P>We add to the file using the <CODE>write</CODE> method:</P><CODE>line = "I am 
+a lumberjack\n"<BR>      fout.write(line)</CODE>
+<P>And we close the file the same way:</P><CODE>fout.close()</CODE>
+<P>Later when we reopen the file and add another line to it, the original line 
+will still be there:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fout = open('append.txt', 'a')<BR><BR>              
+      fout.write("and I'm okay")<BR><BR>              fout.readlines()</CODE></TD>
+    <TD><CODE>I am a lumberjack<BR>              and I'm 
+  okay</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Available Modes</H1>
+<P>We have seen the modes <CODE>'r'</CODE>, <CODE>'w'</CODE>, and 
+<CODE>'a'</CODE>.&nbsp; You can add a plus sign <CODE>+</CODE> to the mode to 
+increase its functionality. It can get confusing, so here is a chart which might 
+help:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Function</TH>
+    <TH>r</TH>
+    <TH>r+</TH>
+    <TH>w</TH>
+    <TH>w+</TH>
+    <TH>a</TH>
+    <TH>a+</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD>read file</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>&nbsp;</TD>
+    <TD>X</TD>
+    <TD>&nbsp;</TD>
+    <TD>X</TD></TR>
+  <TR>
+    <TD>write to file</TD>
+    <TD>&nbsp;</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>X</TD></TR>
+  <TR>
+    <TD>create file if it doesn't exist</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>X</TD></TR>
+  <TR>
+    <TD>truncate file (delete contents)</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>start at beginning of file</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>X</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>start at end of file</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+    <TD>X</TD>
+    <TD>X</TD></TR></TBODY></TABLE>
+<P>By default, open assumes that you are working with a text document.&nbsp; If 
+you wish to work with a binary file, then you can pass the mode <CODE>'b'</CODE> 
+into any of the above modes.&nbsp; You can also explicitly specify a text file 
+by using the mode <CODE>'t'</CODE>:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Mode</TH>
+    <TH>Description</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>'r+b'</CODE></TD>
+    <TD>
+      <P>Read and write a binary file.</P></TD></TR>
+  <TR>
+    <TD><CODE><CODE>'ab'</CODE></CODE></TD>
+    <TD>
+      <P>Append to a binary file</P></TD></TR>
+  <TR>
+    <TD><CODE><CODE>'w+t'</CODE></CODE></TD>
+    <TD>
+      <P>Read and write a text file, truncating the file first and auto-creating 
+      it if it doesn't exist.</P></TD></TR></TBODY></TABLE>
+<P>You should use the mode which provides the functionality you need, without 
+providing too much functionality.&nbsp; If you only need to read a file, then 
+don't use a mode which allows you to read and write to the file.</P></DIV>
+<DIV class="fullpage">
+<H1>Dictionaries, Lists, and Tuples: File Example</H1>
+<P>One of the common uses of a dictionary is to count the occurrence of words in 
+a file with some written text. Let's start with a very simple file of words 
+taken from the text of Act 2, Scene 2 of Romeo and Juliet.&nbsp; Here is a small 
+sample from <CODE>romeo-full.txt</CODE>:</P><CODE>Romeo and Juliet<BR><BR>      
+Act 2, Scene 2<BR><BR>      SCENE II. Capulet's orchard.<BR><BR>      Enter 
+ROMEO<BR>      ROMEO<BR><BR>      He jests at scars that never felt a wound.<BR> 
+     JULIET appears above at a window<BR><BR>      But, soft! what light through 
+yonder window breaks?<BR>      It is the east, and Juliet is the sun.<BR>      
+Arise, fair sun, and kill the envious moon,<BR>      Who is already sick and 
+pale with grief,<BR>      That thou her maid art far more fair than she:</CODE>
+<P>We will write a Python program to read through the lines of the file, break 
+each line into a list of words, and then loop through each of the words in the 
+line and count each word using a dictionary.</P>
+<P>You will see that we have two for loops. The outer loop is reading the lines 
+of the file and the inner loop is iterating through each of the words on that 
+particular line. This is an example of a pattern called nested loops because one 
+of the loops is the outer loop and the other loop is the inner loop.</P>
+<P>Because the inner loop executes all of its iterations each time the outer 
+loop makes a single iteration, we think of the inner loop as iterating "more 
+quickly" and the outer loop as iterating more slowly.</P>
+<P>The combination of the two nested loops ensures that we will count every word 
+on every line of the input file.</P><CODE>fname = input('Enter the file name: 
+')<BR><BR>      try:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;fhand = 
+open(fname)<BR><BR>      except:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;print('File 
+cannot be opened:', fname)<BR>      &nbsp;&nbsp;&nbsp;&nbsp;exit()<BR><BR>      
+counts = dict()<BR><BR>      for line in fhand:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;words = line.split()<BR><BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;for word in words:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if word not in counts:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counts[word] 
+= 1<BR><BR>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counts[word] 
++= 1<BR><BR>      print(counts)</CODE>
+<P>When we run the program, we see a raw dump of all of the counts in unsorted 
+hash order. </P><CODE>Enter the file name: <STRONG>romeo-full.txt</STRONG><BR>   
+   {'A': 2, 'name.': 1, 'sweet;': 1, 'foot,': 1, 'region': 1, 'that': 23, 
+'Sweet': 1, 'entreat': 1, 'think': 2, 'compliment!': 1, 'night.': 1, 'JULIET,': 
+2, 'walls': 1, 'Echo': 1, 'Exit': 2, 'come': 2, 'wanting': 1, 'Sweet,': 2, 
+'else,': 1, 'orchard': 1, 'sea,': 2, 'who': 3, 'one': 2, 'place?': 1, 'little': 
+1, 'May': 1, 'sight;': 1, 'was': 1, 'cheek!': 1, 'blessed': 2, ...}</CODE></DIV>
+<DIV class="fullpage">
+<P>It is a bit inconvenient to look through the dictionary to find the most 
+common words and their counts, so we need to add some more Python code to get us 
+the output that will be more helpful.&nbsp; We will use list sorting to make 
+this happen by adding this code:</P><CODE># Sort the dictionary by value<BR>     
+ lst = list()<BR><BR>      for key, val in counts.items():<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;lst.append((val, key))<BR><BR>      
+lst.sort(reverse=True)<BR><BR>      for key, val in lst[:10] :<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print(key, val)</CODE>
+<P>The first part of the program which reads the file and computes the 
+dictionary that maps each word to the count of words in the document is 
+unchanged. But instead of simply printing out counts and ending the program, we 
+construct a list of <CODE>(val, key)</CODE> tuples and then sort the list in 
+reverse order.</P>
+<P>Since the value is first, it will be used for the comparisons. If there is 
+more than one tuple with the same value, it will look at the second element (the 
+key), so tuples where the value is the same will be further sorted by the 
+alphabetical order of the key.</P>
+<P>At the end we write a nice for loop which does a multiple assignment 
+iteration and prints out the ten most common words by iterating through a slice 
+of the list (<CODE>lst[:10]</CODE>).</P>
+<P>So now the output finally looks like what we want for our word frequency 
+analysis.</P><CODE>60 I<BR>      31 to<BR>      30 the<BR>      29 thou<BR>      
+28 JULIET<BR>      27 ROMEO<BR>      23 that<BR>      22 my<BR>      22 and<BR>  
+    22 a</CODE>
+<P>The fact that this complex data parsing and analysis can be done with an easy 
+- to - understand 19 - line Python program is one reason why Python is a good 
+choice as a language for exploring information.</P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

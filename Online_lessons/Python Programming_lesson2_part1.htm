@@ -1,0 +1,359 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_2_part_1.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson2_part1_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part1_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part1_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part1_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part1_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part1_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson2_part1_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson2_part1_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson2_part1_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson2_part1_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Lesson 2:<BR>Conditional Statements &amp;<BR> Boolean Logic</H1></DIV>
+<DIV class="fullpage">
+<P>In the programs we have seen till now, there has always been a series of 
+statements faithfully executed by Python in exact top-down order. What if you 
+wanted to change the flow of how it works? For example, you want the program to 
+take some decisions and do different things depending on different situations, 
+such as printing 'Good Morning' or 'Good Evening' depending on the time of the 
+day?</P>
+<P>In order to write useful programs, we almost always need the ability to check 
+conditions and change the behavior of the program accordingly. Conditional 
+statements give us this ability. </P>
+<P>In order to check a condition, we need to be able to compare different values 
+and determine whether the condition is true or false. To do these actions, we 
+first need to know about <STRONG>Boolean expressions</STRONG>, 
+<STRONG>comparison operators</STRONG> and <STRONG>logical 
+operators</STRONG>.</P></DIV>
+<DIV class="fullpage">
+<H1>Boolean Expressions</H1>
+<P>A <STRONG>Boolean expression</STRONG> is an expression that is either true or 
+false. For example:</P>
+<PRE>5 equals 5</PRE>
+<P>This statement would evaluate as <STRONG>True</STRONG>. The number five 
+<EM>does</EM> equal the number five. How about this one:</P>
+<PRE>5 equals 6</PRE>
+<P>This statement would evaluate as <STRONG>False</STRONG>. The number 5 is not 
+the same value as the number 6.</P>
+<P>When writing in code, Python uses the comparison operator <CODE>==</CODE> to 
+represent the word "equals." Our two examples above may be re-written in Python 
+as:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Evaluates As</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>5 == 5</CODE></TD>
+    <TD><CODE>True </CODE></TD></TR>
+  <TR>
+    <TD><CODE>5 == 6</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR></TBODY></TABLE>
+<P>Note the capitalization of the names. <STRONG>True</STRONG> and 
+<STRONG>False</STRONG> are special values that belong to the type 
+<CODE>bool</CODE>; they are not strings: </P>
+<PRE>&gt;&gt;&gt; type(True)
+&lt;class 'bool'&gt;
+
+&gt;&gt;&gt; type(False)
+&lt;class 'bool'&gt;</PRE></DIV>
+<DIV class="fullpage">
+<H1>Boolean Data Types</H1>
+<P>You can also assign a variable directly to the data type of 
+<CODE>bool</CODE>:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Evaluates As</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>is_enabled = True</CODE></TD>
+    <TD><CODE>True </CODE></TD></TR>
+  <TR>
+    <TD><CODE>my_variable = False</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-00" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-00" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="title">
+<H1>Comparison Operators</H1></DIV>
+<DIV class="fullpage">
+<P>The equals operator <CODE>== </CODE>is one of several <STRONG>comparison 
+operators</STRONG>. We use comparison operators to compare different objects – 
+be it strings, numbers, integers, variables, or other data types.  Here are the 
+most common:</P></DIV>
+<DIV class="fullpage">
+<H1>== (equal to)</H1>
+<P>This compares whether the objects are equal. <CODE>x == y</CODE> means that 
+<CODE>x</CODE> is equal to <CODE>y</CODE>. When you use <CODE>x == y</CODE>, you 
+are asking the question "<EM>Is x equal to y?</EM>".<CODE></CODE></P>
+<P>A common error is to use a single equal sign (=) instead of a double equal 
+sign (==). Remember that <CODE>=</CODE> is an <EM>assignment</EM> operator and 
+== is a <EM>comparison</EM> operator. </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = 2<BR>              y = 2<BR>              x == y</CODE></TD>
+    <TD><CODE>True </CODE></TD>
+    <TD>
+      <P>Both <CODE>x</CODE> and <CODE>y</CODE> equal <CODE>2</CODE>, so the 
+      return value of <CODE>x == y</CODE> is True.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 'str'<BR>              y = 'stR'<BR>              x == 
+      y</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>Remember that strings are case sensitive. <CODE>str</CODE> is not the 
+      same as <CODE>stR</CODE>. So when we compare x and y, they are not equal, 
+      so <CODE>x == y</CODE> evaluates to false.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 'str'<BR>              y = 'str'<BR>              x == 
+      y</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>Both values are the same, so <CODE>x == y</CODE> evaluates to 
+    true.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-01" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-01" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>!= (not equal to)</H1>
+<P>This compares whether the objects are not equal. <CODE>x != y</CODE> means 
+that <CODE>x</CODE> is not equal to <CODE>y</CODE>. When you use <CODE>x != 
+y</CODE>, you are asking the question "<EM>Is x not equal to y?</EM>". </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = 2<BR>              y = 3<BR>              x != y</CODE></TD>
+    <TD><CODE>True </CODE></TD>
+    <TD>
+      <P>The numbers 2 and 3 are different. So the return value of <CODE>x != 
+      y</CODE> is True. Remember, we are checking whether <CODE>x</CODE> does 
+      NOT equal <CODE>y</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 'str'<BR>              y = 'stR'<BR>              x != 
+      y</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>Remember that strings are case sensitive. <CODE>str</CODE> is not the 
+      same as <CODE>stR</CODE>. So when we compare x and y, they are not equal, 
+      so <CODE>x != y</CODE> evaluates to true.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 'str'<BR>              y = 'str'<BR>              x != 
+      y</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>Both values are the same, so <CODE>x != y</CODE> evaluates to false. 
+      Remember, we are checking whether <CODE>x</CODE> does NOT equal 
+      <CODE>y</CODE>.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-02" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-02" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>&lt; (less than)</H1>
+<P>This compares whether the first object is less than the second object. x &lt; 
+y means that x is less than y. When you use <CODE>x &lt; y</CODE>, you are 
+asking the question "<EM>Is the value of x less than the value of y?</EM>". </P>
+<P>Comparisons can be chained arbitrarily: <CODE>3 &lt; 5 &lt; 7</CODE> gives 
+<CODE>True </CODE>because 3 is less than 5 which is also less than 7.</P>
+<P>You can also compare strings using less than, but it is complicated. The 
+string characters are converted into ASCII decimal values and those numbers are 
+compared. In most cases, you will not want to use less than to compare 
+strings.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>5 &lt; 3</CODE></TD>
+    <TD><CODE>False </CODE></TD>
+    <TD>
+      <P>5 is not less than 3, so this evaluates to false.</P></TD></TR>
+  <TR>
+    <TD><CODE>3 &lt; 5</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>3 is less than 5, so this evaluates to true.</P></TD></TR>
+  <TR>
+    <TD><CODE>3 &lt; 3</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>3 is not less than itself, so this returns as false.</P></TD></TR>
+  <TR>
+    <TD><CODE>'a' &lt; 'b'</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>In this case, <CODE>a</CODE> has an ASCII value of 97 and 
+      <CODE>b</CODE> has an ASCII value of 98. 97 is less than 98 so this 
+      evaluates as true.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-03" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-03" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>&gt; (greater than)</H1>
+<P>This compares if the first object is greater or larger than the second 
+object. <CODE>x &gt; y</CODE> means that <CODE>x</CODE> is greater than 
+<CODE>y</CODE>. When you use <CODE>x &gt; y</CODE>, you are asking the question 
+"<EM>Is the value of x more than the value of y?</EM>". </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>5 &gt; 3</CODE></TD>
+    <TD><CODE>True </CODE></TD>
+    <TD>
+      <P>5 is greater than 3, so this evaluates to true.</P></TD></TR>
+  <TR>
+    <TD><CODE>3 &gt; 5</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>3 is not greater than 5, so this evaluates to false.</P></TD></TR>
+  <TR>
+    <TD><CODE>3 &gt; 3</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>3 is not greater than itself, so this returns as false.</P></TD></TR>
+  <TR>
+    <TD><CODE>'a' &gt; 'b'</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>In this case, <CODE>a</CODE> has an ASCII value of 97 and 
+      <CODE>b</CODE> has an ASCII value of 98. 97 is less than 98 so this 
+      evaluates as false.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-04" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-04" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>&lt;= (less than or equal to)</H1>
+<P>This compares whether the first object is less than or equal to the second 
+object. <CODE>x &lt;= y</CODE> means that <CODE>x</CODE> is less than or equal 
+to <CODE>y</CODE>. &nbsp;The "or equal to" part is important because as we saw 
+before, <CODE>3 &lt; 3</CODE> evaluates as false, but <CODE>3 &lt;= 3</CODE> 
+would evaluate as true because or the "or equal to" part. When you use <CODE>x 
+&lt;= y</CODE>, you are asking the question "<EM>Is the value of x less than or 
+the same as the value of y?</EM>" </P>
+<P>Remember that the equals sign comes last. There is no such thing as 
+<CODE>=&lt;</CODE>. </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>5 &lt;= 3</CODE></TD>
+    <TD><CODE>False </CODE></TD>
+    <TD>
+      <P>5 is not less than 3 and it is not equal to 3, so this evaluates to 
+      false.</P></TD></TR>
+  <TR>
+    <TD><CODE>3 &lt;= 5</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>3 is less than 5, so this evaluates to true.</P></TD></TR>
+  <TR>
+    <TD><CODE>3 &lt;= 3</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>3 is not less than itself, but it is equal to itself so this returns as 
+      true.</P></TD></TR>
+  <TR>
+    <TD><CODE>'a' &lt;= 'b'</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>In this case, <CODE>a</CODE> has an ASCII value of 97 and 
+      <CODE>b</CODE> has an ASCII value of 98. 97 is less than 98 so this 
+      evaluates as true.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 3<BR>              y = 6<BR>              x &lt;= 
+y</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>3 is less than 6, so this evaluates as true.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-05" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-05" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>&gt;= (greater than or equal to)</H1>
+<P>This compares whether the first object is greater than or equal to the second 
+object. <CODE>x &gt;= y</CODE> means that <CODE>x</CODE> is greater than or 
+equal to <CODE>y</CODE>. The "or equal to" part is important because as we saw 
+before, <CODE>3 &gt; 3</CODE> evaluates as false, but <CODE>3 &gt;= 3</CODE> 
+would evaluate as true because or the "or equal to" part. When you use <CODE>x 
+&lt;= y</CODE>, you are asking the question "<EM>Is the value of x more than or 
+the same as the value of y?</EM>" </P>
+<P>Remember that the equals sign comes last. There is no such thing as 
+<CODE>=&gt;</CODE>. </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>5 &gt;= 3</CODE></TD>
+    <TD><CODE>True </CODE></TD>
+    <TD>
+      <P>5 is greater than 3, so this evaluates to true.</P></TD></TR>
+  <TR>
+    <TD><CODE>3 &gt;= 5</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>3 is not greater than 5, so this evaluates to false.</P></TD></TR>
+  <TR>
+    <TD><CODE>3 &gt;= 3</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>3 is not greater than itself, but it is equal to itself so this returns 
+      as false.</P></TD></TR>
+  <TR>
+    <TD><CODE>'a' &gt;= 'b'</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>In this case, <CODE>a</CODE> has an ASCII value of 97 and 
+      <CODE>b</CODE> has an ASCII value of 98. 97 is less than 98 so this 
+      evaluates as false.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 4<BR>              y = 3<BR>              x &gt;= 
+3</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>4 is greater than 3, so it evaluates as true.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-06" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-06" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part1_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson2-07" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-07" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part1_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

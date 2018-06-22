@@ -1,0 +1,243 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_2_part_2.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson2_part2_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part2_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part2_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part2_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part2_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson2_part2_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson2_part2_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson2_part2_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson2_part2_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson2_part2_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Conditional Statements</H1></DIV>
+<DIV class="fullpage">
+<H1>if: Conditional Statements</H1>
+<P>So now we know how to use comparison operators to compare different values in 
+order to reach a <CODE>True</CODE> or <CODE>False</CODE> conclusion. Let’s put 
+this to use:</P>
+<P>In order to write useful programs, we almost always need the ability to check 
+conditions and change the behavior of the program accordingly. Conditional 
+statements give us this ability. The simplest form is the <CODE>if</CODE> 
+statement:</P>
+<PRE>if <EM>[condition]</EM>:
+    <EM>[do something]</EM></PRE>
+<P>The Boolean expression after <CODE>if</CODE> is called the condition. If it 
+is true, the indented statement runs. If not, nothing happens. </P>
+<P>Notice how the <CODE>if</CODE> statement contains a colon at the end - we are 
+indicating to Python that a block of statements follows.</P>
+<P>Notice also that the <CODE><EM><CODE>[do something]</CODE></EM></CODE> part 
+is indented. The first line of the condition statement is called the 
+<STRONG>header</STRONG>; the rest is called the <STRONG>body</STRONG>. The 
+header has to end with a colon and the body has to be indented. By convention, 
+indentation is always four spaces. </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = 1<BR>              if x &gt; 0:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print('x is positive')</CODE></TD>
+    <TD><CODE>x is positive</CODE></TD>
+    <TD>
+      <P>The condition <CODE>x &gt; 0</CODE> evaluates to true because 1 is 
+      greater than 0. So the condition is satisfied and the body of statements 
+      executes.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = -5<BR>              if x &gt; 0:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print('x is positive')</CODE></TD>
+    <TD>
+      <P><EM>None</EM></P></TD>
+    <TD>
+      <P>The condition <CODE>x &gt; 0</CODE> evaluates to false because -5 is 
+      less than 0. So the condition is not satisfied nothing happens.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 0<BR>              if x &gt; 0:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print('x is positive')</CODE></TD>
+    <TD>
+      <P><EM>None</EM></P></TD>
+    <TD>
+      <P>The condition <CODE>x &gt; 0</CODE> evaluates to false because 0 is not 
+      greater than 0 (it is equal and we aren't looking for that). So the 
+      condition is not satisfied nothing happens.</P></TD></TR>
+  <TR>
+    <TD><CODE>my_variable = True<BR>              if my_variable:<BR>          
+          &nbsp;&nbsp;&nbsp;&nbsp;print("It's true!")</CODE></TD>
+    <TD><CODE>It's true!</CODE></TD>
+    <TD>
+      <P>The variable <CODE>my_variable</CODE> is a Boolean value. It evaluates 
+      to true because its value is set to True. So the condition is satisfied 
+      and the body of statements executes.</P></TD></TR>
+  <TR>
+    <TD><CODE>color = "red"<BR>              if color == "blue":<BR>           
+         &nbsp;&nbsp;&nbsp;&nbsp;print("It's blue!")</CODE></TD>
+    <TD>
+      <P><EM>None</EM></P></TD>
+    <TD>
+      <P>The variable <CODE>color</CODE> is a string assigned to the value 
+      "red". We compare it to the string "blue" to check if they are equal. They 
+      are not, so the condition evaluates as false. The condition is not 
+      satisfied so nothing happens.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-08" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-08" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part2_files/python_launch_100.png"></A></P>
+<P>There is no limit on the number of statements that can appear in the body, 
+but there has to be at least one. Occasionally, it is useful to have a body with 
+no statements (usually as a place keeper for code you haven’t written yet). In 
+that case, you can use the <CODE>pass</CODE> statement, which does nothing – it 
+just "passes" by and continues the code. </P><CODE>if x &lt; 0:    pass&nbsp; # 
+TODO: need to handle negative values!</CODE></DIV>
+<DIV class="fullpage">
+<H1>else: Alternative Execution</H1>
+<P>A second form of the <CODE>if</CODE> statement is "alternative execution", in 
+which there are two possibilities and the condition determines which one runs. 
+The syntax looks like this:</P>
+<PRE>if <EM>[condition]</EM>:
+    <EM>[do something]</EM>
+else:
+    <EM>[do something else]</EM></PRE>
+<P>If the first condition does not evaluate to true, then the code in the body 
+of the <CODE>else</CODE> header will execute. It is the alternative action. Just 
+like with the <CODE>if</CODE> statement, the <CODE>else</CODE> statement ends 
+with a colon and the code block within its body is indented exactly the same 
+ways as the <CODE>if</CODE> code block.</P>
+<P>Look at this conditional statement:</P><CODE>if x % 2 == 0:    print('x is 
+even') else:    print('x is odd')</CODE>
+<P>If the remainder when <CODE>x</CODE> is divided by 2 is 0, then we know that 
+<CODE>x</CODE> is even, and the program displays an appropriate message. If the 
+condition is false, the second set of statements runs. Since the condition must 
+be true or false, exactly one of the alternatives will run. The alternatives are 
+called branches, because they are branches in the flow of execution.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = 7 <BR>            if x % 2 == 0:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print('x is even')<BR>              else:<BR>      
+              &nbsp;&nbsp;&nbsp;&nbsp;print('x is odd')</CODE></TD>
+    <TD><CODE>x is odd</CODE></TD>
+    <TD>
+      <P>In this case, <CODE>7 % 2</CODE> equals 1, because when you divide 7 by 
+      2, you get 3 with a remainder of 1. Since <CODE>x % 2 == 1</CODE>, then 
+      the first condition is not satisfied and the alternative code is 
+      executed.</P></TD></TR>
+  <TR>
+    <TD><CODE>x = 6 <BR>            if x % 2 == 0:<BR>            
+      &nbsp;&nbsp;&nbsp;&nbsp;print('x is even')<BR>              else:<BR>      
+              &nbsp;&nbsp;&nbsp;&nbsp;print('x is odd')</CODE></TD>
+    <TD><CODE>x is even</CODE></TD>
+    <TD>
+      <P>In this case, <CODE>6 % 2</CODE> equals 0, because when you divide 6 by 
+      2, you get 3 with a remainder of 0. Since <CODE>x % 2 == 0</CODE>, then 
+      the first condition is satisfied and the alternative code is not 
+      executed.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-09" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-09" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>elif: Chained Conditionals</H1>
+<P>Sometimes there are more than two possibilities and we need more than two 
+branches. One way to express a computation like that is a chained conditional. 
+It follows this format:</P>
+<PRE>if <EM>[condition #1]</EM>:
+    <EM>[do something]</EM>
+elif <EM>[condition #2]</EM>:
+    <EM>[do something else]</EM>
+else:
+    <EM>[do something even more different]</EM></PRE>
+<P><CODE>elif</CODE> is an abbreviation of "else if". Again, exactly one branch 
+will run. There is no limit on the number of <CODE>elif</CODE> statements. If 
+there is an <CODE>else</CODE> clause, it has to be at the end, but there doesn’t 
+have to be one. </P>
+<P>Each condition is checked in order. If the first is false, the next is 
+checked, and so on. If one of them is true, the corresponding branch runs and 
+the statement ends. Even if more than one condition is true, only the first true 
+branch runs. </P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = 1<BR>              y = 2 <BR>              if x &lt; y:<BR>  
+                  &nbsp;&nbsp;&nbsp;&nbsp;print('x is less than y')<BR>          
+          elif x &gt; y:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print('x is 
+      greater than y')<BR>              else:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print('x and y are equal')</CODE></TD>
+    <TD><CODE>x is less than y</CODE></TD>
+    <TD>
+      <P>1 is less than 2, so the very first condition of <CODE>x &lt; y</CODE> 
+      evaluates to true, so we see <CODE>x is less than y</CODE>.</P>
+      <P><EM>Note: Python ignores the second condition and the 
+      alternative.</EM></P></TD></TR>
+  <TR>
+    <TD><CODE>x = 6<BR>              y = 5<BR>               if x &lt; y:<BR>  
+                  &nbsp;&nbsp;&nbsp;&nbsp;print('x is less than y')<BR>          
+          elif x &gt; y:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print('x is 
+      greater than y')<BR>              else:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print('x and y are equal')</CODE></TD>
+    <TD><CODE>x is greater than y</CODE></TD>
+    <TD>
+      <P>6 is greater than 5, so the very first condition of <CODE>x &lt; 
+      y</CODE> evaluates to false. Python moves to the next condition, <CODE>x 
+      &gt; y</CODE>, which evaluates as true, so we see <CODE>x is greater than 
+      y</CODE>.</P>
+      <P><EM>Note: Python ignores the alternative.</EM></P></TD></TR>
+  <TR>
+    <TD><CODE>x = 0<BR>              y = 0 <BR>              if x &lt; y:<BR>  
+                  &nbsp;&nbsp;&nbsp;&nbsp;print('x is less than y')<BR>          
+          elif x &gt; y:<BR>              &nbsp;&nbsp;&nbsp;&nbsp;print('x is 
+      greater than y')<BR>              else:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print('x and y are equal')</CODE></TD>
+    <TD><CODE>x and y are equal</CODE></TD>
+    <TD>
+      <P>0 is equal to 0, so the very first condition of <CODE>x &lt; y</CODE> 
+      evaluates to false. Python moves to the next condition, <CODE>x &gt; 
+      y</CODE>, which evaluates as false. Python moves on to the alternative, so 
+      we see <CODE>x and y are equal</CODE>.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson2-10" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-10" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Nested Conditionals</H1>
+<P>One conditional can also be nested within another. We could have written the 
+example in the previous section like this:</P><CODE>if x == y:
+&nbsp;&nbsp;&nbsp;&nbsp; print('x and y are equal') else:
+&nbsp;&nbsp;&nbsp;&nbsp; if x &lt; y:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('x is less than y')
+&nbsp;&nbsp;&nbsp;&nbsp; else:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('x is greater than 
+y')</CODE>
+<P>The outer conditional contains two branches. The first branch contains a 
+simple statement. The second branch contains another if statement, which has two 
+branches of its own. Those two branches are both simple statements, although 
+they could have been conditional statements as well.</P>
+<P>Although the indentation of the statements makes the structure apparent, 
+nested conditionals become difficult to read very quickly. It is a good idea to 
+avoid them when you can.</P>
+<P class="exercise"><A class="exercise" id="lesson2-12" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson2-12" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson2_part2_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

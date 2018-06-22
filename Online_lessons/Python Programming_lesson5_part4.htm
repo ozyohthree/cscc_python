@@ -1,0 +1,471 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_5_part_4.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_4" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson5_part4_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part4_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part4_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part4_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part4_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson5_part4_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson5_part4_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson5_part4_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson5_part4_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson5_part4_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 5, Bit 4: Searching and Replacing</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>Now we have some methods which can help us to locate (search) for specific 
+characters or strings, and even replace them with something different.</P></DIV>
+<DIV class="fullpage">
+<H1>The find Method</H1>
+<P>The &nbsp;<CODE>find</CODE> method searches for the position of one string 
+within another.&nbsp; It returns the index value which represents the beginning 
+of the found string.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR>index = 
+      fruit.find('a')<BR>print(index)</CODE></TD>
+    <TD><CODE>1</CODE></TD></TR></TBODY></TABLE>
+<P>In this example, we invoke find on word and pass the letter we are looking 
+for as a parameter.</P>
+<P>The <CODE>find</CODE> method can find substrings as well as characters:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR>index = 
+      fruit.find('na')<BR>print(index)</CODE></TD>
+    <TD><CODE>2</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>It can take as a second argument the index where it should 
+<CODE>start</CODE>.&nbsp; In this example, we are starting with the 
+3<SUP>rd</SUP> index (or 4<SUP>th</SUP> character).</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR>index = fruit.find('na', 
+      3)<BR>print(index)</CODE></TD>
+    <TD><CODE>4</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>If the substring is not found, then it will return a value of 
+<CODE>-1</CODE>.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR>index = 
+      fruit.find('apple')<BR>print(index)</CODE></TD>
+    <TD><CODE>-1</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>The find method can also has an optional stop parameter. With 
+<CODE>stop</CODE>, you can indicate where you wish to stop comparing the 
+string.&nbsp; The numbers used for <CODE>start</CODE> and <CODE>stop</CODE> and 
+the index values in the string.&nbsp; You cannot use <CODE>stop</CODE> without 
+<CODE>start</CODE>, but you can use <CODE>start</CODE> by itself. When you use 
+<CODE>start</CODE> and <CODE>stop</CODE>, it means "from and 
+<STRONG>including</STRONG> the <CODE>start</CODE> index to, and 
+<STRONG>excluding</STRONG>, the <CODE>stop</CODE> index".</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>word = 'banana'<BR>index = word.find('na', 2, 
+      5)<BR>print(index)</CODE></TD>
+    <TD><CODE>2</CODE></TD>
+    <TD>
+      <P>We are once again starting at the 2<SUP>nd</SUP> index, but we're 
+      stopping at the 5<SUP>th</SUP> index. This means we are only searching the 
+      substring <CODE>'nan'</CODE> (since we are excluding the 6<SUP>th</SUP> 
+      index).&nbsp; <CODE>'nan'</CODE> does contain <CODE>'na'</CODE> therefore 
+      <CODE>find</CODE> returns as the index position of the phrase found in the 
+      substring as it relates to the original string.</P></TD></TR>
+  <TR>
+    <TD><CODE>word = 'banana'<BR>index = word.find('na', 4, 
+      5)<BR>print(index)</CODE></TD>
+    <TD><CODE>-1</CODE></TD>
+    <TD>Now we are only looking at the 4<SUP>th</SUP> index which is 
+      <CODE>'n'.</CODE> Obviously, <CODE>'na'</CODE> is not found in 
+      <CODE>'n'</CODE> so a <CODE>-1</CODE> is returned.
+      <P></P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The replace Method</H1>
+<P>The&nbsp; <CODE>replace</CODE> &nbsp;method will return a copy of the string 
+with all occurrences of old substring replaced by new.&nbsp; By default it will 
+replace all occurrences.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR><BR>            print(fruit.replace('a', 
+      'i'))<BR><BR>            print(fruit)</CODE></TD>
+    <TD><CODE>binini<BR>            banana</CODE></TD>
+    <TD>
+      <P>We replaced all instances of the letter 'a' in 'banana' with the letter 
+      'i'.&nbsp; Notice that we did not overwrite the original 
+      <CODE>fruit</CODE> variable.</P></TD></TR></TBODY></TABLE>
+<P>If the optional argument <CODE>count</CODE> is given, only the first 
+<CODE>count</CODE> occurrences are replaced.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR><BR>print(fruit.replace('a', 'i', 
+    2))</CODE></TD>
+    <TD><CODE>binina</CODE></TD>
+    <TD>
+      <P>We set <CODE>count=2</CODE>, so only the first two instances of the 
+      letter 'a' were replaced with the letter 'i'</P></TD></TR></TBODY></TABLE>
+<P>As with the <CODE>find</CODE> method, the <CODE>replace</CODE> method can 
+also find and replace substrings as well as characters.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>fruit = 'banana'<BR><BR>print(fruit.replace('a', '123', 
+      2))</CODE></TD>
+    <TD><CODE>b123n123na</CODE></TD></TR>
+  <TR>
+    <TD><CODE>print(fruit.replace('a', '\nhi\n', 2))</CODE></TD>
+    <TD><CODE>b<BR>hi<BR>n<BR>hi<BR>na</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The startswith Method</H1>
+<P>While this one does not begin with the word "is" it still returns a Boolean 
+value.</P>
+<P>The <CODE>startswith</CODE> method returns <CODE>True</CODE> if the string 
+starts with the specified prefix, <CODE>False</CODE> otherwise.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>line = 'Please have a nice day'<BR>            
+      line.startswith('Please')</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>The string begins with 'Please', therefore <CODE>startswith</CODE> 
+      returns as <CODE>True</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>line = 'Please have a nice day'<BR>            
+      line.startswith('p')</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>The string begins with a capital P, not a lowercase 'p' – therefore 
+      <CODE>startswith</CODE> returns as 
+<CODE>False</CODE>.</P></TD></TR></TBODY></TABLE>
+<P>You will note that <CODE>startswith</CODE> requires the case to match!</P>
+<P>The <CODE>startswith</CODE> method has two optional arguments: 
+<CODE>start</CODE> and <CODE>stop</CODE>.&nbsp; With <CODE>start</CODE>, you can 
+indicate where in the string you wish to start searching.&nbsp; With 
+<CODE>stop</CODE>, you can indicate where you wish to stop comparing the 
+string.&nbsp; The numbers used for <CODE>start</CODE> and <CODE>stop</CODE> and 
+the index values in the string.&nbsp; You cannot use <CODE>stop</CODE> without 
+<CODE>start</CODE>, but you can use <CODE>start</CODE> by itself.</P>
+<P>When you use <CODE>start</CODE> and <CODE>stop</CODE>, it means "from and 
+<STRONG>including</STRONG> the <CODE>start</CODE> index to, and 
+<STRONG>excluding</STRONG>, the <CODE>stop</CODE> index".</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>line = 'Please have a nice day'<BR>            
+      line.startswith('have', 7)</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>The <CODE>start</CODE> parameter is set at 7, so we start looking at 
+      the 7 index of the string.&nbsp; The <CODE>stop</CODE> parameter is not 
+      set, so the default is to look until the end of the string.&nbsp; This 
+      means we are looking for the substring <CODE>'have a nice day'</CODE> to 
+      start with the string <CODE>'have'</CODE>.&nbsp; It does, therefore 
+      <CODE>startswith</CODE> returns as <CODE>True</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>line = 'Please have a nice day'<BR>            
+      line.startswith('have', 7, 9)</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>We are once again starting at the 7<SUP>th</SUP> index, but we're 
+      stopping at the 9<SUP>th</SUP> index. This means we are only searching the 
+      substring <CODE>'ha'</CODE> (since we are excluding the 9<SUP>th</SUP> 
+      index).&nbsp; <CODE>'ha'</CODE> does not begin with <CODE>'have'</CODE> 
+      therefore <CODE>startswith</CODE> returns as 
+  <CODE>False</CODE>.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>The endswith Method</H1>
+<P>The <CODE>endswith</CODE> method returns <CODE>True</CODE> if the string ends 
+with the specified prefix, <CODE>False</CODE> otherwise.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>file = 'Lesson 4 Lab.py'<BR>            
+      file.endswith('.py')</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>The string ends with <CODE>'.pyc'</CODE>, therefore 
+      <CODE>endswith</CODE> returns as <CODE>True</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>file = 'Lesson 4 Lab.py'<BR>            
+      file.endswith('.PY')</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>The string ends with a lowercase <CODE>'.py'</CODE>, not an upper-case 
+      <CODE>'.PY'</CODE> – therefore <CODE>endswith</CODE> returns as 
+      <CODE>False</CODE>.</P></TD></TR></TBODY></TABLE>
+<P>You can also use an optional <CODE>start</CODE> and <CODE>stop</CODE> 
+parameters just like with <CODE>startswith</CODE> to narrow your full string 
+down to a substring:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>file = 'Lesson 4 Lab.py'<BR>            file.endswith('.py', 
+      9)</CODE></TD>
+    <TD><CODE>True</CODE></TD>
+    <TD>
+      <P>The <CODE>start</CODE> parameter is set at 9, so we start looking at 
+      the 9 index of the string.&nbsp; The <CODE>stop</CODE> parameter is not 
+      set, so the default is to look until the end of the string.&nbsp; This 
+      means we are looking for the substring <CODE>'Lab.py'</CODE> to end with 
+      the string <CODE>'.py'</CODE>.&nbsp; It does, therefore 
+      <CODE>endswith</CODE> returns as <CODE>True</CODE>.</P></TD></TR>
+  <TR>
+    <TD><CODE>file = 'Lesson 4 Lab.py'<BR>            file.endswith('.py', 9, 
+      12)</CODE></TD>
+    <TD><CODE>False</CODE></TD>
+    <TD>
+      <P>We are once again starting at the 9<SUP>th</SUP> index, but we're 
+      stopping at the 12<SUP>th</SUP> index. This means we are only searching 
+      the substring <CODE>'Lab'</CODE> (since we are excluding the 
+      12<SUP>th</SUP> index).&nbsp; <CODE>'Lab'</CODE> does not end with 
+      <CODE>'.py'</CODE> therefore <CODE>endswith</CODE> returns as 
+      <CODE>False</CODE>.</P></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_14" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_14" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part4_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Chaining Multiple Methods</H1>
+<P>There are times when you need to call multiple methods on a single 
+string.&nbsp; You can do that line by line:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Line</TH>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>1</CODE></TD>
+    <TD><CODE>line = 'Please have a nice day'</CODE></TD>
+    <TD><CODE>Please have a nice day</CODE></TD></TR>
+  <TR>
+    <TD><CODE>2</CODE></TD>
+    <TD><CODE>line.lower()</CODE></TD>
+    <TD><CODE>please have a nice day</CODE></TD></TR>
+  <TR>
+    <TD><CODE>3</CODE></TD>
+    <TD><CODE>line.startswith('p')</CODE></TD>
+    <TD><CODE>True</CODE></TD></TR></TBODY></TABLE>
+<P>In the last example, the method <CODE>lower</CODE> is called and then we use 
+<CODE>startswith</CODE> to see if the resulting lowercase string starts with the 
+letter "p". </P>
+<P>As long as we are careful with the order, we can make multiple method calls 
+in a single expression (look closely at line 2 below).</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Line</TH>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>1</CODE></TD>
+    <TD><CODE>line = 'Please have a nice day'</CODE></TD>
+    <TD><CODE>Please have a nice day</CODE></TD></TR>
+  <TR>
+    <TD><CODE>2</CODE></TD>
+    <TD><CODE>line.lower().startswith('p')</CODE></TD>
+    <TD><CODE>True</CODE></TD></TR></TBODY></TABLE>
+<P>Line 2 in the above example combined Lines 2 and 3 in the previous example 
+into a single statement.&nbsp; This is called 
+<STRONG><EM>chaining</EM></STRONG>.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Parsing Strings using find</H1>
+<P>Often, we want to look into a string and find a substring. For example if we 
+were presented a series of lines formatted as follows:</P>
+<P>From stephen.marquard@ uct.ac.za Sat Jan&nbsp; 5 09:14:16 2008</P>
+<P>and we wanted to pull out only the second half of the address (i.e., 
+<CODE>uct.ac.za</CODE>) from each line, we can do this by using the find method 
+and string slicing.</P>
+<P>First, we will find the position of the at-sign in the string. Then we will 
+find the position of the first space after the at-sign. And then we will use 
+string slicing to extract the portion of the string which we are looking 
+for.&nbsp; Start with this line of code:</P>
+<P>data = 'From stephen.marquard@uct.ac.za Sat Jan&nbsp; 5 09:14:16 2008'</P>
+<P>Now, let's try to only get the domain of the email address:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>start_pos = data.find('@')</CODE></TD>
+    <TD><CODE>&nbsp;</CODE></TD>
+    <TD>First we use the <CODE>find</CODE> method to get the index value of 
+      the <CODE>@</CODE> sign. We assign this index value to a variable called 
+      <CODE>start_pos</CODE> (for start position).
+      <P></P></TD></TR>
+  <TR>
+    <TD><CODE>print(start_pos)</CODE></TD>
+    <TD><CODE>21</CODE></TD>
+    <TD>
+      <P>When we display the value of<CODE> start_pos</CODE>, we get 21.&nbsp; 
+      Since indices begin with the number 0, this means that the @ sign is the 
+      21<SUP>st</SUP> index or 22<SUP>nd</SUP> character of the 
+string.</P></TD></TR>
+  <TR>
+    <TD><CODE>end_post = data.find(' ', start_pos)</CODE></TD>
+    <TD><CODE>&nbsp;</CODE></TD>
+    <TD>Now we want to find where the domain ends.&nbsp; The first character 
+      after the domain is a space, so we can search for that.&nbsp; But there is 
+      a space before the email address.&nbsp; We use the second, optional 
+      argument of start, to pass a starting position.&nbsp; In this case, we 
+      want to start where the "@" was found.
+      <P></P></TD></TR>
+  <TR>
+    <TD><CODE>print(end_post)</CODE></TD>
+    <TD><CODE>31</CODE></TD>
+    <TD>
+      <P>When we display the value of<CODE> end_pos</CODE>, we get 31.&nbsp; 
+      Since indices begin with the number 0, this means that the first space 
+      after the @ sign is the 31<SUP>st</SUP> index or 32<SUP>nd</SUP> character 
+      of the string.</P></TD></TR>
+  <TR>
+    <TD><CODE>domain = data[start_pos+1:end_pos]</CODE></TD>
+    <TD><CODE>&nbsp;</CODE></TD>
+    <TD>Now we can slice our string from the starting index, 
+      <CODE>start_pos</CODE>, + 1 (since we don't actually need the @ sign) to 
+      and excluding the ending index of <CODE>end_pos</CODE>.
+      <P></P></TD></TR>
+  <TR>
+    <TD><CODE>print(domain)</CODE></TD>
+    <TD><CODE>uct.ac.za</CODE></TD>
+    <TD>
+      <P>When we display the value of<CODE> domain</CODE>, we get 
+      <CODE>uct.ac.za</CODE> as expected.</P></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Splitting Strings</H1>
+<P>Finally, we can separate a single string into multiple strings using the 
+<CODE>split</CODE> method.&nbsp; The split method returns a list of the words or 
+substrings in the string, using <CODE>sep</CODE> as the delimiter string.&nbsp; 
+If <CODE>sep</CODE> is not specified or is None, any whitespace string is a 
+separator and empty strings are removed from the result.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>file = 'Lesson 5 Lab.py'<BR>            words = file.split()<BR> 
+                 print(words)</CODE></TD>
+    <TD><CODE>['Lesson', '5', 'Lab.py']</CODE></TD>
+    <TD>
+      <P>We did not specify <CODE>sep</CODE>, so it defaulted to splitting the 
+      string using spaces.&nbsp; We now have a list with these items:
+      <P><CODE>Lesson<BR>5<BR>Lab.py</CODE></P></TD></TR>
+  <TR>
+    <TD><CODE>file = 'Lesson 5 Lab.py'<BR>            words = 
+      file.split('.')<BR>            print(words)</CODE></TD>
+    <TD><CODE>['Lesson 5 Lab', 'py']</CODE></TD>
+    <TD>
+      <P>This time we specified <CODE>sep</CODE>, We chose to split this string 
+      using the period as the delimiter. We now have a list with these 
+      items:</P><CODE>Lesson 5 Lab<BR>py</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>A second argument, <CODE>maxsplit</CODE>, allows us to only split the string 
+a certain number of times.&nbsp; Let's say we only wanted to pull the first word 
+out.&nbsp; We would set <CODE>maxsplit</CODE> equal to 1 so only one split 
+occurs.&nbsp; Note that if you are going to use <CODE>maxsplit</CODE>, you must 
+also explicitly set <CODE>sep</CODE>, even if you want to use its default 
+value.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>file = 'Lesson 5 Lab.py'<BR>            words = file.split(' ', 
+      1)<BR>            print(words)</CODE></TD>
+    <TD><CODE>['Lesson', '5 Lab.py']</CODE></TD>
+    <TD>
+      <P>We only want to split this string once, so we specify 
+      <CODE>maxsplit</CODE> to equal 1. Because we're using 
+      <CODE>maxsplit</CODE>, we have to set the first argument <CODE>sep</CODE>. 
+      &nbsp;We now have a list with these items:</P><CODE>Lesson<BR>5 
+      Lab.py</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson5_15" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson5_15" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson5_part4_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

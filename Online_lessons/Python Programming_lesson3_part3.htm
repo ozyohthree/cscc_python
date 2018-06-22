@@ -1,0 +1,215 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_3_part_3.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_5" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson3_part3_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part3_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part3_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part3_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part3_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson3_part3_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson3_part3_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson3_part3_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson3_part3_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson3_part3_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Calculations</H1></DIV>
+<DIV class="fullpage">
+<H1>Counting and Summing Loop Examples</H1>
+<P>For example, to count the number of items in a list, we would write the 
+following <CODE>for</CODE> loop:</P><CODE>count = 0<BR><BR>      for itervar in 
+[3, 41, 12, 9, 74, 15]:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;count = count + 
+1<BR><BR>      print 'Count: ', count</CODE>
+<P>We set the variable <CODE>count</CODE> to zero before the loop starts, then 
+we write a <CODE>for</CODE> loop to run through the list of numbers. Our 
+iteration variable is named <CODE>itervar</CODE> and while we do not use 
+<CODE>itervar</CODE> in the loop, it does control the loop and cause the loop 
+body to be executed once for each of the values in the list.</P>
+<P>In the body of the loop, we add 1 to the current value of <CODE>count</CODE> 
+for each of the values in the list. While the loop is executing, the value of 
+<CODE>count</CODE> is the number of values we have seen "so far".</P>
+<P>Once the loop completes, the value of <CODE>count</CODE> is the total number 
+of items. The total number "falls in our lap" at the end of the loop. We 
+construct the loop so that we have what we want when the loop finishes.</P>
+<P class="exercise"><A class="exercise" id="lesson3_08" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_08" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part3_files/python_launch_100.png"></A></P>
+<P>Another similar loop that computes the total of a set of numbers is as 
+follows:</P><CODE>total = 0<BR><BR>      for itervar in [3, 41, 12, 9, 74, 
+15]:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;total = total + itervar<BR><BR>      print 
+'Total: ', total</CODE>
+<P>In this loop we do use the iteration variable. Instead of simply adding one 
+to the <CODE>count</CODE> as in the previous loop, we add the actual number (3, 
+41, 12, etc.) to the running <CODE>total</CODE> during each loop iteration. If 
+you think about the variable <CODE>total</CODE>, it contains the "running total 
+of the values so far". So before the loop starts <CODE>total</CODE> is zero 
+because we have not yet seen any values, during the loop total is the running 
+total, and at the end of the loop total is the overall total of all the values 
+in the list.</P>
+<P>As the loop executes, <CODE>total</CODE> accumulates the sum of the elements; 
+a variable used this way is sometimes called an accumulator.</P>
+<P class="exercise"><A class="exercise" id="lesson3_09" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_09" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part3_files/python_launch_100.png"></A></P>
+<P>Neither the counting loop nor the summing loop are particularly useful in 
+practice because there are built-in functions <CODE>len()</CODE> and 
+<CODE>sum()</CODE> that compute the number of items in a list and the total of 
+the items in the list respectively.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>total_count = len([3, 41, 12, 9, 74, 15])<BR>              
+      print(total_count)</CODE></TD>
+    <TD><CODE>6 </CODE></TD></TR>
+  <TR>
+    <TD><CODE>total_sum = sum([3, 41, 12, 9, 74, 15])<BR>              
+      print(total_sum)</CODE></TD>
+    <TD><CODE>154</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Maximum and Minimum Loop Examples</H1>
+<P>To find the largest value in a list or sequence, we construct the following 
+loop:</P><CODE>largest = None<BR>      print 'Before:', largest<BR><BR>      for 
+itervar in [3, 41, 12, 9, 74, 15]:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;if largest 
+is None or itervar &gt; largest :<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;largest = itervar<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print 'Loop:', itervar, largest<BR><BR>      print 
+'Largest:', largest</CODE>
+<P>When the program executes, the output is as follows:</P><CODE>Before: 
+None<BR>      Loop: 3 3<BR>      Loop: 41 41<BR>      Loop: 12 41<BR>      Loop: 
+9 41<BR>      Loop: 74 74<BR>      Loop: 15 74<BR>      Largest: 74</CODE>
+<P>The variable <CODE>largest</CODE> is best thought of as the "largest value we 
+have seen so far". Before the loop, we set <CODE>largest</CODE> to the constant 
+<CODE>None</CODE>. <CODE>None</CODE> is a special constant value which we can 
+store in a variable to mark the variable as "empty".</P>
+<P>Before the loop starts, the largest value we have seen so far is 
+<CODE>None</CODE> since we have not yet seen any values. While the loop is 
+executing, if <CODE>largest</CODE> is <CODE>None</CODE> then we take the first 
+value we see as the largest so far. You can see in the first iteration when the 
+value of <CODE>itervar</CODE> is 3, since <CODE>largest</CODE> is 
+<CODE>None</CODE>, we immediately set <CODE>largest</CODE> to be 3.</P>
+<P>After the first iteration, <CODE>largest</CODE> is no longer 
+<CODE>None</CODE>, so the second part of the compound logical expression that 
+checks <CODE>itervar &gt; largest</CODE> triggers only when we see a value that 
+is larger than the "largest so far". When we see a new "even larger" value we 
+take that new value for <CODE>largest</CODE>. You can see in the program output 
+that <CODE>largest</CODE> progresses from 3 to 41 to 74.</P>
+<P>At the end of the loop, we have scanned all of the values and the variable 
+<CODE>largest</CODE> now does contain the largest value in the list.</P>
+<P class="exercise"><A class="exercise" id="lesson3_10" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_10" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part3_files/python_launch_100.png"></A></P>
+<P>To compute the smallest number, the code is very similar with one small 
+change:</P><CODE>smallest = None<BR>      print 'Before:', smallest<BR><BR>      
+for itervar in [3, 41, 12, 9, 74, 15]:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;if 
+smallest is None or itervar &lt; smallest:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;smallest = itervar<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print 'Loop:', itervar, smallest<BR><BR>      print 
+'Smallest:', smallest</CODE>
+<P>Again, smallest is the "smallest so far" before, during, and after the loop 
+executes. When the loop has completed, smallest contains the minimum value in 
+the list.</P>
+<P class="exercise"><A class="exercise" id="lesson3_11" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_11" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part3_files/python_launch_100.png"></A></P>
+<P>Again as in counting and summing, the built-in functions <CODE>max()</CODE> 
+and <CODE>min()</CODE> make writing these exact loops unnecessary.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>maximum = max([3, 41, 12, 9, 74, 15])<BR>              
+      print(maximum)</CODE></TD>
+    <TD><CODE>74 </CODE></TD></TR>
+  <TR>
+    <TD><CODE>minimum = min([3, 41, 12, 9, 74, 15])<BR>              
+      print(minimum)</CODE></TD>
+    <TD><CODE>3</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Input Validation Loop Example</H1>
+<P>Program end users are incompetent.&nbsp; They rarely read directions and they 
+will come up with an infinite number of ways to break your program.&nbsp; We'll 
+learn more about ways of trapping many types of errors, but for now, we can use 
+an input validation loop to steer the end users in the right 
+direction.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Candy Bar Ordering System</H1>
+<P>This programs accepts the number of candy bars a user wishes to 
+order.</P><CODE>candy_bars = int(input("Enter number of candy bars desired: 
+"))<BR><BR>      while candy_bars &lt; 0:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print("You can\'t order negative candy bars!")<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;candy_bars = int(input("Enter number of candy bars 
+desired: "))<BR><BR>      if candy_bars == 0:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print("I'm sorry you don't like candy bars")<BR><BR>     
+ elif candy_bars &gt; 20:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;print("That's a big 
+order!")<BR><BR>      elif candy_bars &gt; 50:<BR>      
+&nbsp;&nbsp;&nbsp;&nbsp;print("You sure like candy!")<BR><BR>      print("Thank 
+you for ordering", candy_bars, "candy bars!\n")</CODE>
+<H2>Output:</H2>
+<P><STRONG>First Iteration</STRONG></P><CODE>Enter number of candy bars desired: 
+<STRONG>-1</STRONG><BR>      You can't order negative candy bars!<BR>      Enter 
+number of candy bars desired: <STRONG>2</STRONG><BR>      Thank you for ordering 
+2 candy bars!</CODE>
+<P><STRONG>Second Iteration</STRONG></P><CODE>Enter number of candy bars 
+desired: <STRONG>22</STRONG><BR>      That's a big order!<BR>      Thank you for 
+ordering 22 candy bars!</CODE>
+<P><STRONG>First Iteration</STRONG></P><CODE>Enter number of candy bars desired: 
+<STRONG>122</STRONG><BR>      You sure like candy!<BR>      Thank you for 
+ordering 122 candy bars!</CODE>
+<H2>How It Works</H2>
+<P>We'll focus on the input validation loop.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>candy_bars = int(input("Enter number of candy bars desired: 
+      "))</CODE></TD>
+    <TD><CODE>Enter number of candy bars desired: </CODE></TD></TR></TBODY></TABLE>
+<P>We assign the variable <CODE>candy_bars</CODE> to accept the input from the 
+end user.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>while candy_bars &lt; 0:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print("You can\'t order negative candy bars!")<BR> 
+                   &nbsp;&nbsp;&nbsp;&nbsp;candy_bars = int(input("Enter number 
+      of candy bars desired: "))</CODE></TD>
+    <TD>
+      <P><EM>Varies depending on the user’s input</EM> </P></TD></TR></TBODY></TABLE>
+<P>This is our input validation loop.&nbsp; Our condition is that 
+<CODE>candy_bars</CODE> is less than 0 (or a negative number).&nbsp; So if our 
+end user turns out to be a wise guy and plugs in <CODE>-1</CODE>, this while 
+loop will trigger, yell at the end user, and prompt them for another 
+entry.&nbsp; If the end user continues to enter negative numbers, the loop will 
+continue until the condition (negative number) is no longer satisfied.&nbsp; 
+Then the rest of the code continues.&nbsp; </P>
+<P>If the users does the right thing and enters a number greater than or equal 
+to 0 from the beginning, then the <CODE>while</CODE> loop is skipped 
+altogether.</P>
+<P>Pretty neat, huh?</P>
+<P class="exercise"><A class="exercise" id="lesson3_12" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson3_12" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson3_part3_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

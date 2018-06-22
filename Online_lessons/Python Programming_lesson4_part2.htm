@@ -1,0 +1,304 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_4_part_2.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_2" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson4_part2_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part2_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part2_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part2_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part2_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson4_part2_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson4_part2_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson4_part2_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson4_part2_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson4_part2_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Function Parameters</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<P>Some of the built-in functions we have seen require <EM>arguments</EM>. For 
+example, when you call <CODE>math.sin</CODE> you pass a number as an argument. 
+Some  functions take more than one argument: <CODE>math.pow</CODE> takes two, 
+the base and the exponent.</P>
+<P>Inside the function, the arguments are assigned to variables  called 
+<STRONG><EM>parameters</EM></STRONG>. Parameters are specified within the pair 
+of  parentheses in the function definition, separated by commas. When we call 
+the  function, we supply the values in the same way. </P>
+<P>Note the terminology used - the names given in the function  definition are 
+called <STRONG><EM>parameters</EM></STRONG> whereas the values you supply  in 
+the function call are called <STRONG><EM>arguments</EM></STRONG>.</P>
+<P>Here is an example of a user-defined function that has a <EM>parameter</EM> 
+and takes an <EM>argument</EM>:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def print_twice(the_phrase):<BR>&nbsp;&nbsp;&nbsp;&nbsp;         
+           print(the_phrase)<BR>&nbsp;&nbsp;&nbsp;&nbsp;              
+      print(the_phrase)</CODE></TD>
+    <TD>
+      <P>This function assigns the argument to a parameter named 
+      <CODE>the_phrase</CODE>.    When the function is called, it prints the 
+      value of the parameter (whatever    it is) twice.</P></TD></TR></TBODY></TABLE>
+<P>This function works with any value that can be printed.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def 
+      print_twice(the_phrase):<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(the_phrase)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(the_phrase)<BR><BR>print_twice("Spam")<BR>print_twice(17)</CODE></TD>
+    <TD><CODE>Spam<BR>Spam<BR>17<BR>17</CODE></TD></TR></TBODY></TABLE>
+<P>The same rules of composition that apply to built-in  functions also apply to 
+user-defined functions, so we can use any kind of  expression as an argument for 
+print_twice:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def 
+      print_twice(the_phrase):<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(the_phrase)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(the_phrase)<BR><BR>print_twice("Spam"*4)<BR>print_twice(max("Spam!"))</CODE></TD>
+    <TD><CODE>SpamSpamSpamSpam<BR>SpamSpamSpamSpam<BR>p<BR>p</CODE></TD></TR></TBODY></TABLE>
+<P>The argument is evaluated before the function is called, so  in the examples 
+the expressions <CODE>"Spam"*4</CODE> and <CODE>max("Spam!")</CODE> are only  
+evaluated once.</P>
+<P>You can also use a variable as an argument:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def 
+      print_twice(the_phrase):<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(the_phrase)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print(the_phrase)<BR><BR>status 
+      = "I'm not dead yet"<BR><BR>print_twice(status)</CODE></TD>
+    <TD><CODE>I'm not dead yet<BR>I'm not dead yet</CODE></TD></TR></TBODY></TABLE>
+<P>The name of the variable we pass as an argument (<CODE>status</CODE>) has 
+nothing to do with the name of the  parameter (<CODE>the_phrase</CODE>). It  
+doesn’t matter what the value was called back home (in the caller); here in 
+<CODE>print_twice</CODE>, we call everything <CODE>the_phrase</CODE>.</P>
+<P class="exercise"><A class="exercise" id="lesson4_03" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_03" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Example: Function with Multiple Parameters</H1><CODE>def print_max(a, 
+b):<BR>&nbsp;&nbsp;&nbsp;&nbsp;if a &gt; 
+b:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(a, 'is 
+maximum')<BR>&nbsp;&nbsp;&nbsp;&nbsp;elif a == 
+b:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(a, 'is equal to', 
+b)<BR>&nbsp;&nbsp;&nbsp;&nbsp;else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(b, 
+'is maximum')<BR><BR># directly pass literal values<BR>print_max(3, 4)<BR><BR>x 
+= 5<BR>y = 7<BR><BR># pass variables as arguments<BR>print_max(x, y)</CODE>
+<H2>Output:</H2><CODE>4 is maximum<BR>7 is maximum</CODE>
+<H2>How It Works</H2>
+<P>Here, we define a function called <CODE>print_max</CODE> that uses two 
+parameters called <CODE>a</CODE> and <CODE>b</CODE>. We find out the greater 
+number using  a simple <CODE>if-else</CODE> statement and then print the  bigger 
+number.</P>
+<P>The first time we call the function <CODE>print_max</CODE>,  we directly 
+supply the numbers as arguments. In the second case, we call the  function with 
+variables as arguments. <CODE>print_max(x,  y)</CODE> causes the value of 
+argument <CODE>x</CODE> to be assigned to parameter <CODE>a</CODE> and the value 
+of argument <CODE>y</CODE> to be  assigned to parameter <CODE>b</CODE>. The 
+<CODE>print_max</CODE> function works the same way in both  cases.</P>
+<P class="exercise"><A class="exercise" id="lesson4_04" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_04" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Fruitful Functions and Void Functions</H1>
+<P>Some of the functions we are using, such as the <CODE>math</CODE> functions, 
+yield results; you can call  them <STRONG><EM>fruitful  functions 
+</EM></STRONG>or return-value function. Other functions, like 
+<CODE>print_twice</CODE>, perform an action but don’t return  a value. They are 
+called <STRONG><EM>void functions</EM></STRONG>.</P>
+<P>When you call a fruitful function, you almost always want to  do something 
+with the result; for example, you might assign it to a variable or  use it as 
+part of an expression:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>x = math.cos(radians)<BR><BR>golden = (math.sqrt(5) + 1) / 
+      2</CODE></TD></TR></TBODY></TABLE>
+<P>When you call a function in interactive mode, Python  displays the 
+result:</P><CODE>&gt;&gt;&gt; math.sqrt(5)<BR>2.2360679774997898</CODE>
+<P>But in a script, if you call a fruitful function and do not  store the result 
+of the function in a variable, the return value vanishes into  the mist!</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>math.sqrt(5)</CODE></TD>
+    <TD><CODE><EM>Nothing</EM></CODE></TD></TR></TBODY></TABLE>
+<P>This script computes the square root of 5, but since it  doesn’t store the 
+result in a variable or display the result using the <CODE>print</CODE> 
+statement, it is not very useful.</P>
+<P>Void functions might display something on the screen or have  some other 
+effect, but they don’t have a return value. If you try to assign the  result to 
+a variable, you get a special value called <CODE>None</CODE>.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>hi = print("Hello!")</CODE></TD>
+    <TD><CODE>Hello</CODE></TD>
+    <TD>
+      <P>In this case, we have assigned the variable <CODE>hi</CODE> to 
+      <CODE>print("Hello")</CODE></P>
+      <P>The print statement performs an action.&nbsp;It displays the word 
+      <CODE>"Hello"</CODE> on screen.&nbsp; <CODE>print</CODE> does not return a 
+      value.</P></TD></TR>
+  <TR>
+    <TD><CODE>print(hi)</CODE></TD>
+    <TD><CODE>None</CODE></TD>
+    <TD>
+      <P>But when we try    to display the value of the variable 
+      <CODE>hi</CODE>, we get <CODE>None</CODE> as a 
+result.</P></TD></TR></TBODY></TABLE>
+<P>The value <CODE>None</CODE> is not the same as the string 
+<CODE>'None'</CODE>.  It is a special value that has its own type:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>print(type(None))</CODE></TD>
+    <TD><CODE>&lt;class 'NoneType'&gt;</CODE></TD></TR></TBODY></TABLE>
+<P>To return a result from a function, we use the <CODE>return</CODE> statement 
+in our function. The <CODE>return</CODE> statement is used to return from a  
+function i.e. break out of the function. We can optionally return a value from  
+the function as well.</P>
+<P>For example, we could make a very simple function called <CODE>addtwo</CODE> 
+that adds two numbers together and  returns a result.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def addtwo(a, b):<BR>&nbsp;&nbsp;&nbsp;&nbsp;              added 
+      = a + b<BR>&nbsp;&nbsp;&nbsp;&nbsp;              return added              
+ 
+      <P></P>
+      <P>x = addtwo(3, 5)</P></CODE>
+      <P><CODE>print(x)               </CODE></P></TD>
+    <TD><CODE>8</CODE></TD></TR></TBODY></TABLE>
+<P>When this script executes, the <CODE>print</CODE> statement will print out 
+<CODE>"8"</CODE> because the <CODE>addtwo</CODE> function was  called with 
+<CODE>3</CODE> and <CODE>5</CODE> as arguments. Within the function, the  
+parameters <CODE>a</CODE> and <CODE>b</CODE> were assigned to <CODE>3</CODE> and 
+<CODE>5</CODE> respectively. The function computed  the sum of the two numbers 
+and placed it in the local function variable named <CODE>added</CODE>. Then it 
+used the <CODE>return</CODE> statement to send the computed value back to the 
+calling code as the function  result, which was assigned to the variable 
+<CODE>x</CODE> and printed out.</P></DIV>
+<DIV class="fullpage">
+<H1>Example: Simple Return Statement</H1><CODE>def maximum(x, 
+y):<BR>&nbsp;&nbsp;&nbsp;&nbsp;if x &gt; 
+y:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 
+x<BR>&nbsp;&nbsp;&nbsp;&nbsp;elif x == 
+y:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 'The numbers are 
+equal'<BR>&nbsp;&nbsp;&nbsp;&nbsp;else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 
+y<BR><BR>print(maximum(2, 3))</CODE>
+<H2>Output:</H2><CODE>3</CODE>
+<H2>How It Works</H2>
+<P>The maximum function returns the maximum of the parameters,  in this case the 
+numbers supplied to the function. It uses a simple <CODE>if-else</CODE> 
+statement to find the greater value and  then returns that value.</P>
+<P>Note that a return statement without a value is equivalent  to return 
+<CODE>None</CODE>. <CODE>None</CODE> is a special type in Python that  
+represents nothingness. For example, it is used to indicate that a variable has  
+no value if it has a value of <CODE>None</CODE>.</P>
+<P>Every function implicitly contains a return <CODE>None</CODE> statement at 
+the end unless you have  written your own <CODE>return</CODE> statement. You  
+can see this by running <CODE>print(some_function())</CODE> where the function 
+<CODE>some_function</CODE> does  not use the return statement such 
+as:</P><CODE>def some_function():<BR>&nbsp;&nbsp;&nbsp;&nbsp;pass</CODE>
+<P>As we have seen, the <CODE>pass</CODE> statement is used in Python to 
+indicate an empty block of statements.</P>
+<P>TIP: As we have seen, there is a built-in function called <CODE>max</CODE> 
+that already implements the 'find maximum'  functionality, so use this built-in 
+function whenever possible.</P>
+<P class="exercise"><A class="exercise" id="lesson4_05" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_05" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part2_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>More about Return Values</H1>
+<P>You aren’t limited to returning numbers.&nbsp; You can return strings and 
+Boolean values as  well – and even other objects we haven't yet discovered like 
+lists, tuples, and  dictionaries just to name a few.&nbsp; Here  are a few 
+examples:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def is_blue(color):<BR>&nbsp;&nbsp;&nbsp;&nbsp;if color == 
+      'blue':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 
+      True<BR>&nbsp;&nbsp;&nbsp;&nbsp;else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 
+      False<BR><BR>color_check = 
+is_blue('green')<BR>print(color_check)</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR>
+  <TR>
+    <TD><CODE>def display_twice(word):<BR>&nbsp;&nbsp;&nbsp;&nbsp;return 
+      word*2<BR><BR>message = display_twice("Hi!")<BR>print(message)</CODE></TD>
+    <TD><CODE>Hi!Hi!</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Returning Multiple Values</H1>
+<P>A function can return more than one value by separating the  individual 
+return values by commas.</P><CODE>return value1, value2, value3, etc</CODE>
+<P>When you call the function, you assign it to multiple  variables as well:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>def name():<BR>&nbsp;&nbsp;&nbsp;&nbsp;first = 
+      "George"<BR>&nbsp;&nbsp;&nbsp;&nbsp;last = 
+      "Weasley"<BR>&nbsp;&nbsp;&nbsp;&nbsp;return first, last<BR><BR>first_name, 
+      last_name = name()<BR><BR>print(last_name)<BR>print(first_name)</CODE></TD>
+    <TD><CODE>Weasley<BR>George</CODE></TD></TR></TBODY></TABLE>
+<P>In this example, the function <CODE>name</CODE> returned two values.&nbsp; 
+The line:</P><CODE>first_name, last_name = name()</CODE>
+<P>assigned the first returned value to the variable <CODE>first_name</CODE> and 
+the second returned value to the  variable <CODE>last_name</CODE>.&nbsp; You 
+have to pay attention to which order the  values are returned so you assign them 
+to the correct variables when you call  the function.</P>
+<P class="exercise"><A class="exercise" id="lesson4_06" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson4_06" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson4_part2_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

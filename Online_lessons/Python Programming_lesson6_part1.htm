@@ -1,0 +1,580 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_6_part_1.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_1" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson6_part1_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part1_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part1_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part1_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part1_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson6_part1_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson6_part1_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson6_part1_files/default.min.css" 
+rel="stylesheet"> <LINK href="Python%20Programming_lesson6_part1_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson6_part1_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="title">
+<H1>Lesson 6: Lists, Dictionaries, and Tuples</H1></DIV>
+<DIV id="page">
+<DIV class="fullpage">
+<H1>Data Structures</H1>
+<P>Data structures are basically just that - they are structures which can hold 
+some data together. In other words, they are used to store a collection of 
+related data.</P>
+<P>There are four built-in data structures in Python - list, tuple, dictionary 
+and set. We will see how to use each of them and how they make life easier for 
+us.</P></DIV>
+<DIV class="fullpage">
+<H1>List</H1>
+<P>A <STRONG>list</STRONG> is a data structure that holds an ordered collection 
+of items i.e. you can store a sequence of items in a list. &nbsp;Like a string, 
+a list is a sequence of values. In a string, the values are characters; in a 
+list, they can be any type.</P>
+<P>This is easy to imagine if you can think of a shopping list where you have a 
+list of items to buy, except that you probably have each item on a separate line 
+in your shopping list whereas in Python you put commas in between 
+them.</P><CODE># This is my shopping list<BR>      shoplist = ['apple', 'mango', 
+'carrot', 'banana']</CODE></DIV>
+<DIV class="fullpage">
+<P>The list of items should be enclosed in square brackets <CODE>[</CODE> and 
+<CODE>]</CODE> so that Python understands that you are specifying a list. Once 
+you have created a list, you can add, remove or search for items in the list. 
+Since we can add and remove items, we say that a list is a <EM>mutable data 
+type</EM> - in other words this type can be modified.</P></DIV>
+<DIV class="fullpage">
+<P>The values in list are called <STRONG><EM>elements</EM></STRONG> or sometimes 
+<STRONG><EM>items</EM></STRONG>.</P></DIV>
+<DIV class="fullpage">
+<P>There are several ways to create a new list; the simplest is to enclose the 
+elements in square brackets ([ and ]):</P><CODE>list_1 = [10, 20, 30, 40]<BR>    
+  list_2 = ['crunchy frog', 'ram bladder', 'lark vomit']</CODE>
+<P>The first example (<CODE>list_1</CODE>) is a list of four integers. The 
+second (<CODE>list_2</CODE>) is a list of three strings. </P>
+<P class="exercise"><A class="exercise" id="lesson6_00" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_00" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>Another way to create a new list is to use the built-in <CODE>list()</CODE> 
+function:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>list_3 = list()<BR><BR>              print(list_3)</CODE></TD>
+    <TD><CODE>[]</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>The <CODE>list</CODE> function without arguments will create an empty list. 
+You can also pass in a single object to be converted into a list:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>list_4 = list(range(3))<BR><BR>              
+    print(list_4)</CODE></TD>
+    <TD><CODE>[0, 1, 2]</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_01" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_01" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>The syntax for accessing the elements of a list is the same as for accessing 
+the characters of a string—the bracket operator. The expression inside the 
+brackets specifies the index. Remember that the indices start at 0:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>cheeses = ['Cheddar', 'Edam', 'Gouda']<BR><BR>              
+      print(cheeses[0])</CODE></TD>
+    <TD><CODE>Cheddar</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<P>The elements of a list don't have to be the same type. The following list 
+contains a string, a float, an integer, and (lo!) another 
+list:</P><CODE>['spam', 2.0, 5, [10, 20]]</CODE>
+<P>A list within another list is <STRONG><EM>nested</EM></STRONG>.</P>
+<P>When you want to access an element within a nested list, you need to use 
+multiple indices. Look at this example:</P><CODE>my_bills = [["electric", 50], 
+["gas", 60], ["cell", 60]]</CODE>
+<P><CODE>my_bills[0]</CODE> references the first element in the list.&nbsp; The 
+first element is another list <CODE>["electric", 50]</CODE>. </P>
+<P>To get the name of the individual bill ("<CODE>electric</CODE>") we need the 
+first element of the first element of the <CODE>my_bills</CODE> list.&nbsp; We 
+reference it like this:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>my_bills[0][0]</CODE> </TD>
+    <TD><CODE>electric</CODE></TD></TR></TBODY></TABLE>
+<P>To get the dollar amount, we need the second element of the first element of 
+the <CODE>my_bills</CODE> list:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>my_bills[0][1]</CODE> </TD>
+    <TD><CODE>50</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_02" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_02" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>A list that contains no elements is called an <STRONG><EM>empty 
+list</EM></STRONG>; you can create one with just a pair of empty brackets, 
+<CODE>[]</CODE>.</P>
+<P>As you might expect, you can assign list values to variables:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>cheeses = ['Cheddar', 'Edam', 'Gouda']<BR>              numbers 
+      = [17, 123]<BR>              empty = []<BR><BR>              
+      print(cheeses, numbers, empty)</CODE></TD>
+    <TD><CODE>['Cheddar', 'Edam', 'Gouda'] [17, 123] 
+[]</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Lists are Mutable</H1>
+<P>Unlike strings, lists are <STRONG><EM>mutable</EM></STRONG> because you can 
+change the order of items in a list or reassign an item in a list. When the 
+bracket operator appears on the left side of an assignment, it identifies the 
+element of the list that will be assigned.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>numbers = [17, 123]<BR><BR>              numbers[1] = 5<BR><BR>  
+                  print(numbers)</CODE></TD>
+    <TD><CODE>[17, 5]</CODE></TD></TR></TBODY></TABLE>
+<P>The one-eth element of numbers, which used to be 123, is now 5.</P>
+<P>You can think of a list as a relationship between indices and elements. This 
+relationship is called a mapping; each index "maps to" one of the elements.</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Index</TH>
+    <TH>Map</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>0</CODE></TD>
+    <TD><CODE>17</CODE></TD></TR>
+  <TR>
+    <TD><CODE>1</CODE></TD>
+    <TD><CODE>5</CODE></TD></TR></TBODY></TABLE>
+<P>List indices work the same way as string indices:</P>
+<UL>
+  <LI>Any integer expression can be used as an index.</LI>
+  <LI>If you try to read or write an element that does not exist, you get an 
+  IndexError.</LI>
+  <LI>If an index has a negative value, it counts backward from the end of the 
+  list.</LI></UL>
+<P class="exercise"><A class="exercise" id="lesson6_03" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_03" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Lists and Functions</H1>
+<P>There are a number of built-in functions that can be used on lists that allow 
+you to quickly look through a list without writing your own loops:</P>
+<P>Given:</P><CODE>numbers = [3, 41, 12, 9, 74, 15]</CODE>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Function</TH>
+    <TH>Description</TH>
+    <TH>Example Code</TH>
+    <TH>Example Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>len()</CODE></TD>
+    <TD>
+      <P>Return the length of a list</P></TD>
+    <TD><CODE>len(numbers)</CODE></TD>
+    <TD><CODE>6</CODE></TD></TR>
+  <TR>
+    <TD><CODE>max()</CODE></TD>
+    <TD>
+      <P>Return the maximum value in the list</P></TD>
+    <TD><CODE>max(numbers)</CODE></TD>
+    <TD><CODE>74</CODE></TD></TR>
+  <TR>
+    <TD><CODE>min()</CODE></TD>
+    <TD>
+      <P>Return the smallest value in the list</P></TD>
+    <TD><CODE>min(numbers)</CODE></TD>
+    <TD><CODE>3</CODE></TD></TR>
+  <TR>
+    <TD><CODE>sum()</CODE></TD>
+    <TD>
+      <P>Return the sum of all the elements in a list</P></TD>
+    <TD><CODE>sum(numbers)</CODE></TD>
+    <TD><CODE>154</CODE></TD></TR></TBODY></TABLE>
+<P>The <CODE>sum</CODE> function only works when the list elements are numbers. 
+The other functions (<CODE>len</CODE>, <CODE>max</CODE>, and <CODE>min</CODE>) 
+work with lists of strings and other types that can be comparable.&nbsp; The 
+<CODE>min</CODE> and <CODE>max</CODE> functions look at the ASCII values of the 
+characters which make up the string – just like with the comparison 
+operators.&nbsp; </P><CODE>cheeses = ['Cheddar', 'Edam', 'Gouda']</CODE>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>len(cheeses)</CODE></TD>
+    <TD><CODE>3</CODE></TD></TR>
+  <TR>
+    <TD><CODE>max(cheeses)</CODE></TD>
+    <TD><CODE>Gouda</CODE></TD></TR>
+  <TR>
+    <TD><CODE>min(cheeses)</CODE></TD>
+    <TD><CODE>Cheddar</CODE></TD></TR>
+  <TR>
+    <TD><CODE>sum(cheeses)</CODE></TD>
+    <TD><CODE>TypeError: unsupported operand type(s) for +: 'int' and 
+      'str'</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_04" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_04" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>Although a list can contain another list, the nested list still counts as a 
+single element. The length of this list is four:</P><CODE>my_list = ['spam', 1, 
+['Brie', 'Roquefort', 'Pol le Veq'], [1, 2, 3]]</CODE>
+<P>Our elements are:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Index</TH>
+    <TH>Code</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>0</CODE></TD>
+    <TD><CODE>'spam'</CODE></TD></TR>
+  <TR>
+    <TD><CODE>1</CODE></TD>
+    <TD><CODE>1</CODE></TD></TR>
+  <TR>
+    <TD><CODE>2</CODE></TD>
+    <TD><CODE>['Brie', 'Roquefort', 'Pol le Veq']</CODE></TD></TR>
+  <TR>
+    <TD><CODE>3</CODE></TD>
+    <TD><CODE>[1, 2, 3]</CODE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>Traversing a List</H1>
+<P>The most common way to traverse the elements of a list is with a 
+<CODE>for</CODE> loop. The syntax is the same as for strings:</P><CODE>cheeses = 
+['Cheddar', 'Edam', 'Gouda']</CODE>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>for cheese in cheeses:<BR>              
+      &nbsp;&nbsp;&nbsp;&nbsp;print(cheese)</CODE></TD>
+    <TD><CODE>Cheddar<BR>              Edam<BR>              
+  Gouda</CODE></TD></TR></TBODY></TABLE>
+<P>Notice that the variable <CODE>cheese</CODE> contains the value of that 
+element in the list.</P>
+<P class="exercise"><A class="exercise" id="lesson6_06" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_06" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>Using a <CODE>for</CODE> loop like this works well if you only need to read 
+the elements of the list. But if you want to write or update the elements, you 
+need the indices. A common way to do that is to combine the functions 
+<CODE>range</CODE> and <CODE>len</CODE>:</P><CODE>for i in 
+range(len(cheeses)):<BR>      &nbsp;&nbsp;&nbsp;&nbsp;cheeses[i] = 
+cheese[i]*2</CODE>
+<P>Note that in this version, the variable <CODE>i</CODE> is an integer and 
+displaying <CODE>cheeses[i]</CODE> will then display the value of that element 
+in the list.</P>
+<P>This loop traverses the list and updates each element. <CODE>len</CODE> 
+returns the number of elements in the list. <CODE>range</CODE> returns a list of 
+indices from 0 to <CODE>n-1</CODE>, where <CODE>n</CODE> is the length of the 
+list. Each time through the loop, <CODE>i</CODE> gets the index of the next 
+element. The assignment statement in the body uses <CODE>i</CODE> to read the 
+old value of the element and to assign the new value.</P>
+<P class="exercise"><A class="exercise" id="lesson6_07" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_07" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>A <CODE>for</CODE> loop over an empty list never executes the 
+body:</P><CODE>for x in empty:<BR>      &nbsp;&nbsp;&nbsp;&nbsp;print('This 
+never happens.')</CODE></DIV>
+<DIV class="fullpage">
+<H1>List Operations</H1>
+<P>The + operator concatenates lists:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>a = [1, 2, 3]<BR>              b = [4, 5, 6]<BR><BR>             
+       c = a+b<BR><BR>              print(c)</CODE></TD>
+    <TD><CODE>[1, 2, 3, 4, 5, 6]</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_08" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_08" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>Similarly, the * operator repeats a list a given number of times:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>[0]*4</CODE></TD>
+    <TD><CODE>[0, 0, 0, 0]</CODE></TD></TR>
+  <TR>
+    <TD><CODE>[1, 2, 3]*3</CODE></TD>
+    <TD><CODE>[1, 2, 3, 1, 2, 3, 1, 2, 3]</CODE></TD></TR></TBODY></TABLE>
+<P>The first example repeats <CODE>[0]</CODE> four times. The second example 
+repeats the list <CODE>[1, 2, 3]</CODE> three times.</P>
+<P class="exercise"><A class="exercise" id="lesson6_09" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_09" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P>The <CODE>in</CODE> operator also works on lists.</P><CODE>cheeses = 
+['Cheddar', 'Edam', 'Gouda']</CODE>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>'Edam' in cheeses</CODE> </TD>
+    <TD><CODE>True</CODE></TD></TR>
+  <TR>
+    <TD><CODE>'Brie' in cheeses</CODE></TD>
+    <TD><CODE>False</CODE></TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_05" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_05" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>List Slices</H1>
+<P>The slice operator also works on lists:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Result</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['a', 'b', 'c', 'd', 'e', 'f']<BR><BR>              
+      t[1:3]</CODE></TD>
+    <TD><CODE>['b', 'c']</CODE></TD></TR>
+  <TR>
+    <TD><CODE>t[:4]</CODE></TD>
+    <TD><CODE>['a', 'b', 'c', 'd']</CODE></TD></TR>
+  <TR>
+    <TD><CODE>t[3:]</CODE></TD>
+    <TD><CODE>['d', 'e', 'f']</CODE></TD></TR>
+  <TR>
+    <TD><CODE>t[:]</CODE></TD>
+    <TD><CODE>['a', 'b', 'c', 'd', 'e', 'f']</CODE></TD></TR></TBODY></TABLE>
+<P>If you omit the first index, the slice starts at the beginning. If you omit 
+the second, the slice goes to the end. So if you omit both, the slice is a copy 
+of the whole list.</P>
+<P class="exercise"><A class="exercise" id="lesson6_10" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_10" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson6_11" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_11" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson6_12" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_12" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P>
+<P class="exercise"><A class="exercise" id="lesson6_13" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_13" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<P><STRONG><EM>An important note:</EM></STRONG> strings are immutable, so any 
+manipulation of strings did not affect the original string.&nbsp; Lists are 
+mutable so manipulations will change the list.&nbsp; Since lists are mutable, it 
+is often useful to make a copy before performing operations that fold, spindle, 
+or mutilate lists.</P>
+<P>A slice operator on the left side of an assignment can update multiple 
+elements:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['a', 'b', 'c', 'd', 'e', 'f']<BR><BR>              t[1:3] = 
+      ['x', 'y']<BR><BR>              print(t)</CODE></TD>
+    <TD><CODE>['a', 'x', 'y', 'd', 'e', 'f']</CODE> </TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H1>List Methods</H1>
+<P>Python provides methods that operate on lists. For example, 
+<CODE>append</CODE> adds a new element to the end of a list:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['a', 'b', 'c']<BR><BR>              t.append('d')<BR><BR>   
+                 print(t)</CODE></TD>
+    <TD><CODE>['a', 'b', 'c', 'd']</CODE> </TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_14" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_14" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H2>Extend</H2>
+<P><CODE>extend</CODE> takes a list as an argument and appends all of the 
+elements:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t1 = ['a', 'b', 'c']<BR>              t2 = ['d', 'e']<BR><BR>    
+                t1.extend(t2)<BR><BR>              print(t1)</CODE></TD>
+    <TD><CODE>['a', 'b', 'c', 'd', 'e']</CODE> </TD></TR></TBODY></TABLE>
+<P>This example leaves <CODE>t2</CODE> unmodified.</P></DIV>
+<DIV class="fullpage">
+<H2>Sort</H2>
+<P><CODE>sort</CODE> arranges the elements of the list from low to high:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['d', 'c', 'e', 'b', 'a']<BR><BR>              
+      t.sort()<BR><BR>              print(t)</CODE> </TD>
+    <TD><CODE>['a', 'b', 'c', 'd', 'e']</CODE> </TD></TR></TBODY></TABLE>
+<P>Most list methods are void; they modify the list and return 
+<CODE>None</CODE>. If you accidentally write <CODE>t = t.sort()</CODE>, you will 
+be disappointed with the result.</P>
+<P class="exercise"><A class="exercise" id="lesson6_15" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_15" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P>
+<P>The <CODE>sort</CODE> method sorts in ascending order by default.&nbsp; That 
+is, from A-Z.&nbsp; You can perform a sort from Z-A using the optional argument 
+<CODE>reverse</CODE> within the <CODE>sort</CODE> method:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['d', 'c', 'e', 'b', 'a']<BR><BR>              
+      t.sort(reverse=True)<BR><BR>              print(t)</CODE> </TD>
+    <TD><CODE>['e', 'd', 'c', 'b', 'a']</CODE> </TD></TR></TBODY></TABLE></DIV>
+<DIV class="fullpage">
+<H2>Reverse</H2>
+<P>If you need to reverse the indices in the list (make the last element the 
+first, make the second-to-last-element the second, etc), you can use the 
+<CODE>reverse</CODE> method:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['d', 'c', 'e', 'b', 'a']<BR><BR>              
+      t.reverse()<BR><BR>              print(t)</CODE> </TD>
+    <TD><CODE>['a', 'b', 'e', 'c', 'd']</CODE> </TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_16" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_16" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H1>Deleting Elements</H1>
+<P>There are several ways to delete elements from a list.</P></DIV>
+<DIV class="fullpage">
+<H2>Pop</H2>
+<P> If you know the index of the element you want, you can use 
+<CODE>pop</CODE>:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['a', 'b', 'c', 'd', 'e']<BR><BR>              x = 
+      t.pop(1)<BR><BR>              print(t)</CODE> </TD>
+    <TD><CODE>['a', 'c', 'd', 'e']</CODE> </TD></TR>
+  <TR>
+    <TD><CODE>print(x)</CODE></TD>
+    <TD><CODE>B</CODE></TD></TR></TBODY></TABLE>
+<P><CODE>pop</CODE> modifies the list and returns the element that was removed. 
+If you don't provide an index, it deletes and returns the last element.</P>
+<P class="exercise"><A class="exercise" id="lesson6_17" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_17" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV>
+<DIV class="fullpage">
+<H2>Remove</H2>
+<P>If you know the element you want to remove (but not the index), you can use 
+<CODE>remove</CODE>:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['a', 'b', 'c', 'd', 'e']<BR><BR>              
+      t.remove('b')<BR><BR>              print(t)</CODE> </TD>
+    <TD><CODE>['a', 'c', 'd', 'e']</CODE> </TD></TR></TBODY></TABLE>
+<P class="exercise"><A class="exercise" id="lesson6_18" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_18" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P>
+<P>The return value from remove is <CODE>None</CODE>.</P></DIV>
+<DIV class="fullpage">
+<H2>Del</H2>
+<P>If you don't need the removed value, you can use the <CODE>del</CODE> 
+operator:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['a', 'b', 'c', 'd', 'e']<BR><BR>              del 
+      t[1]<BR><BR>              print(t)</CODE> </TD>
+    <TD><CODE>['a', 'c', 'd', 'e']</CODE> </TD></TR></TBODY></TABLE>
+<P>To remove more than one element, you can use <CODE>del</CODE> with a slice 
+index:</P>
+<TABLE cellspacing="0" cellpadding="0">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><CODE>t = ['a', 'b', 'c', 'd', 'e']<BR><BR>              del 
+      t[1:4]<BR><BR>              print(t)</CODE> </TD>
+    <TD><CODE>['a', 'e']</CODE> </TD></TR></TBODY></TABLE>
+<P>As usual, the slice selects all the elements up to, but not including, the 
+second index.</P>
+<P class="exercise"><A class="exercise" id="lesson6_19" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson6_19" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson6_part1_files/python_launch_100.png"></A></P></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>

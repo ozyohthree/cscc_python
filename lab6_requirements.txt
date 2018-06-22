@@ -1,0 +1,10 @@
+This week's Lab is:
+
+Write a program that creates a dictionary containing the U.S. states as keys and their abbreviations as values.
+The program should then randomly quiz the user by displaying the abbreviation and asking the user to enter that state's name.
+The program should keep a count of the number of correct and incorrect responses, as well as which abbreviation the user missed.
+You should include the following:
+Mainline logic and functions
+Error handling
+Dictionaries
+A file is attached which contains the states and abbreviations to use as a reference if needed.

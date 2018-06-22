@@ -1,0 +1,317 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0102)https://online.cscc.edu/apps/python/book/lesson_1_part_2.htm -->
+<!DOCTYPE html PUBLIC "" ""><HTML class="part_3" lang="en"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8">  <TITLE>Python Programming</TITLE> 
+<SCRIPT src="Python%20Programming_lesson1_part2_files/jquery-1.12.3.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part2_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part2_files/js.cookie.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part2_files/lity.js" type="text/javascript" charset="utf-8"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part2_files/highlight.min.js"></SCRIPT>
+ 
+<SCRIPT src="Python%20Programming_lesson1_part2_files/lesson.js" type="text/javascript"></SCRIPT>
+ <LINK href="Python%20Programming_lesson1_part2_files/style-empty.css" rel="stylesheet" 
+type="text/css" media="screen"> <LINK href="Python%20Programming_lesson1_part2_files/lity.css" 
+rel="stylesheet" type="text/css"> <LINK href="Python%20Programming_lesson1_part2_files/lesson.css" 
+rel="stylesheet" type="text/css" media="screen"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<DIV id="content">
+<DIV id="toc"></DIV>
+<DIV id="page">
+<DIV class="title">
+<H1>Your First Program: Hello World!</H1></DIV>
+<DIV class="fullpage">
+<P>From now on, we will assume that you have Python installed  on your 
+system.</P>
+<P>Next, we will write our first Python program.</P>
+<P>We will now see  how to run a traditional 'Hello World' program in Python. 
+This will teach you  how to write, save and run Python programs. </P>
+<P>There are two  ways of using Python to run your program - using the 
+<STRONG>interactive interpreter prompt</STRONG> or using a <STRONG>source 
+file</STRONG>. We will now see how to use both of these methods.</P></DIV>
+<DIV class="fullpage">
+<H1>Using the Interpreter Prompt</H1>
+<P>Open the terminal in your operating system (as discussed previously in the 
+Installation chapter) or launch IDLE and use the Python shell.&nbsp; If you are 
+on Windows or Raspbian, running the Python shell in IDLE is easiest.</P>
+<P>Once you have started Python, you should see <CODE>&gt;&gt;&gt;</CODE> where 
+you can start typing stuff. This is called the <EM>Python interpreter 
+prompt</EM>.&nbsp;&nbsp; </P>
+<P class="image"><IMG width="619" height="280" alt="" src="Python%20Programming_lesson1_part2_files/lesson1_5.png"></P>
+<P>There is a tradition that whenever you learn a new programming language, the 
+first program that you write and run is the 'Hello World' program - all it does 
+is just say 'Hello World' when you run it. As Simon Cozens, the author of the 
+amazing book <I>Beginning Perl</I>, says, it is the "traditional incantation to 
+the programming gods to help you learn the language better."</P>
+<P>At the Python interpreter prompt, type:</P><CODE>print("Hello World!")</CODE>
+<P>followed by the <CODE>[enter]</CODE> key. You should see the words 
+<CODE>Hello World!</CODE> printed to the screen.</P>
+<P class="image"><IMG width="619" height="278" alt="" src="Python%20Programming_lesson1_part2_files/lesson1_6.png"></P>
+<P>Notice that Python gives you the output of the line immediately! What you 
+just entered is a single Python <EM>statement</EM>. We use <CODE>print</CODE> to 
+(unsurprisingly) print any value that you supply to it. Here, we are supplying 
+the text <CODE>Hello World!</CODE> and this is promptly printed to the screen. 
+</P>
+<P>Congratulations! You just executed your first Python program.</P></DIV>
+<DIV class="fullpage">
+<H1>Choosing an Editor</H1>
+<P>We cannot type out our program at the interpreter prompt every time we want 
+to run something – it would take forever - so we have to save them in 
+files.&nbsp; This way we can run our programs any number of times and make edits 
+much quicker and easier.</P>
+<P>To create our Python source files, we need an editing software where you can 
+type and save. A good programmer's editor will make your life easier in writing 
+the source files. Hence, the choice of an editor is crucial indeed. You have to 
+choose an editor as you would choose a car you would buy. A good editor will 
+help you write Python programs easily, making your journey more comfortable and 
+helps you reach your destination (achieve your goal) in a much faster and safer 
+way.</P>
+<P>One of the very basic requirements is <EM>syntax highlighting</EM> where all 
+the different parts of your Python program are colorized so that you can 
+<EM>see</EM> your program and visualize its running.</P>
+<P>If you are using Windows, <EM>do not use Notepad</EM> - it is a bad choice 
+because it does not do syntax highlighting and also importantly it does not 
+support indentation of the text which is very important in our case as we will 
+see later. Good editors will automatically do this.</P>
+<P>A few suggestions:</P>
+<UL>
+  <LI> IDLE – comes bundled with Python.&nbsp; Contains syntax 
+  highlighting.&nbsp; Easy to run programs.&nbsp; Probably your best choice at 
+  this level for Raspbian and Windows use.</LI>
+  <LI> Notepad++ - a free text editor for Windows</LI>
+  <LI><A href="https://www.jetbrains.com/pycharm-edu/">PyCharm Educational 
+  Edition</A> - available on Windows, Mac OS X and GNU/Linux.</LI>
+  <LI><A href="http://www.vim.org/">Vim</A> or <A href="http://www.gnu.org/software/emacs/">Emacs</A> 
+  - two of the most powerful editors and you will benefit from using them to 
+  write your Python programs.</LI></UL>
+<P>In case you are willing to take the time to learn Vim or Emacs, then I highly 
+recommend that you do learn to use either of them as it will be very useful for 
+you in the long run. However, as I mentioned before, beginners can start with 
+IDLE, Notepad++, or PyCharm and focus the learning on Python rather than the 
+editor at this moment.</P>
+<P>Since IDLE comes bundles with Python, I will be using it in all future screen 
+captures and directions.</P>
+<P>To reiterate, please <STRONG>choose a proper editor</STRONG> - it can make 
+writing Python programs more fun and easy.</P></DIV>
+<DIV class="fullpage">
+<H1>Using a Source File</H1>
+<P>Now let's get back to programming. &nbsp;Start IDLE and open a new file by 
+going to <CODE>File &gt; New File</CODE>.</P>
+<P class="image"><IMG width="600" height="296" alt="" src="Python%20Programming_lesson1_part2_files/lesson1_7.png"></P>
+<P>A lovely blank file will display:</P>
+<P class="image"><IMG width="601" height="374" alt="" src="Python%20Programming_lesson1_part2_files/lesson1_8.png"></P>
+<P>The very first thing you need to do is <STRONG>save this file</STRONG> and 
+give it a location and name that you will remember.&nbsp; For this exercise, we 
+are going to be name it <CODE>hello.py.</CODE> </P>
+<P>Go to <CODE>File &gt; Save As</CODE>.&nbsp; </P>
+<P>Find a good location for the file.&nbsp; Where should you save the file? To 
+any folder for which you know the location of the folder. If you don't 
+understand what that means, create a new folder and use that location to save 
+and run all your Python programs.</P>
+<P>Give it a name of <CODE>hello.py</CODE> and click Save. &nbsp;IMPORTANT: 
+Always ensure that you give it the file extension of <CODE>.py</CODE>, for 
+example, <CODE>foo.py</CODE>.&nbsp; IDLE does not automatically add the 
+extension of <CODE>.py</CODE>.&nbsp; You need to do this yourself!&nbsp; If you 
+forget, you will not see the fun syntax highlighting which makes editors so 
+useful. </P>
+<P>Now that we have opened a new file, saved it with the name "hello.py" we are 
+now ready to write a program.</P>
+<P>Type this:</P><CODE>print("Hello World!")</CODE>
+<P>Save your file.</P>
+<P>Now we are going to run the program.&nbsp; There's a few ways to do 
+this.&nbsp; You can…</P>
+<OL>
+  <LI>Open a terminal window, find the file, and execute it.</LI>
+  <LI> Double click the program to launch the terminal window</LI>
+  <LI> Run it in IDLE.</LI></OL>
+<P>Since we are already using IDLE, it makes sense to run it using IDLE.&nbsp; 
+To do this, go to <CODE>Run &gt; Run Module</CODE> or in Windows, hit 
+<CODE>F5</CODE>.&nbsp; The Python Shell should display and your program should 
+execute:</P>
+<P class="image"><IMG width="690" height="412" alt="" src="Python%20Programming_lesson1_part2_files/lesson1_9.png"></P>
+<P>If you got the output as shown above, congratulations! - you have 
+successfully run your first Python program. You have successfully crossed the 
+hardest part of learning programming, which is, getting started with your first 
+program!</P>
+<P>In case you got an error, please type the above program <EM>exactly</EM> as 
+shown above and run the program again. Note that Python is case-sensitive i.e. 
+<CODE> print </CODE> is not the same as <CODE> Print </CODE> - note the 
+lowercase <CODE> p </CODE> in the former and the uppercase <CODE> P </CODE> in 
+the latter. Also, ensure there are no spaces or tabs before the first character 
+in each line - we will see why this is important later. </P></DIV>
+<DIV class="fullpage">
+<H1>How "Hello World!" Works</H1>
+<TABLE cellspacing="0" cellpadding="0" summary="How Hello World Works">
+  <THEAD>
+  <TR>
+    <TH>Code</TH>
+    <TH>Output</TH>
+    <TH>Notes</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD><STRONG><CODE>print("Hello World!")</CODE></STRONG></TD>
+    <TD><CODE>Hello World!</CODE></TD>
+    <TD>A Python program is composed of <EM>statements</EM>. In our first 
+      program, we have only one statement. In this statement, we call the 
+      <CODE>print</CODE> <EM>statement</EM> to which we supply the text "Hello 
+      world!".</TD></TR></TBODY></TABLE>
+<P>You should now be able to write, save and run Python programs at ease.</P>
+<P>Now that you are a Python user, let's learn some more Python 
+concepts.</P></DIV>
+<DIV class="fullpage">
+<H1>Exercise: Hello World!</H1>
+<P>Now it is your turn to try out Hello World. Click on the icon below to launch 
+the interactive exercise. There will be many of these through out the text. You 
+should:</P>
+<OL>
+  <LI>Read the instructions</LI>
+  <LI>Write the code</LI>
+  <LI>Click <EM><STRONG>Run</STRONG></EM> to test the code</LI>
+  <LI>Click <EM><STRONG>Save</STRONG></EM> to save what you have done and 
+  return</LI>
+  <LI>Click <EM><STRONG>Submit</STRONG></EM> to submit it to me.</LI>
+  <LI>If the exercise contains a hint, you can click the 
+  <EM><STRONG>Hint</STRONG></EM> button to view the hint.</LI>
+  <LI>If the exercise gives you code to start with, you can click the 
+  <EM><STRONG>Redo</STRONG></EM> button to revert back to the starting 
+code.</LI></OL>
+<P class="exercise"><A class="exercise" id="lesson1_01" href="https://online.cscc.edu/apps/python/exercises/index.php?e=lesson1_01" 
+data-lity=""><IMG alt="Launch Exercise" src="Python%20Programming_lesson1_part2_files/python_launch_100.png"></A></P>
+<P>These exercises are also compiled together under Our Classroom.</P></DIV>
+<DIV class="fullpage">
+<H1>Formal and Natural languages</H1>
+<P>Natural languages are the languages people speak, such as English, Spanish, 
+and French. They were not designed by people (although people try to impose some 
+order on them); they evolved naturally.</P>
+<P>Formal languages are languages that are designed by people for specific 
+applications. For example, the notation that mathematicians use is a formal 
+language that is particularly good at denoting relationships among numbers and 
+symbols. Chemists use a formal language to represent the chemical structure of 
+molecules. And most importantly:</P>
+<P>Programming languages are formal languages that have been designed to express 
+computations. </P>
+<P>Formal languages tend to have strict syntax rules that govern the structure 
+of statements. For example, in mathematics the statement 3 + 3 = 6 has correct 
+syntax, but 3 + = 3 $ 6 does not. In chemistry H<SUB>2</SUB>O is a syntactically 
+correct formula, but <SUB>2</SUB>Zz is not. </P>
+<P>Syntax rules come in two flavors, pertaining to tokens and structure. Tokens 
+are the basic elements of the language, such as words, numbers, and chemical 
+elements. One of the problems with 3 += 3 $ 6 is that $ is not a legal token in 
+mathematics (at least as far as I know). Similarly, <SUB>2</SUB>Zz is not legal 
+because there is no element with the abbreviation Zz. </P>
+<P>The second type of syntax rule pertains to the way tokens are combined. The 
+equation 3 += 3 is illegal because even though + and = are legal tokens, you 
+can't have one right after the other. Similarly, in a chemical formula the 
+subscript comes after the element name, not before.</P>
+<P>This is @ well-structured Engli$h sentence with invalid t*kens in it. </P>
+<P>This sentence all valid tokens has, but invalid structure with.</P>
+<P>When you read a sentence in English or a statement in a formal language, you 
+have to figure out the structure (although in a natural language you do this 
+subconsciously). This process is called parsing. </P>
+<P>Although formal and natural languages have many features in common—tokens, 
+structure, and syntax—there are some differences: </P>
+<DIV class="indent">
+<P><STRONG>ambiguity:</STRONG> Natural languages are full of ambiguity, which 
+people deal with by using contextual clues and other information. Formal 
+languages are designed to be nearly or completely unambiguous, which means that 
+any statement has exactly one meaning, regardless of context.</P>
+<P><STRONG>redundancy:</STRONG> In order to make up for ambiguity and reduce 
+misunderstandings, natural languages employ lots of redundancy. As a result, 
+they are often verbose. Formal languages are less redundant and more 
+concise.</P>
+<P><STRONG>literalness:</STRONG> Natural languages are full of idiom and 
+metaphor. If I say, "The penny dropped", there is probably no penny and nothing 
+dropping (this idiom means that someone understood something after a period of 
+confusion). Formal languages mean exactly what they say.</P></DIV>
+<P>Because we all grow up speaking natural languages, it is sometimes hard to 
+adjust to formal languages. The difference between formal and natural language 
+is like the difference between poetry and prose, but more so: </P>
+<DIV class="indent">
+<P><STRONG>Poetry:</STRONG> Words are used for their sounds as well as for their 
+meaning, and the whole poem together creates an effect or emotional response. 
+Ambiguity is not only common but often deliberate.</P>
+<P><STRONG>Prose:</STRONG> The literal meaning of words is more important, and 
+the structure contributes more meaning. Prose is more amenable to analysis than 
+poetry but still often ambiguous.</P>
+<P><STRONG>Programs:</STRONG> The meaning of a computer program is unambiguous 
+and literal, and can be understood entirely by analysis of the tokens and 
+structure.</P></DIV>
+<P>Formal languages are denser than natural languages, so it takes longer to 
+read them. Also, the structure is important, so it is not always best to read 
+from top to bottom, left to right. Instead, learn to parse the program in your 
+head, identifying the tokens and interpreting the structure. Finally, the 
+details matter. Small errors in spelling and punctuation, which you can get away 
+with in natural languages, can make a big difference in a formal 
+language.</P></DIV>
+<DIV class="fullpage">
+<H1>Getting Help</H1>
+<P>If you need quick information about any function or statement in Python, then 
+you can use the built-in <CODE> help </CODE> functionality. This is very useful 
+especially when using the interpreter prompt. For example, run <CODE> 
+help('print') </CODE> - this displays the help for the <CODE> print </CODE> 
+function which is used to display output onto the screen. </P>
+<P class="image"><IMG width="690" height="412" alt="" src="Python%20Programming_lesson1_part2_files/lesson1_10.png"></P>
+<P>Similarly, you can obtain information about almost anything in Python. Use 
+<CODE> help() </CODE> to learn more about using <CODE> help </CODE> itself! </P>
+<P class="image"><IMG width="690" height="412" alt="" src="Python%20Programming_lesson1_part2_files/lesson1_11.png"></P>
+<P>In case you need to get help for operators like <CODE> return </CODE> , then 
+you need to put those inside quotes such as <CODE> help('return') </CODE> so 
+that Python doesn't get confused on what we're trying to do. </P></DIV>
+<DIV class="fullpage">
+<H1>Debugging</H1>
+<P>Programmers make mistakes. For whimsical reasons, programming errors are 
+called bugs and the process of tracking them down is called debugging. </P>
+<P>Programming, and especially debugging, sometimes brings out strong emotions. 
+If you are struggling with a difficult bug, you might feel angry, despondent, or 
+embarrassed.</P>
+<P>There is evidence that people naturally respond to computers as if they were 
+people. When they work well, we think of them as teammates, and when they are 
+obstinate or rude, we respond to them the same way we respond to rude, obstinate 
+people (Reeves and Nass, The Media Equation: How People Treat Computers, 
+Television, and New Media Like Real People and Places). </P>
+<P>Preparing for these reactions might help you deal with them. One approach is 
+to think of the computer as an employee with certain strengths, like speed and 
+precision, and particular weaknesses, like lack of empathy and inability to 
+grasp the big picture.</P>
+<P>Your job is to be a good manager: find ways to take advantage of the 
+strengths and mitigate the weaknesses. And find ways to use your emotions to 
+engage with the problem, without letting your reactions interfere with your 
+ability to work effectively.</P>
+<P>Learning to debug can be frustrating, but it is a valuable skill that is 
+useful for many activities beyond programming. At the end of each lesson there 
+is a section, like this one, with suggestions for debugging. I hope they 
+help!</P></DIV>
+<DIV class="fullpage">
+<H1>Exercises</H1>
+<P>It is a good idea to read this book in front of a computer so you can try out 
+the examples as you go.</P>
+<H2>Exercise 1&nbsp; </H2>
+<P>Whenever you are experimenting with a new feature, you should <STRONG>try to 
+make mistakes</STRONG>. </P>
+<P>For example, in the "Hello, world!" program, </P>
+<UL>
+  <LI> What happens if you leave out one of the quotation marks? </LI>
+  <LI> What if you leave out both? </LI>
+  <LI> What if you spell print wrong?</LI></UL>
+<P>This kind of experiment helps you remember what you read; it also helps when 
+you are programming, because you get to know what the error messages mean. It is 
+better to make mistakes now and on purpose than later and accidentally.</P>
+<OL>
+  <LI> In a print statement, what happens if you leave out one of the 
+  parentheses, or both?</LI>
+  <LI> If you are trying to print a string, what happens if you leave out one of 
+  the quotation marks, or both?</LI>
+  <LI> You can use a minus sign to make a negative number like -2. What happens 
+  if you put a plus sign before a number? What about 2++2?</LI>
+  <LI> In math notation, leading zeros are ok, as in 02. What happens if you try 
+  this in Python?</LI>
+  <LI> What happens if you have two values with no operator between 
+them?</LI></OL></DIV></DIV>
+<DIV id="copyright"><A href="https://online.cscc.edu/apps/python/book/copyright.htm">About 
+this Book</A></DIV></DIV></BODY></HTML>
