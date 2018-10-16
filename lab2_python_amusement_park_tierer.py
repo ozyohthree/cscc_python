@@ -1,4 +1,4 @@
-# FILE: python_amusement_park_tierer.py
+    # FILE: python_amusement_park_tierer.py
 # NAME: Display amusement park guest tier
 # AUTHOR: Anthony Gimei
 # DATE: 4/20/2018
