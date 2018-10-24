@@ -3,7 +3,7 @@
 # 2. Work toward Base Case
 # 3. Recursive Call (i.e., call ourselves)
 
-'''
+
 def fib(n):
     if (n < 2):
         return 1
@@ -11,6 +11,6 @@ def fib(n):
         return n + fib(n-1)
 
 
-#print(fib(6))
-'''
+print(fib(6))
+
 

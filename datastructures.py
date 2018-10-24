@@ -38,7 +38,7 @@ months = ["January", "February", "March","April", "May", "June", "July", "August
 # Using List Slicing to
 # create a new list "summer" months
 # summer_months = (June, July, and August)
-'''summer_months = months[5:8]
+summer_months = months[5:8]
 print('\nSummer Months are:')
 for month in summer_months:
     print(month)
@@ -59,18 +59,8 @@ for month in shopping_season:
 print('\nFall Months are:')
 fall_months = months[-4:]
 for month in fall_months:
-    print(month)'''
+    print(month)
 
-
-for x in range(1,101):
-    if (x%3 == 0 and x%5 == 0):
-        print ("fizzbuzz")
-    elif (x%3==0):
-        print ('fizz')
-    elif (x%5==0):
-        print ('buzz')
-    else:
-        print(x)
 
         
 

@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="068d55d0-6c73-4aaa-a04f-fda39079d997" name="Default" comment="updates">
-      <change afterPath="$PROJECT_DIR$/MonitorBot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_problem1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_problem2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_problem3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recursion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/steps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cscc_python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cscc_python.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fizzbuzz.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2_python_amusement_park_tierer.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab2_python_amusement_park_tierer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_problem1.py" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_problem1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_problem3.py" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_problem3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datastructures.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recursion.py" beforeDir="false" afterPath="$PROJECT_DIR$/recursion.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,38 +21,40 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="6" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.240" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="5" />
+          <entry key="project.open.time.4" value="6" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.908" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="14" />
+          <entry key="py" value="15" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="14" />
+          <entry key="Python" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="py" value="8159" />
+          <entry key="py" value="8441" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="18" />
-          <entry key="Python" value="8159" />
+          <entry key="Python" value="8441" />
         </counts>
       </usages-collector>
     </session>
@@ -64,19 +62,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/converter_feet_inches_meters_centimeters.py">
+        <entry file="file://$PROJECT_DIR$/datastructures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="39" selection-start-column="39" selection-end-column="39" />
+            <state relative-caret-position="251">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datastructures.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fizzbuzz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+            <state relative-caret-position="68">
+              <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -93,11 +91,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/recursion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="221">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
               <folding>
-                <marker date="1539347554572" expanded="true" signature="152:225" ph="..." />
-                <marker date="1539347554572" expanded="true" signature="223:224" ph="..." />
+                <marker date="1540383271059" expanded="true" signature="149:222" ph="..." />
+                <marker date="1540383271059" expanded="true" signature="220:221" ph="..." />
               </folding>
             </state>
           </provider>
@@ -106,20 +104,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/capstone_problem1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="11" selection-end-line="19" selection-end-column="29" />
-              <folding>
-                <marker date="1539606197828" expanded="true" signature="351:625" ph="..." />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/capstone_problem3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state>
+              <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -145,7 +140,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MonitorBot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1287">
+            <state relative-caret-position="1666">
               <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -199,13 +194,14 @@
         <option value="$PROJECT_DIR$/working_with_files.py" />
         <option value="$PROJECT_DIR$/lab6_State_quiz.py" />
         <option value="$PROJECT_DIR$/dictionaries.py" />
-        <option value="$PROJECT_DIR$/datastructures.py" />
         <option value="$PROJECT_DIR$/MonitorBot.py" />
         <option value="$PROJECT_DIR$/steps.py" />
-        <option value="$PROJECT_DIR$/recursion.py" />
         <option value="$PROJECT_DIR$/capstone_problem2.py" />
         <option value="$PROJECT_DIR$/capstone_problem1.py" />
         <option value="$PROJECT_DIR$/capstone_problem3.py" />
+        <option value="$PROJECT_DIR$/recursion.py" />
+        <option value="$PROJECT_DIR$/datastructures.py" />
+        <option value="$PROJECT_DIR$/fizzbuzz.py" />
       </list>
     </option>
   </component>
@@ -263,7 +259,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.capstone_problem3">
+  <component name="RunManager" selected="Python.fizzbuzz">
     <configuration name="capstone_problem1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cscc_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -327,6 +323,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="fizzbuzz" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="cscc_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fizzbuzz.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="recursion" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cscc_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -348,41 +365,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="steps" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="cscc_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/steps.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.steps" />
       <item itemvalue="Python.recursion" />
       <item itemvalue="Python.capstone_problem2" />
       <item itemvalue="Python.capstone_problem1" />
       <item itemvalue="Python.capstone_problem3" />
+      <item itemvalue="Python.fizzbuzz" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.fizzbuzz" />
         <item itemvalue="Python.capstone_problem3" />
         <item itemvalue="Python.capstone_problem1" />
         <item itemvalue="Python.capstone_problem2" />
         <item itemvalue="Python.recursion" />
-        <item itemvalue="Python.steps" />
       </list>
     </recent_temporary>
   </component>
@@ -391,12 +387,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="-1080" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.33760685" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33760685" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32947367" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33900106" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34218916" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -493,6 +490,9 @@
     <entry file="file://$PROJECT_DIR$/lab5_encoder_decoder.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab2_python_amusement_park_tierer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/converter_feet_inches_meters_centimeters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -500,33 +500,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab6_requirements.txt">
+    <entry file="file://$PROJECT_DIR$/capstone_problem1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="77" selection-start-line="3" selection-start-column="65" selection-end-line="3" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3_chess_board.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab2_python_amusement_park_tierer.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MonitorBot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1287">
-          <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datastructures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+        <state relative-caret-position="272">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -541,14 +518,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/recursion.py">
+    <entry file="file://$PROJECT_DIR$/lab3_chess_board.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MonitorBot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="1666">
+          <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
           <folding>
-            <marker date="1539347554572" expanded="true" signature="152:225" ph="..." />
-            <marker date="1539347554572" expanded="true" signature="223:224" ph="..." />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab6_requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="77" selection-start-line="3" selection-start-column="65" selection-end-line="3" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capstone_problem3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datastructures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
@@ -559,20 +559,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capstone_problem1.py">
+    <entry file="file://$PROJECT_DIR$/recursion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="11" selection-end-line="19" selection-end-column="29" />
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
-            <marker date="1539606197828" expanded="true" signature="351:625" ph="..." />
+            <marker date="1540383271059" expanded="true" signature="149:222" ph="..." />
+            <marker date="1540383271059" expanded="true" signature="220:221" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capstone_problem3.py">
+    <entry file="file://$PROJECT_DIR$/fizzbuzz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="68">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
